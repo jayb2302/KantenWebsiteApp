@@ -35,5 +35,9 @@ const signInWithGoogle = () => {
 </script>
 
 <style lang="scss" scoped>
-
+#app {
+    h1 {
+        color:red
+    }
+}
 </style>
