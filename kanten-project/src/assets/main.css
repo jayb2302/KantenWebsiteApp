@@ -1,17 +1,12 @@
 @import './base.css';
 
 #app {
-  max-width: 1870px;
+  max-width: 1370px;
   margin: 0 auto;
 }
 
-
-
-
 @media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+
 }
 
 

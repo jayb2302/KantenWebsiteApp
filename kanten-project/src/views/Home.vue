@@ -1,7 +1,7 @@
 <template>
     <main class="background lg:w-12/12 flex flex-col justify-center">
         <header class="rb w-fit">
-            <div class="maintitle  top-16  lg:text-[470px] ">
+            <div class="maintitle  top-16  lg:text-[350px] ">
                <h1 class="">KANTEN</h1> 
             </div>
             <div class=" rb lg:text-7xl uppercase ">
@@ -37,8 +37,9 @@ font-family: 'K2D', sans-serif;
    }
    h1 {
     font-weight: 800;
-    filter:blur(9px);
+    // filter:blur(9px);
     opacity: 0.3;
+    color: #a020ea;
    }
 }
 </style>
