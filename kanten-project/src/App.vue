@@ -6,6 +6,7 @@
       <RouterLink class="text-2xl mr-4 ml-4" to="/register"> Register </RouterLink>
       <RouterLink class="text-2xl mr-4 ml-4" to="/sign-in"> Login </RouterLink> 
       <RouterLink class="text-2xl mr-4 ml-4" to="/event"> Add Event </RouterLink> 
+      
       <RouterView/>
     </nav>
     
