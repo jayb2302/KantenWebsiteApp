@@ -1,7 +1,7 @@
 <template>
     <main class="background lg:w-12/12 flex flex-col justify-center">
         <header class="rb w-fit">
-            <div class="maintitle  top-32  lg:text-[350px] ">
+            <div class="maintitle  top-32 text-8xl lg:text-[350px] ">
                <h1 class="">KANTEN</h1> 
             </div>
             <div class=" rb lg:text-7xl uppercase ">

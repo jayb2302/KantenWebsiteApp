@@ -2,7 +2,7 @@
   <div class="w-10/12 title has-text-centered">
     <!-- Your title content here -->
   </div>
-  <form @submit.prevent="addEvent">
+ <form @submit.prevent="addEvent">
     <div class="field is-grouped flex flex-column flex p-2 m-2">
       <div class="control is-expanded">
         <input v-model="newEventTitle" class="input" type="text" placeholder="Title" />
@@ -18,15 +18,15 @@
       </p>
 
       <p class="control is-expanded">
-        <input @change="uploadImg" class="input" type="file" placeholder="Picture" />
-      </p>
+        <input @change="newEventImg($event)" class="input" type="file" placeholder="Picture" />
+      </p> 
 
    
-      <di class="control">
-        <button :disabled="!newEventContent" class="button is-info">
+      <div class="control">
+        <button  class="button is-info"> <!-- :disabled="!newEventTitle" --> 
           Add
         </button>
-      </di>
+      </div>
     </div>
   </form>
 
@@ -35,21 +35,21 @@
       <div class="content">
         <div class="columns is-mobile is-vcentered">
           <div class="column" :class="{ 'has-text-success line-through': event.done }">
-            <p><strong>{{ event.content }}</strong> </p>
             <p><strong>Title:</strong> {{ event.title }}</p>
             <p><strong>Artist:</strong> {{ event.artist }}</p>
             <p><strong>Description:</strong> {{ event.description }}</p>
             <p><strong>Date:</strong> {{ event.date }}</p>
             <p><strong>Time:</strong> {{ event.time }}</p>
             <p><strong>Tags:</strong> {{ event.tags }}</p>
+            <img :src="event.imgURL" alt="Event Image" class="w-4 h-4">
             
           </div>
           <div class="column is-5 has-text-right">
             <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
-              &check;
+              &check
             </button>
             <button @click="deleteEvent(event.id)" class="button is-danger">
-              &cross;
+              &cross
             </button>
           </div>
         </div>
@@ -59,61 +59,141 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { collection, onSnapshot, addDoc } from 'firebase/firestore';
-import { db } from '@/firebase';
+import { /* reactive, onMounted */ ref as refVue } from 'vue'
+import { collection, onSnapshot, addDoc } from 'firebase/firestore'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
+import { db } from '@/firebase'
+//import { useEvents } from '../modules/useEvents'
 
 
-const events = ref('');
-const newEventTitle = ref('');
-const newEventDescription = ref('');
-const newEventVenue = ref('');
-const newEventContent = ref('');
-const newEventArtist = ref('');
 
-onMounted(() => {
-  onSnapshot(collection(db, 'events'), (querySnapshot) => {
-    events.value = querySnapshot.docs.map((doc) => ({
+//const { events, getEventsData } = useEvents()
+
+
+
+/* onMounted(() => {
+ getEventsData
+})  */
+
+let  newEventVenue = refVue('')
+ let   newEventTitle = refVue('')
+ let   newEventArtist = refVue('')
+ let  newEventDescription = refVue('')
+ let  newEventDate = refVue('')
+ let  newEventImgVar = refVue('')
+
+const events = refVue([]) 
+const eventDataRef = collection(db, "events")
+
+const AddEventData = refVue('')
+
+const getEventsData = () => {
+    console.log("test")
+onSnapshot(eventDataRef, (snapshot) => {
+    events.value = snapshot.docs.map(doc => {
+   
+    return {
         id: doc.id,
         title: doc.data().title,
         artist: doc.data().artist,
         description: doc.data().description,
         venue: doc.data().venue,
+        imgURL: doc.data().imgURL,
         done: doc.data().done,
-    }));
-  });
-});
+    }
+    })
+    console.log("is it reaching this step", events )
+
+})
+}
+getEventsData();
 
 const addEvent = () => {
-  if (newEventContent.value.trim() !== '') {
+  if (newEventTitle.value.trim() !== '') {
     addDoc(collection(db, 'events'), {
       title: newEventTitle.value,
       artist: newEventArtist.value,
       description: newEventDescription.value,
+      imgURL: newEventImgVar.value,
       venue: newEventVenue.value,
       done: false,
-    });
-    newEventContent.value = ''
+    })
+
     newEventTitle.value = ''
     newEventArtist.value = ''
     newEventDescription.value = ''
     newEventDate.value = ''
+    newEventImg.value = 'https://placehold.co/600x400'
     
   }
-};
+}
 
 const deleteEvent = (id) => {
-  events.value = events.value.filter((event) => event.id !== id);
-};
+  events.value = events.value.filter((event) => event.id !== id)
+}
 
 const toggleDone = (id) => {
-  const event = events.value.find((event) => event.id === id);
+  const event = events.value.find((event) => event.id === id)
   if (event) {
-    event.done = !event.done;
+    event.done = !event.done
   }
-};
+}
+
+const storage = getStorage()
+ 
+const newEventImg = async (event) => {
+  let file = event.target.files[0] // get the file
+  console.log('file')
+    const metadata = {
+    contentType: 'image/jpeg'
+    }
+    // Upload file and metadata to the object 'images/mountains.jpg'
+    const storageRef = ref(storage, 'images/' + file.name)
+    const uploadTask = uploadBytesResumable(storageRef, file, metadata)
+    uploadTask.on('state_changed',
+        (snapshot) => {
+            let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            console.log('Upload is ' + progress + '% done')
+            switch (snapshot.state) {
+            case 'paused':
+            console.log('Upload is paused')
+            break
+            case 'running':
+            console.log('Upload is running')       
+            break
+            }
+        }, 
+    (error) => {
+    // A full list of error codes is available at
+    // https://firebase.google.com/docs/storage/web/handle-errors
+        switch (error.code) {
+            case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break
+            case 'storage/canceled':
+                // User canceled the upload
+                break
+
+            case 'storage/unknown':
+            // Unknown error occurred, inspect error.serverResponse
+            break
+        }
+    }, 
+    () => {
+    // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        console.log('File available at', downloadURL)
+
+        newEventImgVar.value = downloadURL // update variable imgURL and put the image URL link in it. 
+        events.uploadBtnDisabled = false // enable button after image uploaded is complete
+        })
+    }   
+
+
+    )
+  }
 </script>
 
 <style lang="scss" scoped>
-@import 'bulma/css/bulma.min.css';
+@import 'bulma/css/bulma.min.css'
 </style>
