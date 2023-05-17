@@ -1,10 +1,10 @@
 <template>
-    <main class="background lg:w-12/12 flex flex-col justify-center">
-        <header class="rb w-fit">
-            <div class="maintitle  top-32 text-8xl lg:text-[350px] ">
+    <main class="background w-full lg:w-full flex flex-col justify-center">
+        <header class=" rb w-full h-96 ">
+            <div class="maintitle rb h-100 top-16 text-8xl ">
                <h1 class="">KANTEN</h1> 
             </div>
-            <div class=" rb lg:text-7xl uppercase ">
+            <div class="rb lg:text-5xl uppercase ">
                <h2 class="">Esbjergs nye kulturfælleskab</h2> 
             </div>
         </header>

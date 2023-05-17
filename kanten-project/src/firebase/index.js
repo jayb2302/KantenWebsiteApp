@@ -19,5 +19,5 @@ const analytics = getAnalytics(app)
 const db = getFirestore(app)
 
 export {
-    db, analytics
+    db, analytics, app
 }

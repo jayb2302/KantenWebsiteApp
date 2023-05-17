@@ -1,4 +1,5 @@
 <template>
+
   <div class="w-10/12 title has-text-centered">
     <!-- Your title content here -->
   </div>
@@ -41,15 +42,15 @@
             <p><strong>Date:</strong> {{ event.date }}</p>
             <p><strong>Time:</strong> {{ event.time }}</p>
             <p><strong>Tags:</strong> {{ event.tags }}</p>
-            <img :src="event.imgURL" alt="Event Image" class="w-4 h-4">
+            <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
             
           </div>
           <div class="column is-5 has-text-right">
             <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
-              &check
+              &check;
             </button>
             <button @click="deleteEvent(event.id)" class="button is-danger">
-              &cross
+              &cross;
             </button>
           </div>
         </div>
@@ -63,7 +64,6 @@ import { /* reactive, onMounted */ ref as refVue } from 'vue'
 import { collection, onSnapshot, addDoc } from 'firebase/firestore'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
 import { db } from '@/firebase'
-//import { useEvents } from '../modules/useEvents'
 
 
 
