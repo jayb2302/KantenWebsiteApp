@@ -60,7 +60,7 @@ export default {
   name: 'VertexDialog',
   props,
   setup(props) {
-    const showModal = ref(true);
+    const showModal = ref(false);
   
     function closeModal() {
         showModal.value = false;

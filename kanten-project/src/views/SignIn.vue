@@ -1,11 +1,12 @@
 <template>
-    <div>
-        <h1>Signin</h1>
-        <p><input type="text" placeholder="Email" v-model="email"></p>
-        <p><input type="password" placeholder="Password" v-model="password"></p>
-        <p><button @click="register">Submit</button></p>
+    <div class="w-12/12 flex justify-center">
+        <div class="w-12/12 text-center ">
+            <h1>Signin</h1>
+            <p><input type="text" placeholder="Email" v-model="email"></p>
+            <p><input type="password" placeholder="Password" v-model="password"></p>
+            <p class="mt-3"><button @click="register">Submit</button></p>
         <p v-if="errMsg">{{  errMsg }}</p>
-  
+        </div>
     </div>
 </template>
 
@@ -38,8 +39,7 @@ const register = () => {
             errMsg.value= "Incorrect password";
             break;
             default:
-            errMsg.value = "Email or password was incorrect";
-            break;
+            errMsg.value = "Email or password was incorrect"
         }
     })
 }
@@ -48,9 +48,30 @@ const register = () => {
 </script>
 
 <style lang="scss" scoped>
-#app {
+@import '../modules/_variables.scss';
     h1 {
         color:red
     }
-}
+    input {
+        height: 45px;
+        border: none;
+        outline: none;
+        margin-top: 10%;
+        padding: 0px 7px;
+        color: $gray;
+        font-size: 15px;
+        background-color: transparent;
+        box-shadow: 3px 3px 20px rgba(0,0,0,1),
+        -1px -1px 6px rgba(255, 255, 255, 0.4);
+        &:focus {
+            border: 1px solid transparent;
+            color: $gray;
+            box-shadow: 2px 2px 10px rgba(0,0,0,1),
+            -1px -1px 6px rgba(255, 255, 255, 0.4),
+            inset 3px 3px 10px rgba(0,0,0,1),
+            inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+        }
+        
+    }
+
 </style>

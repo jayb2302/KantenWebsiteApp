@@ -14,16 +14,19 @@
                 <div
                   class="flex justify-center overflow-auto scrollbar 
                   h-4/5 lg:h-5/6 pt-14  lg:pt-16 mt-4 ">                  
-                  <div
-                    class="modal overflow-auto hover:overflow-auto 
+                  <div    
+                    class="modal movearea overflow-auto hover:overflow-auto 
                     scrollbar-thin shadow-md shadow-slate-500 
                     shadow-inner w-11/12 pt-4 p-8 lg:mb-2 h-full mb-2"
                     role="dialog"
-                    ref="modal">  
+                    ref="modal"
+                    >  
+
                     <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
                     <img src="../assets/deft.svg" class="w-28 relative " alt="">
-                    <p class="text-2xl w-8/12 mb-3 m-auto text-center"> Rhythm and Beats: Hip-hop is known for its distinctive rhythm and beats. 
-Turntablism and DJing: Hip-hop culture often includes DJing and turntablism. </p>                 
+                    <p class="text-2xl w-8/12 mb-3 m-auto text-center"> 
+                    Rhythm and Beats: Hip-hop is known for its distinctive rhythm and beats. 
+                    Turntablism and DJing: Hip-hop culture often includes DJing and turntablism. </p>                 
                     <button
                       class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
                       @click="closeModal">                                
@@ -51,17 +54,20 @@ Turntablism and DJing: Hip-hop culture often includes DJing and turntablism. </p
 
 <script>
 import { ref, watch } from 'vue';
+
+
 const props = {
   show: {
     type: Boolean,
     default: false,
   },
 };
+
 export default {
   name: 'DeftDialog',
   props,
   setup(props) {
-    const showModal = ref(true);
+    const showModal = ref(false);
   
     function closeModal() {
         showModal.value = false;
@@ -78,6 +84,7 @@ export default {
     };
   },
 };
+
 </script>
 
 <style lang="scss" scoped>
@@ -87,8 +94,8 @@ export default {
 .modal {
   background-color: $primaryone;
   box-shadow: 
-    0px 0px 5px $kpink,        
-    inset 0 0 3px $kpink;
+    0px 0px 5px $kblue,        
+    inset 0 0 3px $kblue;
   color: $white;
  
 
@@ -107,10 +114,10 @@ export default {
       color: $gray;
       opacity: 0.4;
       #closebutton{
-          &:hover {color: $kpink;}
+          &:hover {color: $kblue;}
       }
       &:hover{
-          color: $kpink;
+          color: $kblue;
           transition: ease-in-out duration-1000 transform;
       }
 
@@ -134,7 +141,7 @@ export default {
   background: transparent;
   }   
   ::-webkit-scrollbar-thumb {
-  background: $kpink;
+  background: $kblue;
   
 
   } 
