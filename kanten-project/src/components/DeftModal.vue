@@ -21,8 +21,9 @@
                     role="dialog"
                     ref="modal">  
                     <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
-                    <img src="../assets/dub.svg" class="w-28 relative " alt="">
-                    <p class="text-2xl w-8/12 mb-3 m-auto text-center">Reggae Vibes: Reggae music is characterised by its laid-back rhythms and distinctive basslines. Incorporating elements  such as guitar, bass guitar, Jamaican flag colours, or iconic reggae symbols.</p>                 
+                    <img src="../assets/deft.svg" class="w-28 relative " alt="">
+                    <p class="text-2xl w-8/12 mb-3 m-auto text-center"> Rhythm and Beats: Hip-hop is known for its distinctive rhythm and beats. 
+Turntablism and DJing: Hip-hop culture often includes DJing and turntablism. </p>                 
                     <button
                       class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
                       @click="closeModal">                                
