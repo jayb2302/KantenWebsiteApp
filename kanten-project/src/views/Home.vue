@@ -2,10 +2,10 @@
     <main class="background w-full lg:w-full flex flex-col justify-center">
         <header class=" rb w-full h-96 ">
             <div class="maintitle rb h-100 top-16 text-8xl ">
-               <h1 class="">KANTEN</h1> 
+               <h1 class="text-center">KANTEN</h1> 
             </div>
             <div class="rb lg:text-5xl uppercase ">
-               <h2 class="">Esbjergs nye kulturfælleskab</h2> 
+               <h2 class="text-center">Esbjergs nye kulturfælleskab</h2> 
             </div>
         </header>
         <div class="event-section rb w-12/12 h-[100vh] ">
@@ -34,6 +34,11 @@ font-family: 'K2D', sans-serif;
    box-sizing: border-box;
    border-width: 0.5px;
    border-color: red;
+   }
+   .bb{
+   box-sizing: border-box;
+   border-width: 0.5px;
+   border-color: blue;
    }
    h1 {
     font-weight: 800;

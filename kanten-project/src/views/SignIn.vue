@@ -4,7 +4,8 @@
         <p><input type="text" placeholder="Email" v-model="email"></p>
         <p><input type="password" placeholder="Password" v-model="password"></p>
         <p><button @click="register">Submit</button></p>
-       <p v-if="errMsg">{{  errMsg }}</p>
+        <p v-if="errMsg">{{  errMsg }}</p>
+  
     </div>
 </template>
 
@@ -37,7 +38,8 @@ const register = () => {
             errMsg.value= "Incorrect password";
             break;
             default:
-            errMsg.value = "Email or password was incorrect"
+            errMsg.value = "Email or password was incorrect";
+            break;
         }
     })
 }

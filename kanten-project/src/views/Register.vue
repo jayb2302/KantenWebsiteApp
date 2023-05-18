@@ -14,7 +14,7 @@ import { getAuth, createUserWithEmailAndPassword} from "firebase/auth"
 import { useRouter } from 'vue-router'
 const email = refVue("");
 const password = refVue("")
-const router = useRouterVue()
+const router = useRouter()
 
 const register = () => {
     createUserWithEmailAndPassword(getAuth(), email.value, password.value)

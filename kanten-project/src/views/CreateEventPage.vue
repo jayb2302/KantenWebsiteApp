@@ -3,6 +3,7 @@
   <div class="w-10/12 title has-text-centered">
     <!-- Your title content here -->
   </div>
+  <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
  <form @submit.prevent="addEvent">
     <div class="field is-grouped flex flex-column flex p-2 m-2">
       <div class="control is-expanded">
@@ -60,35 +61,46 @@
 </template>
 
 <script setup>
-import { /* reactive, onMounted */ ref as refVue } from 'vue'
+import { /* reactive,*/ onMounted,  ref as refVue } from 'vue'
 import { collection, onSnapshot, addDoc } from 'firebase/firestore'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { db } from '@/firebase'
+import router from '../router'
 
 
-
-//const { events, getEventsData } = useEvents()
-
-
-
-/* onMounted(() => {
- getEventsData
-})  */
-
-let  newEventVenue = refVue('')
+ let  newEventVenue = refVue('')
  let   newEventTitle = refVue('')
  let   newEventArtist = refVue('')
  let  newEventDescription = refVue('')
  let  newEventDate = refVue('')
  let  newEventImgVar = refVue('')
 
+const isLoggedIn = refVue(false)
+
+let auth;
+onMounted(() => {
+  auth= getAuth ();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+      console.log('isLoggedIn')
+    } else {
+      isLoggedIn.value = false;
+    }
+  })
+})
+
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+  router.push("/")
+  })
+}
+
 const events = refVue([]) 
 const eventDataRef = collection(db, "events")
 
-const AddEventData = refVue('')
-
 const getEventsData = () => {
-    console.log("test")
 onSnapshot(eventDataRef, (snapshot) => {
     events.value = snapshot.docs.map(doc => {
    
