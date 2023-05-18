@@ -10,6 +10,7 @@ const router = createRouter({
         { path: "/feed", component: () => import("../views/Feed.vue")},
         { path: "/event", component: () => import("../views/CreateEventPage.vue")},
         { path: "/shop", component: () => import("../views/Shop.vue")},
+        { path: "/shopcard", component: () => import("../components/ShopCard.vue")},
       ]
 });
 
