@@ -12,19 +12,19 @@
          <div class="portfolio-container pt-20">
              <!-- {{ state }} -->
              <div id="card" class="card " v-for="(item) in state" :key="item">
-                 <div itemId="item.id" class="content"> 
+                 <div itemId="item.id" class="card-content"> 
                      <span class="overlaycard"> 
                      {{ itemId }}
-                         <p class="category" :class="item.category">{{ item.category }}</p>
                          <h3>{{ item.title }}</h3>
                          <p class="description">{{ item.description }}</p>               
                          <img :src="item.image" style="height: 195px; width: 375px;" alt="">
-                         <button class="btn w-20 h-8 md:w-28 lg:text-4xl"  @click="toggleModal(item.id)" > More...</button>
+                         <button class="btn w-20 h-8 md:w-28 lg:text-4xl"  @click="toggleModal(item.id)" > More</button>
                      </span>    
                  </div>
              </div>
          </div>
-         
+         <div class="effect flex justify-center items-center absolute w-10/12 h-5/6"></div>
+          <div class="background absolute w-full h-full "></div>
      </main>
     </div>
  </template>
@@ -58,6 +58,11 @@
  
  <style lang="scss" scoped>
  
+ * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
  .upper-container{
   width: 100%;
   position: absolute;
@@ -73,6 +78,13 @@
   font-weight: 100;
   line-height: 25px;
  }
+
+/*  .background {
+        background: url(../assets/img/tshirt.png) center / cover;
+        mix-blend-mode: multiply;
+        width: 100%;
+        height: 100%;
+      } */
  .portfolio-container{
      display: flex;
      justify-content: space-around;
@@ -84,12 +96,22 @@
      height: auto;
      padding-bottom: 5%;
      .content {
-       z-index: 3;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       padding: 0%;
-       width: 100%;
+      .effect{
+        border-radius: 50%;
+        background-color: #252625;
+        filter: blur(30px);
+        transition: 2s ease-in-out;
+        &::before{
+            position: absolute;
+            content: "";
+            width: 120%;
+            height: 120%;
+            background-color: #252625;
+            filter: blur(10px);
+            transform: scale(0);
+            transition: 2s ease-in-out;
+        }
+      }
      }
      h3{
        text-align: center;
@@ -102,183 +124,107 @@
        padding-top: 2%;
        
      }
-     .card {
-       width: auto;
-       height: 325px;
-       --border-radius: 15px;
-       --border-width: 2px;
-       appearance: none;
-       position: relative;
-       padding: 1em 1em 1em 1em;
-       border: 0;
-       background: rgb(37, 37, 42);
-       font-size: 15px;
-       font-weight: 500;
-       color: #fff;
-       z-index: 0;
-       border-radius: 15px;
-       margin: 2% 0.5% 4% 0.5%;
-       p{
-         font-size: .8em;
-       }
-       .category{
-         font-size: .7em;
-       }
-       .Design {
-         color: rgba(230, 86, 215, 0.873);
-         border-left: 2px solid  rgba(230, 86, 215, 0.873);
-         padding-left: 10px;
-       }
-       .Photos {
-         color: rgba(238, 188, 62, 0.873);
-         border-left: 2px solid  rgba(238, 188, 62, 0.873);
-         padding-left: 10px;
-       }
-       img {
-         margin-top: 0.5em;
-         padding: 0;
-         height: fit-content;
-         width: fit-content;
-       }
-         &::after {
-           --m-i: linear-gradient(#000, #000);
-           --m-o: content-box, padding-box;
-           content: "";
-           position: absolute;
-           left: 0;
-           top: 0;
-           width: 100%;
-           height: 100%;
-           padding: var(--border-width);
-           background-image: linear-gradient( 217deg, rgba(129, 242, 109, 0.401), rgba(80, 242, 112, 0.317) 70.71%), 
-                             linear-gradient( 127deg, rgba(64, 162, 42, 0.305), rgba(92, 242, 5, 0.617) 70.71%),
-                             linear-gradient( 336deg, rgba(161, 185, 109, 0.693), rgba(72, 255, 0, 0.29) 70.71%);
-           mask-image: var(--m-i), var(--m-i);
-           mask-origin: var(--m-o);
-           mask-clip: var(--m-o);
-           mask-composite: exclude;
-           mask-composite: destination-out;
-           filter: hue-rotate(0);
-           animation: rotate-hue linear 1500ms infinite;
-           animation-play-state: paused;
-           box-sizing: border-box;
-         }
-         &:hover::after {
-           animation-play-state: running;
-         }
-         &:active {
-           --border-width: 4px;
-           
-         }
-       .btn {
-         --border-color: 
-                     linear-gradient( 127deg, rgba(82, 166, 56, 0.552), rgba(5, 242, 52, 0.517) 70.71%),
-                     linear-gradient( 336deg, rgba(5, 242, 9, 0.2), rgba(9, 255, 0, 0.614) 70.71%);
-         --border-width: 1px;
-         --curve-size: .5em;
-         --blur: 30px;
-         --bg: rgb(30, 30, 30);
-         --color: #fff8f8;
-         margin-top: 5%;
-         color: var(--color);
-         position: relative;
-         isolation: isolate;
-         display: inline-grid;
-         place-content: center;
-         padding: .4em 1em;
-         font-size: 15px;
-         border: 0;
-         text-transform: uppercase;
-         box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-         clip-path: polygon(
-                   /* Top-left */
-                   0% var(--curve-size),
- 
-                   var(--curve-size) 0,
-                   /* top-right */
-                   100% 0,
-                   100% calc(100% - var(--curve-size)),
- 
-                   /* bottom-right 1 */
-                   calc(100% - var(--curve-size)) 100%,
-                   /* bottom-right 2 */
-                   0 100%);
-         transition: color 250ms;
-         &::after, &::before {
-           content: '';
-           position: absolute;
-           inset: 0;
-         }
-         &::before {
-           background: var(--border-color);
-           background-size: 300% 300%;
-           animation: move-bg7234 5s ease infinite;
-           z-index: -2;
-         }
-         @keyframes move-bg7234 {
-           0% {
-             background-position: 31% 0%
-           }
- 
-           50% {
-             background-position: 70% 100%
-           }
- 
-           100% {
-             background-position: 31% 0%
-           }
-         }
-         &::after {
-           background: var(--bg);
-           z-index: -1;
-           clip-path: polygon(
-                     /* Top-left */
-                     var(--border-width) 
-                     calc(var(--curve-size) + var(--border-width) * .5),
-                     calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
-                     /* top-right */
-                     calc(100% - var(--border-width)) 
-                     var(--border-width),
-                     calc(100% - var(--border-width)) 
-                     calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
- 
-                     /* bottom-right 1 */
-                     calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-                     /* bottom-right 2 */
-                     var(--border-width) calc(100% - var(--border-width)));
-           transition: clip-path 500ms;
-         }
-         &:where(:hover, &:focus)::after {
-           clip-path: polygon(
-                         /* Top-left */
-                         calc(100% - var(--border-width)) 
-                         calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
-                         calc(100% - var(--border-width))
-                         var(--border-width),
-                         /* top-right */
-                         calc(100% - var(--border-width))
-                         var(--border-width),
-                         calc(100% - var(--border-width)) 
-                         calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
-                         /* bottom-right 1 */
-                         calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
-                         calc(100% - var(--border-width)),
-                         /* bottom-right 2 */
-                         calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
-                         calc(100% - var(--border-width)));
-           transition: 200ms;
-         }
-         &:where(:hover, &:focus) {
-           color: #ffffff ;
-         }
-       }
-     }
-   }
- 
+     .card{
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 1s ease-in-out;
+        z-index: 10;
+        background-color: #252625;
+        height: 530px;
+        &::after{
+            position: absolute;
+            content: "";
+            width: 50%;
+            height: 150%;
+            background-color: #5ABFF9;
+            animation: spin 6s linear infinite;
+            box-shadow: 0 0 10px 10px #5ABFF9;
+            transition: 1.5s linear;
+        }
+        &::before{
+            position: absolute;
+            content: "";
+            inset: 4px;
+            background-color: #252625;
+            z-index: 10;
+            border-radius: 16px;
+        }
+        &:hover {
+            box-shadow: 0 0 5px #5ABFF9, 0 0 30px #5ABFF9,;
+            &::after {
+                animation-play-state: paused;
+                width: 200%;
+                .effect{
+                    transform: scale(1.5);
+                    &::before {
+                        transform: scale(1.5);
+                        transition-delay: 1s;
+                    }
+                 }
+            }
+        }
+        .card-content{
+            z-index: 20;
+            color: #c4c6c8;
+            padding: 10px 20px;
+        
+            img{
+                width: 90%;
+                object-fit: contain;
+                filter: drop-shadow(0 10px 10px #252625);
+            }
+            button {
+                width: 150px;
+                height: 50px;
+                background-color: #5ABFF9;
+                font-family: inherit;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: 0.5s ease;
+                border: none;
+                margin-top: 10px;
+                &::after{
+                    position: absolute;
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    background-color: #252625;
+                    top: 0;
+                    left: 0;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    z-index: 1;
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    background-color: #252625;
+                    bottom: 0;
+                    right: 0;
+                    transform: translate(50%, 50%) rotate(45deg);
+                    z-index: 2;
+                }
+            }
+        }
+      }
+
+      @keyframes spin {
+        0% {
+            transform: rotate(0);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        
+      }
+       
    @keyframes rotate-hue {
    to {
      filter: hue-rotate(1turn);
    }
  }
- 
+}
  </style>
