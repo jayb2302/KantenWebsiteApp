@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="flex justify-center center-align wrap w-screen h-screen" >
     <div class="wrapper w-10/12 rb flex justify-center">
-        <div class=" bb container flex  flex-row  items-center relative overflow-hidden">
+        <div class=" bb container flex  flex-row items-center relative overflow-hidden">
             <div v-for="(item) in state" :key="item" class="card flex justify-center items-center  flex-col w-2/4 h-3/4 overflow-hidden">
                 <div class="card-content w-full flex flex-col justify-evenly text-center items-center">
                     <img :src="item.image" style="height: 195px; width: 375px;" alt="">
@@ -42,7 +42,7 @@ box-sizing: border-box;
     font-family: $brother;
     background-color: $primaryone;
     .container {
-        width: 600px;
+        width: 800px;
         height: 600px;
       .effect{
         border-radius: 50%;
