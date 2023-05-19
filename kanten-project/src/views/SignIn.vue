@@ -79,11 +79,11 @@ const register = () => {
             padding: 10px;
             outline: none;
             border: none;
-            color: #000;
+            color: $white;
             font-size: 1em;
             background: transparent;
-            border-left: 2px solid #000;
-            border-bottom: 2px solid #000;
+            border-left: 2px solid $white;
+            border-bottom: 2px solid $white;
             -webkit-transition: 0.1s;
             transition: 0.1s;
             border-bottom-left-radius: 8px;
@@ -103,7 +103,7 @@ const register = () => {
   padding: 10px;
   pointer-events: none;
   font-size: 12px;
-  color: #000;
+  color: $white;
   text-transform: uppercase;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -118,7 +118,7 @@ const register = () => {
           transform: translateX(113px) translateY(-15px);
   font-size: 0.8em;
   padding: 5px 10px;
-  background: #000;
+  background: $primaryone;
   letter-spacing: 0.2em;
   color: #fff;
   border: 2px;
@@ -131,7 +131,7 @@ const register = () => {
           transform: translateX(156px) translateY(-15px);
   font-size: 0.8em;
   padding: 5px 10px;
-  background: #000;
+  background: $primaryone;
   letter-spacing: 0.2em;
   color: #fff;
   border: 2px;
@@ -141,14 +141,14 @@ const register = () => {
 .inputBox input:focus,
 .inputBox1 input:valid,
 .inputBox1 input:focus {
-  border: 2px solid #000;
+  border: 2px solid $white;
   border-radius: 8px;
 }
 
 .enter {
   height: 45px;
   width: 100px;
-  border: 2px solid #000;
+  border: 2px solid $white;
   cursor: pointer;
   background-color: transparent;
   -webkit-transition: 0.5s;

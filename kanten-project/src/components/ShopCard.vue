@@ -1,28 +1,35 @@
 <template>
-    <div id="app" class="flex justify-center center-align w-screen h-screen">
-        <div class="container flex justify-center items-center relative overflow-hidden">
-            <div class="card flex justify-center items-center flex-col w-2/4 h-3/4 overflow-hidden">
+    <div id="app" class="flex justify-center center-align wrap w-screen h-screen" >
+    <div class="wrapper w-10/12 rb flex justify-center">
+        <div class=" bb container flex  flex-row  items-center relative overflow-hidden">
+            <div v-for="(item) in state" :key="item" class="card flex justify-center items-center  flex-col w-2/4 h-3/4 overflow-hidden">
                 <div class="card-content w-full flex flex-col justify-evenly text-center items-center">
-                    <img src="../assets/merchtshirt.png" alt="">
-                    <h1>Kanten T-shirt</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident porro nulla, 
-                    veniam recusandae, culpa assumenda id tempora libero officiis nam corporis 
-                    illo pariatur quaerat minus ipsum voluptas sed debitis molestiae.</p>
+                    <img :src="item.image" style="height: 195px; width: 375px;" alt="">
+                    <h1>{{ item.id}}</h1>
+                    <p>{{ item.detail }}</p>
                     <button class="relative">Buy now</button>
                 </div>
+                </div>
+                <div class="effect flex justify-center items-center absolute w-10/12 h-5/6"></div>
+                <div class="background absolute w-full h-full "></div>
             </div>
-            <div class="effect flex justify-center items-center absolute w-10/12 h-5/6"></div>
-            <div class="background absolute w-full h-full "></div>
         </div>
     </div>
 </template>
 
 <script setup>
+import getProducts from '../modules/ShopProducts';
+import {ref} from 'vue'
+
+const { state } = getProducts()
 
 </script>
 
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
+
+
+
 
 * {
 margin: 0;
@@ -157,5 +164,16 @@ box-sizing: border-box;
     }
     
 }
+
+.rb {
+    box-sizing: border-box;
+    border-width: 0.5px;
+    border-color: red;
+    }
+    .bb {
+    box-sizing: border-box;
+    border-width: 0.5px;
+    border-color: rgb(162, 167, 192);
+  }
 
 </style>

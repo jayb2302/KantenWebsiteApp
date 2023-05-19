@@ -11,6 +11,7 @@ const router = createRouter({
         { path: "/event", component: () => import("../views/CreateEventPage.vue")},
         { path: "/shop", component: () => import("../views/Shop.vue")},
         { path: "/shopcard", component: () => import("../components/ShopCard.vue")},
+        { path: "/test", component: () => import("../views/HomeTest.vue")},
       ]
 });
 

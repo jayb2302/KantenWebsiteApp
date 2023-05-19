@@ -10,40 +10,52 @@
   
         <div class="flex flex justify-center flex-row border-l-3 ">
           <div class="flex flex-row  w-8/12 pb-3  ">
+            <TransitionGroup
+            appear
+            tag="div"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            >
+              <button
+                type="button"
+                @click="showModal = !showModal"
+                key="button1"
+                class=" z-10  hover:text-gray-50">                
+                <div class="relative pr-8 pt-2">
+                <img src="../assets/vertex.svg" class="rb w-32" alt="">              
+                </div>              
+              </button>
           
-                <button
-                  type="button"
-                  @click="showModal = !showModal"
-                  class=" z-10  hover:text-gray-50">                
-                  <div class="relative pr-8 pt-2">
-                  <img src="../assets/vertex.svg" class="rb w-32" alt="">              
-                  </div>              
-                </button>
-         
-            <button
-              type="button"
-              @click="showModalDub = !showModalDub"
-              class=" z-10  hover:text-gray-50">                
-              <div class="relative  pt-2 pr-8 mr-2">
-                <img src="../assets/dub.svg" class="rb w-36" alt="">  
-              </div>              
-            </button>
-            <button
-              type="button"
-              @click="showModalMana = !showModalMana"
-              class=" z-10  hover:text-gray-50">             
-              <div class="relative  pt-2 pr-8 mr-2">
-                <img src="../assets/mana.svg" class="rb w-36" alt="">  
-              </div>              
-            </button>
-            <button
-              type="button"
-              @click="showModalDeft = !showModalDeft"
-              class=" z-10  hover:text-gray-50">                
-              <div class="relative pt-2 pr-8 mr-2">
-                <img src="../assets/deft.svg" class="rb w-36" alt="">  
-              </div>              
-            </button>
+              <button
+                type="button"
+                key="button2"
+                @click="showModalDub = !showModalDub"
+                class=" z-10  hover:text-gray-50">                
+                <div class="relative  pt-2 pr-8 mr-2">
+                  <img src="../assets/dub.svg" class="rb w-36" alt="">  
+                </div>              
+              </button>
+
+              <button
+                type="button"
+                key="button3"
+                @click="showModalMana = !showModalMana"
+                class=" z-10  hover:text-gray-50">             
+                <div class="relative  pt-2 pr-8 mr-2">
+                  <img src="../assets/mana.svg" class="rb w-36" alt="">  
+                </div>              
+              </button>
+
+              <button
+                type="button"
+                key="button4"
+                @click="showModalDeft = !showModalDeft"
+                class=" z-10  hover:text-gray-50">                
+                <div class="relative pt-2 pr-8 mr-2">
+                  <img src="../assets/deft.svg" class="rb w-36" alt="">  
+                </div>              
+              </button>
+            </TransitionGroup> 
           </div>
         </div>
       </div>
@@ -58,6 +70,7 @@
   
   <script >
   import { ref } from 'vue';
+  import gsap from 'gsap'
   import VertexDialog from'../components/VertexModal.vue';
   import DubDialog from '../components/DubModal.vue';
   import ManaDialog from '../components/ManaModal.vue';
@@ -83,11 +96,31 @@
     const showModalMana = ref(false);
     const showModalDeft = ref(false);
 
-  
-  
+    const beforeEnter = (el) => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(100px)'
+        console.log('after')
+    }
+    const enter = (el,done) => {
+      const index = Array.from(el.parentNode.children).indexOf(el);
+      const delay = index * 0.2; // Adjust the delay duration as needed
+        gsap.fromTo(el, {
+          opacity:0,
+          y:100 },
+          {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: delay,
+          onComplete: done,
+        },
+        )
+      }
+
         return {
         ...
         modal,showModal, showModalDub, showModalMana, showModalDeft,
+        beforeEnter, enter,
         };
     }
   
