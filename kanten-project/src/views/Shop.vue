@@ -4,8 +4,9 @@
   <div v-if="showModal"><ModalDetail :id="id" @close="toggleModal"/></div> 
    
   <div class="upper-container">
-    
-  </div>
+    <h1>Shop with us!</h1>
+    <p>Check out our merch. All Kanten for you.</p>
+  
    
      <main class="md:max-xl:flex">
          <div class="portfolio-container pt-20">
@@ -23,13 +24,16 @@
                  </div>
              </div>
          </div>
+         
      </main>
+    </div>
  </template>
  
  <script setup >
      import ModalDetail from'../components/ModalDetail.vue';
      import { ref } from 'vue'; 
      import portfoliodb from '../modules/ShopProducts'
+     import '../modules/_variables.scss';
      // eslint-disable-next-line no-unused-vars
        const { components } = {ModalDetail,}
        const { state } = portfoliodb()
@@ -54,6 +58,21 @@
  
  <style lang="scss" scoped>
  
+ .upper-container{
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  color: #c4c6c8;        //color is hard coded
+ }
+ .upper-container h1 {
+  font-size: 70px;
+  margin-top: 80px;
+ }
+ .upper-container p{
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+ }
  .portfolio-container{
      display: flex;
      justify-content: space-around;
