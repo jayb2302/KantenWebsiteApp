@@ -5,7 +5,7 @@ const getProducts = () => {
         {
             id: 1,
             title: 'Kanteen T-shirt',
-            image:new URL('../assets/img/tshirt.png', import.meta.url),
+            image:('../assets/img/tshirt.png', import.meta.url),
             category: 'T-shirt',
             detail: 'Our merch',
             size: 'You can choose your size here'
