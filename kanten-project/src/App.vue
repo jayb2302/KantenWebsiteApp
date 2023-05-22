@@ -1,9 +1,8 @@
 <template> 
 
-    <nav class="m-1 w-12/12 text-center">
+    <nav class="m-1 w-12/12 text-cente z-20">
 
       <RouterLink class="text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
-      <RouterLink class="text-2xl mr-4 ml-4" to="/feed"> Feed </RouterLink>
       <RouterLink class="text-2xl mr-4 ml-4" to="/register"> Register </RouterLink>
       <RouterLink class="text-2xl mr-4 ml-4" to="/sign-in"> Login </RouterLink> 
       <RouterLink class="text-2xl mr-4 ml-4" to="/event"> Add Event </RouterLink> 

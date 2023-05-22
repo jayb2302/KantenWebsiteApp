@@ -18,6 +18,12 @@
       <p class="control is-expanded">
         <input v-model="newEventVenue" class="input" type="text" placeholder="Venue" />
       </p>
+      <p class="control is-expanded">
+        <input v-model="newEventDate" class="input" type="date" placeholder="" />
+      </p>
+      <p class="control is-expanded">
+        <input v-model="newEventTime" class="input" type="time" placeholder="" />
+      </p>
 
       <p class="control is-expanded">
         <input @change="newEventImg($event)" class="input" type="file" placeholder="Picture" />
@@ -109,6 +115,7 @@ onSnapshot(eventDataRef, (snapshot) => {
         title: doc.data().title,
         artist: doc.data().artist,
         description: doc.data().description,
+        date: doc.data().date,
         venue: doc.data().venue,
         imgURL: doc.data().imgURL,
         done: doc.data().done,

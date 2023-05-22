@@ -6,7 +6,8 @@
             @before-enter="beforeEnter"
             @enter="enter"
         >      
-        <h1 class="text-4xl text-center pb-6">About</h1>   </Transition>   
+            <h1 class="text-4xl text-center pb-6">About</h1>   
+        </Transition>   
         <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam placeat, eligendi sed doloremque aliquam saepe eos quo aperiam dolor sint eaque itaque perspiciatis cum possimus dignissimos et, facilis vero odio!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi alias similique, doloremque dolorum ipsa asperiores dolor repellendus nulla et tempora quaerat cumque possimus tenetur eligendi error! Nihil recusandae ea repudiandae?</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat assumenda incidunt officia voluptas recusandae illo quas, ipsum pariatur mollitia quasi, minima repellat rerum. Rerum quam non nobis provident, eveniet consequuntur?</p>

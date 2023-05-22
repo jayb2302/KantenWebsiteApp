@@ -1,50 +1,80 @@
 <template>
-    <main class="background w-full lg:w-full flex flex-col justify-center">
-        <header class=" rb w-full h-96 ">
-            <div class="maintitle rb h-100 top-16 text-8xl ">
-               <h1 class="text-center">KANTEN</h1> 
-            </div>
-            <div class="rb lg:text-5xl uppercase ">
-               <h2 class="text-center">Esbjergs nye kulturfælleskab</h2> 
-            </div>
-        </header>
-        <div class="event-section rb w-12/12 h-[100vh] ">
-            <div class=" rb lg:text-3xl uppercase ">
-               <h2 class=""></h2> 
-            </div>
-        </div>
-        <div class="upcoming-section rb w-12/12 h-[100vh] ">
-            <div class=" rb lg:text-3xl uppercase ">
-               <h2 class="">Upcoming events</h2> 
-            </div>
-        </div>
-    </main>
-    
-</template>
+   <div>
+    <!-- Home Section -->
+    <section id="home" class="py-10">
+      <!-- Home Section Content -->
+    </section>
 
-<script setup>
+    <!-- Our Genre Section -->
+    <section id="genre" class="py-10">
+      <h2 class="text-3xl font-bold mb-5">Our Genre</h2>
+      <div class="flex justify-between">
+        <Genre />
+       
+      </div>
+    </section>
 
-</script>
+    <!-- Upcoming Events Section -->
+    <section id="events" class="py-10">
+      <h2 class="text-3xl font-bold mb-5">Upcoming Events</h2>
+      <router-view></router-view>
+    </section>
+
+    <!-- Recent Posts Section -->
+    <section id="posts" class="py-10">
+      <h2 class="text-3xl font-bold mb-5">Recent Posts</h2>
+      <!-- Show recent posts from Facebook -->
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section id="team" class="py-10">
+      <h2 class="text-3xl font-bold mb-5">Meet Our Team</h2>
+      <!-- Team member profiles -->
+    </section>
+  </div>
+
+  </template>
+  
+  <script>
+  import { onMounted } from 'vue';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { useRouter } from 'vue-router'
+  import Genre from './Genre.vue'
+
+  
+  
+  export default {
+	name: 'HomePage',
+  	components: {
+	
+    Genre,
+    routerView: useRouter.component,
+  	
+  	},
+    setup() {
+      onMounted(() => {
+        const body = document.querySelector('body');
+
+        gsap.registerPlugin(ScrollTrigger)
+
+        ScrollTrigger.create({
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.15,
+          snap: 1 / 5,
+		  markers: true,
+         
+        });
+      });
+    }
+  }
+  </script>
+  
 
 <style lang="scss" scoped>
 @import 'bulma/css/bulma.min.css';
-main {
-font-family: 'K2D', sans-serif;
-   .rb{
-   box-sizing: border-box;
-   border-width: 0.5px;
-   border-color: red;
-   }
-   .bb{
-   box-sizing: border-box;
-   border-width: 0.5px;
-   border-color: blue;
-   }
-   h1 {
-    font-weight: 800;
-    // filter:blur(9px);
-    opacity: 0.3;
-    color: #a020ea;
-   }
-}
+
+
 </style>
