@@ -22,7 +22,7 @@
                   key="button3"
                   @click="showModalMana = !showModalMana"
                   class=" z-10 w-4/12  right-20 bottom-36 hover:text-gray-50">             
-                  <div class="   ">
+                  <div class="image">
                     <img src="../assets/mana.png" class="" alt="">  
                   </div>              
                 </button>
@@ -32,7 +32,7 @@
                   key="button2"
                   @click="showModalDub = !showModalDub"
                   class=" z-10  w-4/12 left-48 top-48 hover:text-gray-50">                
-                  <div class=" ">
+                  <div class="image1">
                     <img src="../assets/dub.svg" class="" alt="">  
                   </div>              
                 </button>
@@ -42,7 +42,7 @@
                   @click="showModal = !showModal"
                   key="button1"
                   class=" z-10 left-16 bottom-32 mt-10  w-3/12 hover:text-gray-50">                
-                  <div class=" ">
+                  <div class="image">
                   <img src="../assets/vertex.svg" class=" " alt="">              
                   </div>              
                 </button>
@@ -52,7 +52,7 @@
                   key="button4"
                   @click="showModalDeft = !showModalDeft"
                   class=" z-10 right-52 bottom-16  w-4/12 hover:text-gray-50">                
-                  <div class="  ">
+                  <div class="image1">
                     <img src="../assets/deft.svg" class="" alt="">  
                   </div>              
                 </button>
@@ -167,5 +167,24 @@
           border-color: rgb(163, 163, 175);
           border-width: 1px;
         }
+
+        .image {
+          animation: float 6s ease-in-out infinite;
+        }
+        .image1 {
+          animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
   </style>
   
