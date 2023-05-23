@@ -49,7 +49,7 @@
 
 <script setup >
 
-import getProducts from '../../src/modules/ShopProducts'
+import items from '../data/items'
 
 import { toRefs, computed} from 'vue'
 
@@ -59,7 +59,7 @@ import { toRefs, computed} from 'vue'
         id: Number
     })
 
-    const { state } = getProducts()
+
 
     const { id } = toRefs(props)
 

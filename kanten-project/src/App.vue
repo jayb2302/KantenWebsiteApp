@@ -4,7 +4,7 @@
 
       <RouterLink class="text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
       <RouterLink class="text-2xl mr-4 ml-4" to="/sign-in"> Login </RouterLink> 
-      <RouterLink class="text-2xl mr-4 ml-4" to="/shop"> Shop </RouterLink> 
+      <RouterLink :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
       
     </nav>
   <RouterView/>    

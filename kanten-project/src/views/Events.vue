@@ -18,8 +18,9 @@
                     <p><strong>Description:</strong> {{ event.description }}</p>
                     <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>
                     <p><strong>Time:</strong> {{ event.time }}</p>
-                    <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-
+                    <dd  class="accordion__text">
+                        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+                    </dd>
                   </div>
                   <p>{{ event.tags }}</p>
                 </div>
@@ -28,9 +29,7 @@
           </div>
         </dl>
       </div>
-      <dd class="accordion__text">
-        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-      </dd>
+     
     </div>
   </template>
   
