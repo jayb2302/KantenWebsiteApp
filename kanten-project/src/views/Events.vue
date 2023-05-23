@@ -4,7 +4,7 @@
     </div>
   
     <div class="container">
-      <div class="accordion__tab">Event</div>
+      <!-- <div class="accordion__tab">Event</div> -->
       <div class="accordion__wrapper">
         <dl class="accordion__box">
           <div v-for="event in events" :key="event.id" class="card mb-5 w-full" :class="{ 'has-background-success-light': event.done }">
@@ -13,6 +13,7 @@
                 <div class="columns is-mobile is-vcentered">
                   <div class="column" :class="{ 'has-text-success line-through': event.done }">
                     <p><strong>Title:</strong> {{ event.title }}</p>
+                    <span class="accordion__tab"><p><strong></strong> {{ formatDate(event.title) }}</p></span>
                     <p><strong>Artist:</strong> {{ event.artist }}</p>
                     <p><strong>Description:</strong> {{ event.description }}</p>
                     <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>
@@ -27,6 +28,9 @@
           </div>
         </dl>
       </div>
+      <dd class="accordion__text">
+        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+      </dd>
     </div>
   </template>
   
