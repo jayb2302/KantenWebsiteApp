@@ -19,10 +19,13 @@
         <input v-model="newEventVenue" class="input" type="text" placeholder="Venue" />
       </p>
       <p class="control is-expanded">
-        <input v-model="newEventDate" class="input" type="date" placeholder="" />
+        <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
       </p>
       <p class="control is-expanded">
         <input v-model="newEventTime" class="input" type="time" placeholder="" />
+      </p>
+      <p class="control is-expanded">
+        <input v-model="newEventTags" class="input" type="text" placeholder="" />
       </p>
 
       <p class="control is-expanded">
@@ -76,11 +79,13 @@ import router from '../router'
 
 
  let  newEventVenue = refVue('')
- let   newEventTitle = refVue('')
- let   newEventArtist = refVue('')
+ let  newEventTitle = refVue('')
+ let  newEventArtist = refVue('')
  let  newEventDescription = refVue('')
  let  newEventDate = refVue('')
  let  newEventImgVar = refVue('')
+ let  newEventTime = refVue('')
+ let  newEventTags = refVue('')
 
 const isLoggedIn = refVue(false)
 
@@ -116,9 +121,11 @@ onSnapshot(eventDataRef, (snapshot) => {
         artist: doc.data().artist,
         description: doc.data().description,
         date: doc.data().date,
+        time: doc.data().time,
         venue: doc.data().venue,
         imgURL: doc.data().imgURL,
         done: doc.data().done,
+        tags: doc.data().tags,
     }
     })
     console.log("is it reaching this step", events )
@@ -135,6 +142,9 @@ const addEvent = () => {
       description: newEventDescription.value,
       imgURL: newEventImgVar.value,
       venue: newEventVenue.value,
+      date: newEventDate.value,
+      time: newEventTime.value,
+      tags: newEventTags.value,
       done: false,
     })
 
@@ -142,6 +152,9 @@ const addEvent = () => {
     newEventArtist.value = ''
     newEventDescription.value = ''
     newEventDate.value = ''
+    newEventVenue.value =''
+    newEventTime.value = ''
+    newEventTags.value = ''
     newEventImg.value = 'https://placehold.co/600x400'
     
   }

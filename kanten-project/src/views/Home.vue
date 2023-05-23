@@ -75,6 +75,17 @@
 
 <style lang="scss" scoped>
 @import 'bulma/css/bulma.min.css';
-
+.rb {
+          box-sizing: border-box;
+          border-color: red;
+          border-width: 1px;
+        
+         
+        }
+        .bb {
+          box-sizing: border-box;
+          border-color: rgb(163, 163, 175);
+          border-width: 1px;
+        }
 
 </style>

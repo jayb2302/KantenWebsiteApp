@@ -49,7 +49,7 @@
 
 <script setup >
 
-import portfoliodb from '../../src/modules/ShopProducts'
+import getProducts from '../../src/modules/ShopProducts'
 
 import { toRefs, computed} from 'vue'
 
@@ -59,13 +59,10 @@ import { toRefs, computed} from 'vue'
         id: Number
     })
 
-    const { state } = portfoliodb()
+    const { state } = getProducts()
 
     const { id } = toRefs(props)
 
-    const portfolioDetails = computed( () => {
-        return state.value.find(item => item.id == id.value)
-    })
 
     
 

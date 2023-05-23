@@ -8,9 +8,9 @@
             <h1 class="opacity-20 "></h1>
           </div>
   
-        <div class="flex w-10/12 justify-center border-l-3 ">
+        <div class="flex w-10/12   justify-center border-l-3 ">
          
-            <div class="btnwrapper flex text-center   wrap w-7/12 ">
+            <div class="btnwrapper flex text-center  wrap w-7/12 ">
                 <TransitionGroup
                 appear
                 tag="div"
