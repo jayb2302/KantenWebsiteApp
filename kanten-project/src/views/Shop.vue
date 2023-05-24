@@ -1,45 +1,54 @@
 <template>
-    <div  class="shop flex justify-center center-align wrap w-screen h-screen" >
-    <div class="wrapper w-10/12 rb flex justify-center">
-        <div class=" bb product-cards-container flex  flex-row items-center relative overflow-hidden">
+    <div  class="shop flex center-align justify-center w-full h-screen" >
+        <ProductDescriptionDrawer
+            :product="product"
+            :active="active.product_drawer"
+        />
+ 
+        <div class="product-cards-container flex wrap w-full relative overflow-hidden">
                 <ProductSummaryCard v-for="product in items"
                    :key="product.id"
                    :product="product"
-                   />
-                   <div class="card flex justify-center items-center  flex-col w-2/4 h-3/4 overflow-hidden">
-                <div class="card-content w-full flex flex-col justify-evenly text-center items-center">
+                   v-on:view-product="viewProduct($event)"
                    
-                </div>
-                </div>
-                <div class="effect flex justify-center items-center absolute w-10/12 h-5/6"></div>
-                <div class="background absolute w-full h-full "></div>
-            </div>
+                   />
+             
+                
         </div>
+       
     </div>
 </template>
 
 <script >
 import items from '../data/items.js';
 import ProductSummaryCard from '../components/products/ProductSummaryCard.vue';
+import ProductDescriptionDrawer from '../components/products/ProductDescriptionDrawer.vue';
 
 import {ref, toHandlers} from 'vue'
+import { increment } from 'firebase/firestore';
 
 export default {
     name: 'Shop',
     components: {
-        ProductSummaryCard,
+        ProductSummaryCard, ProductDescriptionDrawer,
+    },
+    methods: {
+        viewProduct(product){
+            this.product = product
+            console.log(this.product)
+        },
+       
     },
     data () {
         return {
             items: items,
             product: null,
+            active: {
+                product_drawer: false,
+            }
         }
     },
-    methods: {
-        viewProduct(product){
-            this.product = product
-        }
-    },
+   
 }
 
 </script>
@@ -51,19 +60,22 @@ export default {
 
 
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+
 
 
 .shop {
     font-family: $brother;
     background-color: $primaryone;
-    .product-cards-container {
-        width: 800px;
-        height: 600px;
+    #app {
+    font-family: $brother;
+    background-color: $primaryone;
+    .container {
+        width: 15rem;
+        height: 28em;
+        margin: 10px;
+        flex-wrap: wrap ;
+        
+        
       .effect{
         border-radius: 50%;
         background-color: &primaryone;
@@ -81,10 +93,9 @@ box-sizing: border-box;
         }
       }
       .background {
-        background: url(../assets/absback.png) center / cover;
+        
         mix-blend-mode: multiply;
-        width: 100%;
-        height: 100%;
+       
       }
       .card{
         border-radius: 20px;
@@ -92,7 +103,8 @@ box-sizing: border-box;
         transition: 1s ease-in-out;
         z-index: 10;
         background-color: $primaryone;
-        height: 530px;
+        
+        height: auto;
         &::after{
             position: absolute;
             content: "";
@@ -182,6 +194,8 @@ box-sizing: border-box;
         
       }
     }
+    
+}
     
 }
 

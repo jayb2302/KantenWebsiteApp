@@ -5,7 +5,7 @@ const items = [
         {
             id: 1,
             name: "Kanteen T-shirt",
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'T-shirt',
             description: "Our merch",
             size: "You can choose your size here",
@@ -14,7 +14,7 @@ const items = [
         {
             id: 2,
             name: 'Kanteen Hoodie',
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'Hoodie',
             description: "Our merch",
             size: "You can choose your size here",
@@ -23,7 +23,7 @@ const items = [
         {
             id: 3,
             name: 'Kanteen Socks',
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'Socks',
             description: "Our merch",
             size: "You can choose your size here",
@@ -32,7 +32,7 @@ const items = [
         {
             id: 4,
             name: 'Kanteen Water Bottle',
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'Accesories',
             description: "Our merch",
             size: "You can choose your size here",
@@ -41,7 +41,7 @@ const items = [
         {
             id: 5,
             name: 'Kanteen Bag',
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'Bag',
             description: "Our merch",
             size: "You can choose your size here",
@@ -50,7 +50,7 @@ const items = [
         {
             id: 6,
             name: 'Kanteen T-shirt',
-            image:require('../assets/img/tshirt.png'),
+            image:new URL('../assets/img/tshirt.png', import.meta.url),
             category: 'T-shirt',
             description: "Our merch",
             size: "You can choose your size here",

@@ -1,20 +1,20 @@
 <template>
-    <div id="app" class="flex justify-center center-align wrap w-screen h-screen" >
-    <div class="wrapper w-10/12 rb flex justify-center">
-        <div class=" bb container flex  flex-row items-center relative overflow-hidden">
-            <div class="card flex justify-center items-center  flex-col w-2/4 h-3/4 overflow-hidden">
+    <div  class="w-full h-5/6 flex wrap " >
+    <div class="wrapper ">
+        <div class=" container flex  relative ">
+            <div class="card  flex justify-center items-center w-full no overflow-hidden">
                 <div class="card-content w-full flex flex-col justify-evenly text-center items-center">
                     <img :src="product.image" style="height: 195px; width: 375px;" alt="">
                     <h1>{{ product.name }}</h1>
                     <p class="description"> Description: {{ description }}</p>
                     <h5 class="price"> Price: ${{ product.price.toFixed(2) }}</h5>
                     <p class="text-muted">{{ product.category }}</p>
-                    <button class="relative view-product-button">View</button>
+                    <button class="relative view-product-button" @click="$emit('view-product')">View</button>
 
                 </div>
                 </div>
-                <div class="effect flex justify-center items-center absolute w-10/12 h-5/6"></div>
-                <div class="background absolute w-full h-full "></div>
+                <div class="effect flex justify-center items-center absolute  h-5/6"></div>
+                <div class="background absolute w-auto h-full "></div>
             </div>
         </div>
     </div>
@@ -26,11 +26,21 @@
 
 export default {
     props: ['product'],
+    
+  
     computed : {
         description() {
             return this.product.description.substring(0, 150)
         }
-    }
+        
+    },
+    methods: {
+        viewProduct(product){
+            this.product = product
+            console.log()
+        },
+       
+    },
 }
 
 
@@ -50,12 +60,13 @@ box-sizing: border-box;
 }
 
 
-#app {
-    font-family: $brother;
-    background-color: $primaryone;
     .container {
-        width: 800px;
-        height: 600px;
+        width: 15rem;
+        height: 28em;
+        margin: 10px;
+        flex-wrap: wrap ;
+        
+        
       .effect{
         border-radius: 50%;
         background-color: &primaryone;
@@ -73,10 +84,9 @@ box-sizing: border-box;
         }
       }
       .background {
-        background: url(../assets/absback.png) center / cover;
+        
         mix-blend-mode: multiply;
-        width: 100%;
-        height: 100%;
+       
       }
       .card{
         border-radius: 20px;
@@ -84,7 +94,8 @@ box-sizing: border-box;
         transition: 1s ease-in-out;
         z-index: 10;
         background-color: $primaryone;
-        height: 530px;
+        
+        height: auto;
         &::after{
             position: absolute;
             content: "";
@@ -175,7 +186,7 @@ box-sizing: border-box;
       }
     }
     
-}
+
 
 .rb {
     box-sizing: border-box;

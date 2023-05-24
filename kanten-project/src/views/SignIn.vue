@@ -1,7 +1,7 @@
 <template>
-    <div id="app" class="w-12/12 mt-6 pt-5 pb-5 flex content-center justify-center"> 
+    <div id="app" class="w-full  pb-5 flex content-center justify-center"> 
        
-        <div class="container flex justify-center lg:top-20">
+        <div class="container flex justify-center mt-6 pt-5 top-20">
             <div class="card gap-6 flex flex-col justify-center items-center">
                 <a class="signup">Log in</a>
                 <div class="inputBox1">

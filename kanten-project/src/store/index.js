@@ -19,3 +19,7 @@ const app = createApp
 
 app.use(store)
 
+store.commit('increment')
+console.log(store.state.count)
+
+

@@ -8,9 +8,9 @@
             <h1 class="opacity-20 "></h1>
           </div>
   
-        <div class="flex w-10/12   justify-center border-l-3 ">
+        <div class="flex w-full  justify-center border-l-3 ">
          
-            <div class="btnwrapper flex text-center  wrap w-7/12 ">
+            <div class="btnwrapper flex text-center  wrap w-9/12 h-[600px]  ">
                 <TransitionGroup
                 appear
                 tag="div"
@@ -21,39 +21,39 @@
                   type="button"
                   key="button3"
                   @click="showModalMana = !showModalMana"
-                  class=" z-10 w-4/12  right-20 bottom-36 hover:text-gray-50">             
-                  <div class="image">
-                    <img src="../assets/mana.png" class="" alt="">  
-                  </div>              
+                  class=" z-10 w-6/12 right-28 bottom-36  hover:text-gray-50">             
+                
+                    <img src="../assets/manaanimation.png" class="cover image" alt="">  
+                           
                 </button>
 
                 <button
                   type="button"
                   key="button2"
-                  @click="showModalDub = !showModalDub"
-                  class=" z-10  w-4/12 left-48 top-48 hover:text-gray-50">                
+                  @click="showModal = !showModal"
+                  class=" z-10  w-6/12   left-28 bottom-40 hover:text-gray-50">                
                   <div class="image1">
-                    <img src="../assets/dub.svg" class="" alt="">  
+                    <img src="../assets/vertexanimation.png" class="cover" alt="">  
                   </div>              
                 </button>
 
                 <button
                   type="button"
-                  @click="showModal = !showModal"
+                  @click="showModalDeft = !showModalDeft"
                   key="button1"
-                  class=" z-10 left-16 bottom-32 mt-10  w-3/12 hover:text-gray-50">                
+                  class=" z-10 right-36 bottom-20  w-6/12  hover:text-gray-50">                
                   <div class="image">
-                  <img src="../assets/vertex.svg" class=" " alt="">              
+                  <img src="../assets/deftanimation.png" class="cover " alt="">              
                   </div>              
                 </button>
 
                 <button
                   type="button"
                   key="button4"
-                  @click="showModalDeft = !showModalDeft"
-                  class=" z-10 right-52 bottom-16  w-4/12 hover:text-gray-50">                
+                  @click="showModalDub = !showModalDub"
+                  class=" z-10 left-36  bottom-20  w-6/12 hover:text-gray-50">                
                   <div class="image1">
-                    <img src="../assets/deft.svg" class="" alt="">  
+                    <img src="../assets/dubanimation.png" class="w-fit" alt="">  
                   </div>              
                 </button>
               </TransitionGroup> 
@@ -135,6 +135,7 @@
       ease: 1,
       onComplete: done,
       rotation: 0,
+      repeat: 0,
     }
   );
 };
@@ -154,7 +155,15 @@
   <style lang="scss" >
     
      
-
+  .cover {
+    width: 40rem;
+    height:280px;
+  }
+  .button {
+    img {
+      background-color: transparent;
+    }
+  }
         .rb {
           box-sizing: border-box;
           border-color: red;
