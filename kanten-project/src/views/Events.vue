@@ -21,14 +21,9 @@
                     <p><strong>Artist:</strong> {{ event.artist }}</p>
                     <p><strong>Description:</strong> {{ event.description }}</p>
                     <p><strong>Time:</strong> {{ event.time }}</p>
-<<<<<<< Updated upstream
-                    <dd  class="accordion__text">
                         <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
                     </dd>
-=======
-                    <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-                  </dd>
->>>>>>> Stashed changes
+
                   </div>
                   <p>{{ event.tags }}</p>
                 </div>
@@ -37,14 +32,12 @@
           </div>
         </dl>
       </div>
-<<<<<<< Updated upstream
-     
-=======
+
       <label for="close-1" class="accordion__button">
         <span class="accordion__buttonText"></span>
       </label>
     </label>
->>>>>>> Stashed changes
+
     </div>
   </template>
   
