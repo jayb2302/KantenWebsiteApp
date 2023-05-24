@@ -4,25 +4,25 @@
     </div>
   
     <div class="timeline">
-      <label class="accordion accordion--1" for="open-1">
+      <label class="accordion accordion--1 " for="open-1">
         <input class="accordion__open" id="open-1" type="radio" name="accordion-1">
         <input class="accordion__close" id="open-1" type="radio" name="accordion-1">
         
-        <div class="accordion__wrapper" @click="toggleAccordion">
-        <dl class="accordion__box">
-          <div v-for="event in events" :key="event.id" class="card mb-5 w-full" :class="{ 'has-background-success-light': event.done }">
-            <div class="card-content w-9/12">
-              <div class="content">
-                <div class="columns is-mobile is-vcentered">
-                  <div class="column" :class="{ 'has-text-success line-through': event.done }">
-                    <p><strong>Title:</strong> {{ event.title }}</p>
-                    <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>                    
-                    <dd class="accordion__text" @click="toggleAccordion">
-                    <p><strong>Artist:</strong> {{ event.artist }}</p>
-                    <p><strong>Description:</strong> {{ event.description }}</p>
-                    <p><strong>Time:</strong> {{ event.time }}</p>
-                        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-                    </dd>
+        <div class="accordion__wrapper p-4 mb-5 mt-5" @click="toggleAccordion">
+            <dl class="accordion__box ">
+                <div v-for="event in events" :key="event.id" class="card  " :class="{ 'has-background-success-light': event.done }">
+                    <div class="card-content m-4 w-9/12">
+                        <div class="content">
+                        <div class="columns is-mobile is-vcentered">
+                        <div class="column" :class="{ 'has-text-success line-through': event.done }">
+                        <h3><strong></strong> {{ event.title }}</h3>
+                        <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>                    
+                        <dd class="accordion__text" @click="toggleAccordion">
+                        <p><strong>Artist:</strong> {{ event.artist }}</p>
+                        <p><strong>Description:</strong> {{ event.description }}</p>
+                        <p>Time:{{ event.time }}</p>
+                            <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+                        </dd>
 
                   </div>
                   <p>{{ event.tags }}</p>
@@ -83,6 +83,7 @@
   
   <style lang="scss" scoped>
   @import 'bulma/css/bulma.min.css';
+  @import '../modules/variables';
   
  
   
@@ -112,7 +113,7 @@
   }
 
   .accordion--1 {
-    color: #fff;
+    color: $gray;
   }
   .accordion{
     position: relative;
@@ -125,8 +126,8 @@
     justify-content: center;
     position: relative;
     z-index: 2;
-    width: 96px;
-    height: 24px;
+    
+
     font-size: 16px;
     border-radius: 12px 13px 0 0;
   }
@@ -148,10 +149,8 @@
   display: none;
 }
 .accordion__wrapper{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 24px;
+  position: absolute;
+  width: 450px;
   box-sizing: border-box;
   background: #fff;
   border-radius: 0 12px 12px 12px;
@@ -212,16 +211,17 @@
   font-weight: bold;
   line-height: 1.3;
   min-height: 40px;
+  &::before{
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        right: 0;
+        width: 0;
+        height: 1px;
+        background: aquamarine;
+    }
 }
-.accordion__title::before{
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  right: 0;
-  width: 0;
-  height: 1px;
-  background: aquamarine;
-}
+
 /* .accordion__text{
   position: relative;
   z-index: 2;
@@ -249,7 +249,6 @@
   margin:0;
   padding:0;
   font-family: 'Roboto', sans-serif;
-  background:#1d1e22;
   color:#fff;
  z-index:0;
 }

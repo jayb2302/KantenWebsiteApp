@@ -4,14 +4,18 @@
     <!-- Home Section -->
     <section id="home" class=" w-full h-screen">
 	<div class="logo">
-	<img src="" alt="">
+		<img src="" alt="">
 	</div>
       <!-- Home Section Content -->
+	  <button
+	  	@click="showModalKraft = !showModalKraft"
+	    class=" w-5/12 h-28 "><p>Kraftværket</p></button>
+		<KraftDialog :show="showModalKraft"/>
     </section>
 
     <!-- Our Genre Section -->
     <section id="genre" class="w-full  justify-center  items-center  text-center">
-      <div class="box absolute"> <h2 class="">Our Genre</h2></div>
+      <div class="box pr absolute"> <h2 class="">Discover</h2></div>
       <div class="flex justify-between">
         <Genre />
        
@@ -41,27 +45,32 @@
   </template>
   
   <script>
-  import { onMounted } from 'vue';
+  import { onMounted, ref } from 'vue';
+  
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import { useRouter } from 'vue-router'
   import Genre from './Genre.vue'
+  import KraftModal from '../components/KraftModal.vue';
 
-  
+
   
   export default {
 	name: 'HomePage',
-  	components: {
+	name: 'KraftModal',
 	
-    Genre,
+
+  	components: {
+		KraftModal,
+    	Genre,
     routerView: useRouter.component,
   	
   	},
+	  
     setup() {
       onMounted(() => {
         const body = document.querySelector('body');
-
-
+		const showModalKraft = ref(false);
         gsap.registerPlugin(ScrollTrigger)
 		gsap.to('progress', {
 		value: 100,
@@ -73,13 +82,18 @@
           trigger: "body",
           start: "top top",
           end: "bottom bottom",
-          scrub: 0.15,
-          snap: 1 / 5,
+          scrub: 0.1,
+          snap: 1 / 4,
 		  markers: true,
          
         });
+		return {
+			showModalKraft,
+		}
       });
+	 
     }
+	
   }
   </script>
   
@@ -115,10 +129,45 @@ progress::-moz-progress-bar {
 #home {
 	background-image: url('../assets/kantenbg.webp');
 	background-size: cover;
-	filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(118deg) saturate(170%) opacity(50%) contrast(206%) invert(3%);
--webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(118deg) saturate(170%) opacity(50%) contrast(206%) invert(3%);
--moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(118deg) saturate(170%) opacity(50%) contrast(206%) invert(3%);
-	
+	filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+	-webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+	-moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+	button {
+		position: absolute;
+		color: $white;
+		background: $primaryone;
+		z-index: 110;
+		right: 2%;
+		bottom: 50%;
+		width: 300px;
+   		height: 70px;
+   		cursor: pointer;
+		color: #fff;
+		border: 4px solid $gray;
+		border-radius: 0px;
+		transition: all .4s;
+		
+		
+			p {
+				
+				font-size: 1.5rem;
+				letter-spacing: 9px;
+				font-family: $brother;
+				text-transform: uppercase;
+				
+			}
+			&:hover {
+				
+				border-radius: 0px;
+				border-color: #ffffff;
+				font-size: 20em;
+				transform: translateY(-10px);
+				box-shadow: 0 7px 0 -2px #d88bd7,
+					0 15px 0 -4px #8f9b49,
+					0 16px 10px -3px #39a2db;
+			}
+		
+	}
 }
 #events {
 	background-image: url('../assets/fiber.png');
@@ -130,20 +179,27 @@ progress::-moz-progress-bar {
 
 #genre {
 	display: flex;
+
 	.box {
 		font-family: $brother;
 		border: 2px solid $gray;
 		border-radius: 0;
 		background-color: transparent;
 		transform: rotate(45deg);
-		height: 300px;
-		width: 300px;
+		height: 200px;
+		width: 200px;
+		z-index: 100;
+		box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		-webkit-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		-moz-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		
+	
 		h2 {
 			transform: rotate(-45deg);
-			top: 13%;
-			right: 15%;
+			top: 40%;
+			right: 40%;
 			width: 280px;
-			font-size: 7em;
+			font-size: 3em;
 			line-height: 0.8em;
 			
 		}

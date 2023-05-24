@@ -23,7 +23,7 @@
                   @click="showModalMana = !showModalMana"
                   class=" z-10 w-6/12 right-28 bottom-36  hover:text-gray-50">             
                 
-                    <img src="../assets/manaanimation.png" class="cover image" alt="">  
+                    <img src="../assets/manaanimation.gif" class="cover image" alt="">  
                            
                 </button>
 
@@ -33,7 +33,7 @@
                   @click="showModal = !showModal"
                   class=" z-10  w-6/12   left-28 bottom-40 hover:text-gray-50">                
                   <div class="image1">
-                    <img src="../assets/vertexanimation.png" class="cover" alt="">  
+                    <img src="../assets/vertexanimtion.gif" class="cover" alt="">  
                   </div>              
                 </button>
 
@@ -43,7 +43,7 @@
                   key="button1"
                   class=" z-10 right-36 bottom-20  w-6/12  hover:text-gray-50">                
                   <div class="image">
-                  <img src="../assets/deftanimation.png" class="cover " alt="">              
+                  <img src="../assets/deftanimation.gif" class="cover " alt="">              
                   </div>              
                 </button>
 
@@ -53,7 +53,7 @@
                   @click="showModalDub = !showModalDub"
                   class=" z-10 left-36  bottom-20  w-6/12 hover:text-gray-50">                
                   <div class="image1">
-                    <img src="../assets/dubanimation.png" class="w-fit" alt="">  
+                    <img src="../assets/dubanimation.gif" class="w-fit" alt="">  
                   </div>              
                 </button>
               </TransitionGroup> 
@@ -115,10 +115,10 @@
       const delay = index * 0.6; // Adjust the delay duration as needed
    
       const initialPosition = {
-        top: { opacity: 0, x: -120 },
-        left: { opacity: 0, x: 180 },
-        right: { opacity: 0, y: -150 },
-        bottom: { opacity: 0, y: 220 },
+        top: { opacity: 0, x: -0 },
+        left: { opacity: 0, x: 0 },
+        right: { opacity: 0, y: 0 },
+        bottom: { opacity: 0, y: 0 },
       };
 
       const finalPosition = { opacity: 1, x: 0, y: 0 };
@@ -135,7 +135,7 @@
       ease: 1,
       onComplete: done,
       rotation: 0,
-      repeat: 0,
+      
     }
   );
 };
@@ -179,9 +179,11 @@
 
         .image {
           animation: float 6s ease-in-out infinite;
+        
         }
         .image1 {
           animation: float 4s ease-in-out infinite;
+       
         }
 
         @keyframes float {
