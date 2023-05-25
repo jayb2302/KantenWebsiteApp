@@ -25,7 +25,7 @@ const router = createRouter({
         { path: "/shopcard", component: () => import("../components/ShopCard.vue")}, */
         { path: "/test", component: () => import("../views/HomeTest.vue")},
         { path: "/events", component: () => import("../views/Events.vue")},
-        { path: "/time", component: () => import("../views/Timeline.vue")},
+        { path: "/gallery", component: () => import("../components/Gallery.vue")},
       ]
 });
 
