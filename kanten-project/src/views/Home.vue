@@ -10,7 +10,7 @@
 	  <button
 	  	@click="showModalKraft = !showModalKraft"
 	    class=" w-5/12 h-28 "><p>Kraftværket</p></button>
-		<KraftDialog :show="showModalKraft"/>
+		
     </section>
 
     <!-- Our Genre Section -->
@@ -41,7 +41,7 @@
       <!-- Team member profiles -->
     </section>
   </div>
-
+  <KraftDialog :show="showModalKraft"/>
   </template>
   
   <script>
@@ -70,7 +70,7 @@
     setup() {
       onMounted(() => {
         const body = document.querySelector('body');
-		const showModalKraft = ref(false);
+		const showModalKraft = (false);
         gsap.registerPlugin(ScrollTrigger)
 		gsap.to('progress', {
 		value: 100,

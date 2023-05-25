@@ -3,83 +3,92 @@
       <!-- Your title content here -->
     </div>
   
-    <div class="timeline">
-      <label class="accordion accordion--1 " for="open-1">
+    <div class="timeline flex">
+      <label class="accordion accordion--1" for="open-1">
         <input class="accordion__open" id="open-1" type="radio" name="accordion-1">
         <input class="accordion__close" id="open-1" type="radio" name="accordion-1">
-        
-        <div class="accordion__wrapper p-4 mb-5 mt-5" @click="toggleAccordion">
-            <dl class="accordion__box ">
-                <div v-for="event in events" :key="event.id" class="card  " :class="{ 'has-background-success-light': event.done }">
-                    <div class="card-content m-4 w-9/12">
-                        <div class="content">
-                        <div class="columns is-mobile is-vcentered">
-                        <div class="column" :class="{ 'has-text-success line-through': event.done }">
-                        <h3><strong></strong> {{ event.title }}</h3>
-                        <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>                    
-                        <dd class="accordion__text" @click="toggleAccordion">
+  
+        <div class="accordion__wrapper flex p-4 mb-5 mt-5" @click="toggleAccordion">
+          <dl class="accordion__box flex-row wrap w-1/2 ">
+            <div v-for="(event, index) in leftEvents" :key="event.id" class="card" :class="{ 'has-background-success-light': event.done }">
+              <div class="card-content m-4 w-9/12">
+                <div class="content m-4">
+                  <div class="columns is-mobile is-vcentered">
+                    <div class="column" :class="{ 'has-text-success line-through': event.done }">
+                      <h3><strong></strong> {{ event.title }}</h3>
+                      <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>
+                      <dd class="accordion__text" @click="toggleAccordion">
                         <p><strong>Artist:</strong> {{ event.artist }}</p>
                         <p><strong>Description:</strong> {{ event.description }}</p>
                         <p>Time:{{ event.time }}</p>
-                            <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-                        </dd>
-
+                        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+                      </dd>
+                    </div>
+                    <p>{{ event.tags }}</p>
                   </div>
-                  <p>{{ event.tags }}</p>
                 </div>
               </div>
             </div>
-          </div>
-        </dl>
-      </div>
-
-      <label for="close-1" class="accordion__button">
-        <span class="accordion__buttonText"></span>
+          </dl>
+        </div>
       </label>
-    </label>
-
+  
+      <label class="accordion accordion--2" for="open-2">
+        <input class="accordion__open" id="open-2" type="radio" name="accordion-2">
+        <input class="accordion__close" id="open-2" type="radio" name="accordion-2">
+  
+        <div class="accordion__wrapper flex p-4 mb-5 mt-5" @click="toggleAccordion">
+          <dl class="accordion__box flex flex-row wrap w-1/2 ">
+            <div v-for="(event, index) in rightEvents" :key="event.id" class="card" :class="{ 'has-background-success-light': event.done }">
+              <div class="card-content m-4 w-9/12">
+                <div class="content m-4">
+                  <div class="columns is-mobile is-vcentered">
+                    <div class="column" :class="{ 'has-text-success line-through': event.done }">
+                      <h3><strong></strong> {{ event.title }}</h3>
+                      <span class="accordion__number"><p><strong>Date:</strong> {{ formatDate(event.date) }}</p></span>
+                      <dd class="accordion__text" @click="toggleAccordion">
+                        <p><strong>Artist:</strong> {{ event.artist }}</p>
+                        <p><strong>Description:</strong> {{ event.description }}</p>
+                        <p>Time:{{ event.time }}</p>
+                        <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+                      </dd>
+                    </div>
+                    <p>{{ event.tags }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </dl>
+        </div>
+      </label>
     </div>
   </template>
   
-  <script setup>
-  import { onMounted, ref as refVue } from 'vue'
-  import { collection, onSnapshot } from 'firebase/firestore'
-  import { db } from '@/firebase'
-  
-  const events = refVue([])
-  const eventDataRef = collection(db, "events")
-  
-  const getEventsData = () => {
-    onSnapshot(eventDataRef, (snapshot) => {
-      events.value = snapshot.docs.map(doc => {
-        return {
-          id: doc.id,
-          title: doc.data().title,
-          artist: doc.data().artist,
-          description: doc.data().description,
-          venue: doc.data().venue,
-          date: doc.data().date,
-          imgURL: doc.data().imgURL,
-          done: doc.data().done,
-          time: doc.data().time,
-        }
-      })
-    })
-  }
-  getEventsData();
-  
-  const formatDate = (date) => {
-    // Format the date as desired using the toLocaleDateString() function
-    return new Date(date).toLocaleDateString();
-  }
+ 
+<script setup>
+import { ref, onMounted, computed } from 'vue';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '@/firebase';
 
-  
-  const toggleAccordion = (event) => {
-  const accordionText = event.currentTarget;
-  accordionText.classList.toggle('active');
+const events = ref([]);
+
+const getEventsData = () => {
+  const eventDataRef = collection(db, 'events');
+  onSnapshot(eventDataRef, (snapshot) => {
+    events.value = snapshot.docs.map((doc) => doc.data());
+  });
 };
 
-  </script>
+onMounted(getEventsData);
+
+const leftEvents = computed(() => events.value.filter((_, index) => index % 2 === 0));
+const rightEvents = computed(() => events.value.filter((_, index) => index % 2 !== 0));
+
+const formatDate = (date) => {
+  // Format the date as desired using the toLocaleDateString() function
+  return new Date(date).toLocaleDateString();
+};
+</script>
   
   <style lang="scss" scoped>
   @import 'bulma/css/bulma.min.css';
@@ -113,6 +122,9 @@
   }
 
   .accordion--1 {
+    color: $gray;
+  }
+  .accordion--2 {
     color: $gray;
   }
   .accordion{
