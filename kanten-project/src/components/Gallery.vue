@@ -13,6 +13,10 @@
       }"
       :pagination="true"
       :modules="modules"
+      :autoplay="{
+      delay: 2000, 
+      disableOnInteraction: false, 
+    }"
       class="mySwiper"
     >
       <swiper-slide
@@ -55,7 +59,7 @@
   
   
   // import required modules
-  import { EffectCoverflow, Pagination } from "swiper";
+  import { EffectCoverflow, Pagination, Autoplay } from "swiper";
   
   export default {
     components: {
@@ -64,7 +68,7 @@
     },
     setup() {
       return {
-        modules: [EffectCoverflow, Pagination],
+        modules: [EffectCoverflow, Pagination, Autoplay],
       };
     },
   };
@@ -91,15 +95,15 @@ body {
 
 .swiper {
   width: 100%;
-  padding-top: 50px; /*
-  padding-bottom: 50px; */
+  padding-top: 50px;
+  padding-bottom: 50px; 
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 400px;
-  height: 600px;
+  width: 674px;
+  height: 450px;
 }
 
 .swiper-slide img {

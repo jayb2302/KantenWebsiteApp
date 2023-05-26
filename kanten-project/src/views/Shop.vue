@@ -1,4 +1,5 @@
 <template>
+<<<<<<< Updated upstream
     <div  class="shop flex center-align justify-center w-full h-screen" >
         <ProductDescriptionDrawer
             :product="product"
@@ -50,10 +51,19 @@ export default {
     },
    
 }
+=======
+    <div>
+
+    </div>
+</template>
+
+<script setup>
+>>>>>>> Stashed changes
 
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< Updated upstream
 @import '../modules/_variables.scss';
 
 
@@ -209,5 +219,20 @@ export default {
     border-width: 0.5px;
     border-color: rgb(162, 167, 192);
   }
+=======
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: $kpink;
+
+}
+
+>>>>>>> Stashed changes
 
 </style>
