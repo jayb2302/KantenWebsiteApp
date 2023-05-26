@@ -34,7 +34,7 @@
       <h2 class="text-3xl font-bold mb-5">Upcoming Events</h2>
       <router-view></router-view>
     </section>
-                     <!-- Upcoming Events Section -->
+                     <!-- Gallery Section -->
     <section id="gallery" class="py-10 w-full h-screen">
 		<div class="gallerybg"></div>
       <h2 class="text-3xl font-bold mb-5">Gallery</h2>
