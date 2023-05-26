@@ -21,8 +21,8 @@
                     role="dialog"
                     ref="modal">  
                     <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
-                    <img src="../assets/dub.svg" class="w-28 relative " alt="">
-                    <p class="text-2xl w-8/12 mb-3 m-auto text-center">Reggae Vibes: Reggae music is characterised by its laid-back rhythms and distinctive basslines. Incorporating elements  such as guitar, bass guitar, Jamaican flag colours, or iconic reggae symbols.</p>                 
+                    <img src="../assets/smallkanten.svg" class="w-28 absolute " alt="">
+                    <p class=" w-12/12 mb-3 m-auto text-center"> Kraftværket </p>                 
                     <button
                       class="btn absolute right-3 text-3xl pt-1 mt-1 
                       pb-0.5 pl-2 pr-2 top-2 z-20"
@@ -74,7 +74,7 @@ export default {
       );
 
     return {
-      showModal, closeModal,
+      showModal, closeModal
     };
   },
 };
@@ -87,8 +87,8 @@ export default {
 .modal {
   background-color: $primaryone;
   box-shadow: 
-    0px 0px 5px $kpink,        
-    inset 0 0 3px $kpink;
+    0px 0px 2px $gray,        
+    inset 0 0 3px $gray;
   color: $white;
  
 
@@ -99,6 +99,11 @@ export default {
   }
   p {
     font-family: $k2d;
+    font-size: 11rem;
+
+    letter-spacing: 4rem;
+   
+    
   }
      
  

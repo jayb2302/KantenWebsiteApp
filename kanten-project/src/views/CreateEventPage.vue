@@ -1,67 +1,70 @@
 <template>
 
-  <div class="w-10/12 title has-text-centered">
+  <div class=" title has-text-centered">
     <!-- Your title content here -->
   </div>
   <button @click="handleSignOut" v-if="isLoggedIn">Sign out</button>
- <form @submit.prevent="addEvent">
-    <div class="field is-grouped flex flex-column flex p-2 m-2">
-      <div class="control is-expanded">
-        <input v-model="newEventTitle" class="input" type="text" placeholder="Title" />
-      </div>
-      <p class="control is-expanded">
-        <input v-model="newEventArtist" class="input" type="text" placeholder="Artist" />
-      </p>
-      <p class="control is-expanded">
-        <input v-model="newEventDescription" class="input" type="text" placeholder="Description" />
-      </p>
-      <p class="control is-expanded">
-        <input v-model="newEventVenue" class="input" type="text" placeholder="Venue" />
-      </p>
-      <p class="control is-expanded">
-        <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
-      </p>
-      <p class="control is-expanded">
-        <input v-model="newEventTime" class="input" type="time" placeholder="" />
-      </p>
-      <p class="control is-expanded">
-        <input v-model="newEventTags" class="input" type="text" placeholder="" />
-      </p>
-
-      <p class="control is-expanded">
-        <input @change="newEventImg($event)" class="input" type="file" placeholder="Picture" />
-      </p> 
-
-   
-      <div class="control">
-        <button  class="button is-info"> <!-- :disabled="!newEventTitle" --> 
-          Add
-        </button>
-      </div>
-    </div>
-  </form>
-
-  <div v-for="event in events" :key="event.id" class="card mb-5" :class="{ 'has-background-success-light': event.done }">
-    <div class="card-content">
-      <div class="content">
-        <div class="columns is-mobile is-vcentered">
-          <div class="column" :class="{ 'has-text-success line-through': event.done }">
-            <p><strong>Title:</strong> {{ event.title }}</p>
-            <p><strong>Artist:</strong> {{ event.artist }}</p>
-            <p><strong>Description:</strong> {{ event.description }}</p>
-            <p><strong>Date:</strong> {{ event.date }}</p>
-            <p><strong>Time:</strong> {{ event.time }}</p>
-            <p><strong>Tags:</strong> {{ event.tags }}</p>
-            <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
-            
+  <div class="wrapper flex w-full flex-col ">
+    <div class="form-wrapper flex w-full  ">
+      <form class="m-auto" @submit.prevent="addEvent">
+        <div class="field is-grouped flex flex-col wrap w-full justify-center  pt-10 gap-4">
+          <div class="control is-expanded">
+            <input v-model="newEventTitle" class="input" type="text" placeholder="Title" />
           </div>
-          <div class="column is-5 has-text-right">
-            <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
-              &check;
+          <p class="control is-expanded">
+            <input v-model="newEventArtist" class="input" type="text" placeholder="Artist" />
+          </p>
+          <p class="control is-expanded">
+            <input v-model="newEventDescription" class="input" type="text" placeholder="Description" />
+          </p>
+          <p class="control is-expanded">
+            <input v-model="newEventVenue" class="input" type="text" placeholder="Venue" />
+          </p>
+          <p class="control is-expanded">
+            <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
+          </p>
+          <p class="control is-expanded">
+            <input v-model="newEventTime" class="input" type="time" placeholder="" />
+          </p>
+          <p class="control is-expanded">
+            <input v-model="newEventTags" class="input" type="text" placeholder="" />
+          </p>
+
+          <p class="control is-expanded">
+            <input @change="newEventImg($event)" class="input" type="file" placeholder="Picture" />
+          </p> 
+
+      
+          <div class="control">
+            <button  class="button is-info"> <!-- :disabled="!newEventTitle" --> 
+              Add
             </button>
-            <button @click="deleteEvent(event.id)" class="button is-danger">
-              &cross;
-            </button>
+          </div>
+        </div>
+      </form>
+    </div> 
+    <div v-for="event in events" :key="event.id" class="w-8/12 card mb-5" :class="{ 'has-background-success-light': event.done }">
+      <div class="card-content">
+        <div class="content">
+          <div class="columns is-mobile is-vcentered">
+            <div class="column" :class="{ 'has-text-success line-through': event.done }">
+              <p><strong>Title:</strong> {{ event.title }}</p>
+              <p><strong>Artist:</strong> {{ event.artist }}</p>
+              <p><strong>Description:</strong> {{ event.description }}</p>
+              <p><strong>Date:</strong> {{ event.date }}</p>
+              <p><strong>Time:</strong> {{ event.time }}</p>
+              <p><strong>Tags:</strong> {{ event.tags }}</p>
+              <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+              
+            </div>
+            <div class="column is-5 has-text-right">
+              <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
+                &check;
+              </button>
+              <button @click="deleteEvent(event.id)" class="button is-danger">
+                &cross;
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -227,5 +230,13 @@ const newEventImg = async (event) => {
 </script>
 
 <style lang="scss" scoped>
-@import 'bulma/css/bulma.min.css'
+@import 'bulma/css/bulma.min.css';
+
+.field {
+  margin: auto;
+}
+.card {
+  margin: auto;
+}
+
 </style>

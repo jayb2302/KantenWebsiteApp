@@ -6,16 +6,19 @@
 	<div class="logo">
 		<img src="" alt="">
 	</div>
+	
       <!-- Home Section Content -->
 	  <button
 	  	@click="showModalKraft = !showModalKraft"
-	    class=" w-5/12 h-28 "><p>Kraftværket</p></button>
+	    class=" w-5/12 h-28 "><p>Kraftværket</p>
 		
+		</button>
+	<KraftDialog :show="!showModalKraft"/>
     </section>
-
+	
     <!-- Our Genre Section -->
     <section id="genre" class="w-full  justify-center  items-center  text-center">
-      <div class="box pr absolute"> <h2 class="">Discover</h2></div>
+   
       <div class="flex justify-between">
         <Genre />
        
@@ -23,25 +26,98 @@
     </section>
 
     <!-- Upcoming Events Section -->
-    <section id="events" class="py-10 w-full h-screen">
-		<div class="eventsbg"></div>
-      <h2 class="text-3xl font-bold mb-5">Upcoming Events</h2>
+    <section id="events" class="py-10 w-full mt-20 h-screen">
+	<h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
+		<div class="eventsbg "></div>
+      
       <router-view></router-view>
     </section>
 
     <!-- Recent Posts Section -->
-    <section id="posts" class="py-10">
-      <h2 class="text-3xl font-bold mb-5">Recent Posts</h2>
-      <!-- Show recent posts from Facebook -->
+    <section id="posts" class="py-10 w-full">
+	
+      <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
+	  	<div class="recents-posts flex justify-center gap-5">
+			<iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0" width="300" height="584" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+			<iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0" width="300" height="584" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+			<iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0" width="300" height="584" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+			<iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0" width="300" height="584" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+		</div>
     </section>
 
     <!-- Meet Our Team Section -->
-    <section id="team" class="py-10">
+    <section id="team" class="py-10 ">
       <h2 class="text-3xl font-bold mb-5">Meet Our Team</h2>
-      <!-- Team member profiles -->
+		<div class="container w-full justify-center flex ">
+			<div class="row flex  gap-6">
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="our-team">
+					<div class="picture">
+					<img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+					</div>
+					<div class="team-content">
+					<h3 class="name">Michele Miller</h3>
+					<h4 class="title">Web Developer</h4>
+					</div>
+					<ul class="social">
+						<li><a href="#" class="fa fa-facebook" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'facebook-f']"/></a></li>
+						<li><a href="#" class="fa fa-instagram" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'instagram']"/></a></li>
+						<li><a href="#" class="fa fa-linkedin" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']"/></a></li>
+					</ul>
+				</div>
+				</div>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="our-team">
+					<div class="picture">
+					<img class="img-fluid" src="https://picsum.photos/130/130?image=839">
+					</div>
+					<div class="team-content">
+					<h3 class="name">Patricia Knott</h3>
+					<h4 class="title">Web Developer</h4>
+					</div>
+					<ul class="social">
+						<li><a href="#" class="fa fa-facebook" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'facebook-f']"/></a></li>
+						<li><a href="#" class="fa fa-instagram" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'instagram']"/></a></li>
+						<li><a href="#" class="fa fa-linkedin" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']"/></a></li>
+					</ul>
+				</div>
+				</div>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="our-team">
+					<div class="picture">
+					<img class="img-fluid" src="https://picsum.photos/130/130?image=856">
+					</div>
+					<div class="team-content">
+					<h3 class="name">Justin Ramos</h3>
+					<h4 class="title">Web Developer</h4>
+					</div>
+					<ul class="social">
+					<li><a href="#" class="fa fa-facebook" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'facebook-f']"/></a></li>
+					<li><a href="#" class="fa fa-instagram" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'instagram']"/></a></li>
+					<li><a href="#" class="fa fa-linkedin" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']"/></a></li>
+					</ul>
+				</div>
+				</div>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="our-team">
+					<div class="picture">
+					<img class="img-fluid" src="https://picsum.photos/130/130?image=836">
+					</div>
+					<div class="team-content">
+					<h3 class="name">Mary Huntley</h3>
+					<h4 class="title">Web Developer</h4>
+					</div>
+					<ul class="social">
+						<li><a href="#" class="fa fa-facebook" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'facebook-f']"/></a></li>
+						<li><a href="#" class="fa fa-instagram" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'instagram']"/></a></li>
+						<li><a href="#" class="fa fa-linkedin" aria-hidden="true"><font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']"/></a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>
     </section>
   </div>
-  <KraftDialog :show="showModalKraft"/>
   </template>
   
   <script>
@@ -51,26 +127,29 @@
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import { useRouter } from 'vue-router'
   import Genre from './Genre.vue'
-  import KraftModal from '../components/KraftModal.vue';
+  import KraftDialog from '../components/KraftModal.vue';
 
 
   
   export default {
 	name: 'HomePage',
-	name: 'KraftModal',
+	nameone: 'KraftModal',
 	
 
   	components: {
-		KraftModal,
-    	Genre,
+		KraftDialog,
+    	Genre, 
     routerView: useRouter.component,
   	
   	},
 	  
     setup() {
+		
+
       onMounted(() => {
         const body = document.querySelector('body');
 		const showModalKraft = (false);
+		
         gsap.registerPlugin(ScrollTrigger)
 		gsap.to('progress', {
 		value: 100,
@@ -143,8 +222,9 @@ progress::-moz-progress-bar {
    		height: 70px;
    		cursor: pointer;
 		color: #fff;
-		border: 4px solid $gray;
-		border-radius: 0px;
+		box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+		-webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
+		-moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
 		transition: all .4s;
 		
 		
@@ -161,10 +241,12 @@ progress::-moz-progress-bar {
 				border-radius: 0px;
 				border-color: #ffffff;
 				font-size: 20em;
-				transform: translateY(-10px);
-				box-shadow: 0 7px 0 -2px #d88bd7,
-					0 15px 0 -4px #8f9b49,
-					0 16px 10px -3px #39a2db;
+				transform: scaleX(1.1);
+				box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+				-webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
+				-moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
+				
+				
 			}
 		
 	}
@@ -180,31 +262,149 @@ progress::-moz-progress-bar {
 #genre {
 	display: flex;
 
-	.box {
-		font-family: $brother;
-		border: 2px solid $gray;
-		border-radius: 0;
-		background-color: transparent;
-		transform: rotate(45deg);
-		height: 200px;
-		width: 200px;
-		z-index: 100;
-		box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
-		-webkit-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
-		-moz-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
-		
 	
-		h2 {
-			transform: rotate(-45deg);
-			top: 40%;
-			right: 40%;
-			width: 280px;
-			font-size: 3em;
-			line-height: 0.8em;
-			
-		}
-		
+}
+
+h2 {
+		text-align: center;
+		font-size: 6em;
+		font-family: $brother;
+		padding-bottom: 5%;
+		margin-top: -5%;
+		text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
 	}
+	
+
+
+#team {
+	
+	.our-team {
+		padding: 15px 0 25px;
+		margin-bottom: 30px;
+		background-color: $white;
+		text-align: center;
+		overflow: hidden;
+		position: relative;
+		box-shadow: -2px 15px 21px 5px rgba(0,0,0,0.55);
+		-webkit-box-shadow: -2px 15px 21px 5px rgba(0,0,0,0.55);
+		-moz-box-shadow: -2px 15px 21px 5px rgba(0,0,0,0.55);
+	
+	.name {
+		font-size: 1.3rem;
+
+	}
+		.picture {
+			display: inline-block;
+			height: 130px;
+			width: 180px;
+			margin-bottom: 50px;
+			z-index: 1;
+			position: relative;
+			&::before {
+				content: "";
+				width: 100%;
+				height: 120%;
+				border-radius:50%;
+				background-color: $primaryone;
+				position: absolute;
+				bottom: 100%;
+				right: 0;
+				left: 0;
+				opacity: 1;
+				transform: scale(3);
+				transition: all 0.3s linear 0s;
+			}
+			&::after {
+				content: "";
+				height: 100%;
+				border-radius: 50%;
+				background-color: $primaryone;
+				position: absolute;
+				top: 10%;
+				left: 0;
+				z-index: -1;
+			}
+			img {
+				margin-left: auto;
+				margin-right: auto;
+				width: 90%;
+				height: auto;
+				border-radius: 50%;
+				transform: scale(1);
+				transition: all 1.3s ease 0s;
+			}
+		}
+	}
+
+
+
+.our-team:hover .picture::before {
+  height: 100%;
+}
+
+
+
+
+
+.our-team:hover .picture img {
+  box-shadow: 0 0 0 3px $gray;
+  transform: scale(0.9);
+ 
+  
+}
+
+.our-team:hover .team-content {
+	transform: translateY(-25px);
+	transition: all 1s ease 0s;
+	
+}
+
+.our-team .title {
+  display: block;
+  font-size: 19px;
+  color: $primaryone;
+  text-transform: capitalize;
+ 
+}
+
+.our-team .social {
+  width: 100%;
+  padding: 0;
+  padding-top: 2%;
+  margin: 0;
+  background-color: $kblue;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.8s ease 0s;
+}
+
+.our-team:hover .social {
+  bottom: 0;
+  box-shadow: 0px 0px 13px 5px rgba(98, 100, 108, 0.44);
+-webkit-box-shadow: 0px 0px 13px 5px rgba(98, 100, 108, 0.44);
+-moz-box-shadow: 0px 0px 13px 5px rgba(94, 92, 92, 0.44);
+}
+
+.our-team .social li {
+  display: inline-block;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 5px;
+  
+  color: $white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.our-team .social li a:hover {
+  color: $kpink;
+  background-color: transparent;
+}
+
+
 }
 .rb {
           box-sizing: border-box;

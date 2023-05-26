@@ -7,7 +7,7 @@
         <div class="bgtext text-5xl ">
             <h1 class="opacity-20 "></h1>
           </div>
-  
+          <div class="box absolute top-52 "> <h2 class="">Discover</h2></div>
         <div class="flex w-full  justify-center border-l-3 ">
          
             <div class="btnwrapper flex text-center  wrap w-9/12 h-[600px]  ">
@@ -153,12 +153,36 @@
   </script>
   
   <style lang="scss" >
-    
+  @import '../modules/variables';  
      
   .cover {
     width: 40rem;
     height:280px;
   }
+  .box {
+		font-family: $brother;
+		border: 2px solid $gray;
+		border-radius: 0;
+		background-color: transparent;
+		transform: rotate(45deg);
+		height: 200px;
+		width: 200px;
+		box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		-webkit-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		-moz-box-shadow: 14px 3px 44px -6px rgba(0,0,0,0.64);
+		
+		h2 {
+			transform: rotate(-45deg);
+			top: 40%;
+			right: 23%;
+     
+			width: 280px;
+			font-size: 3em;
+			line-height: 0.8em;
+			
+		}
+		
+	}
   .button {
     img {
       background-color: transparent;
