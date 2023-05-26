@@ -17,31 +17,30 @@
     >
       <swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide
+          src="../assets/img/01.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide
+          src="../assets/img/02.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide
+          src="../assets/img/03.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide
+          src="../assets/img/04.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide
+          src="../assets/img/05.JPG"/></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide
+          src="../assets/img/06.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide
+          src="../assets/img/07.JPG" /></swiper-slide
       ><swiper-slide
         ><img
-          src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide
+          src="../assets/img/08.JPG" /></swiper-slide
       ><swiper-slide
-        ><img src="https://swiperjs.com/demos/images/nature-9.jpg"
-      /></swiper-slide>
+        ><img src="../assets/img/09.JPG" /></swiper-slide>
     </swiper>
   </template>
   <script>
@@ -92,15 +91,15 @@ body {
 
 .swiper {
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 50px; /*
+  padding-bottom: 50px; */
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 600px;
 }
 
 .swiper-slide img {
