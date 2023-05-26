@@ -15,7 +15,7 @@
       :modules="modules"
       :autoplay="{
       delay: 1500, 
-      disableOnInteraction: false, 
+      disableOnInteraction: true, 
     }"
       class="mySwiper"
     >
@@ -81,7 +81,7 @@
 html,
 body {
   position: relative;
-  height: 100%;
+  
 }
 
 body {
@@ -102,8 +102,8 @@ body {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 674px;
-  height: 450px;
+  width: 380px;
+  height: auto;
 }
 
 .swiper-slide img {

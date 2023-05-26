@@ -29,16 +29,19 @@
                       &cross;
                     </button>
                      <!-- Upcoming Events Section -->
-    <section id="events" class="py-10 w-full h-screen">
+    <section id="events" class="py-10 w-full h-auto">
 		<div class="eventsbg"></div>
-      <h2 class="text-3xl font-bold mb-5">Upcoming Events</h2>
+      <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
       <router-view></router-view>
     </section>
                      <!-- Gallery Section -->
-    <section id="gallery" class="py-10 w-full h-screen">
-		<div class="gallerybg"></div>
-      <h2 class="text-3xl font-bold mb-5">Gallery</h2>
-      <router-view></router-view> 
+    <section id="gallery" class="py-10 flex flex-col justify-center  h-auto">
+          <h2 class="text-3xl font-bold mb-5 text-center">Gallery</h2>
+
+		<div class="gallerybg w-11/12  "> <Gallery/>
+    </div>
+     
+
     </section>
     
                   </div>
@@ -51,6 +54,11 @@
 
 <script>
 import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import Gallery from '../components/Gallery.vue'
+
+
+
 const props = {
   show: {
     type: Boolean,
@@ -60,6 +68,11 @@ const props = {
 export default {
   name: 'ManaDialog',
   props,
+  components: {
+    Gallery,
+    routerView: useRouter.component,
+    
+},
   setup(props) {
     const showModal = ref(false);
   
@@ -74,7 +87,7 @@ export default {
       );
 
     return {
-      showModal, closeModal,
+      showModal, closeModal, 
     };
   },
 };
@@ -91,7 +104,9 @@ export default {
     inset 0 0 3px $kpink;
   color: $white;
  
-
+  .gallerybg {
+    margin: auto;
+  }
   h1{
     font-size: 1.8rem;
     text-transform: uppercase;

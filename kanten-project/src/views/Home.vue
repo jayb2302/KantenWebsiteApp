@@ -161,8 +161,8 @@
           trigger: "body",
           start: "top top",
           end: "bottom bottom",
-          scrub: 0.1,
-          snap: 1 / 4,
+         
+          
 		  markers: true,
          
         });
