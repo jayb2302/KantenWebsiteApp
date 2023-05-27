@@ -32,18 +32,19 @@
                       @click="closeModal">                                
                       &cross;
                     </button>
-                    <div
-                      class="aboutme bb flex flex-col 
-                      justify-center h-auto w-11/12 m-auto pt-1 ">
-                      <div
-                        class="flex rb place-self-center flex-col w-8/12 mb-4 
-                        h-72 ">                                  
-                      </div>
-                      <div
-                        class="flex rb place-self-center flex-col  w-10/12 mb-4
-                        h-72 ">                                  
-                      </div>
-                    </div>
+                                                       <!-- Upcoming Events Section -->
+    <section id="events" class="py-10 w-full h-auto">
+		<div class="eventsbg"></div>
+      <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
+      <router-view></router-view>
+    </section>
+                     <!-- Gallery Section -->
+    <section id="gallery" class="py-10 flex flex-col justify-center  h-auto">
+          <h2 class="text-3xl font-bold mb-5 text-center">Gallery</h2>
+
+		<div class="gallerybg w-11/12  "><Gallery/>
+    </div>
+  </section>
                   </div>
                 </div>
             </div>
@@ -54,6 +55,8 @@
 
 <script>
 import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import Gallery from '../components/Gallery.vue'
 
 
 const props = {
@@ -66,6 +69,11 @@ const props = {
 export default {
   name: 'DeftDialog',
   props,
+  components: {
+    Gallery,
+    routerView: useRouter.component,
+    
+},
   setup(props) {
     const showModal = ref(false);
   
@@ -98,6 +106,9 @@ export default {
     inset 0 0 3px $kblue;
   color: $white;
  
+  .gallerybg {
+    margin: auto;
+  }
 
   h1{
     font-size: 1.8rem;
