@@ -1,15 +1,16 @@
 <template>
+    <div class="wrapper">
         <div class="container">
     <div class="formula">
     <form action="#">
-        <div class="title">Registering</div>
+        <div class="title">Become a Member</div>
         <div class="user-details">
             <div class="input-box">
-                <span class="details">Firstname</span>
+                <span class="details">First Name</span>
                 <input type="text" placeholder="Write your first name" required>
             </div>
             <div class="input-box">
-                <span class="details">Lastname</span>
+                <span class="details">Last Name</span>
                 <input type="text" placeholder="Write your last name" required>
             </div>
             <div class="input-box">
@@ -49,19 +50,19 @@
                 <input type="radio" name="gender" id="dot-1">
                 <input type="radio" name="gender" id="dot-2">
                 <input type="radio" name="gender" id="dot-3">
-                <span class="gender-title">Køn</span>
+                <span class="gender-title">Gender</span>
                 <div class="category">
                     <label for="dot-1">
                         <span class="dot one"></span>
-                        <span class="gender">Mand</span>
+                        <span class="gender">Male</span>
                     </label>
                     <label for="dot-2">
                         <span class="dot two"></span>
-                        <span class="gender">Kvinde</span>
+                        <span class="gender">Female</span>
                     </label>
                     <label for="dot-3">
                         <span class="dot three"></span>
-                        <span class="gender">Andre</span>
+                        <span class="gender">Other</span>
                     </label>
                 </div>
             </div>
@@ -70,6 +71,7 @@
             <input type="submit" value="Register" style="height: 45px;">
         </div>
     </form>
+</div>
 </div>
 </div>
 </template>
@@ -94,11 +96,16 @@ align-items: center;
 background: #23242a;
 }
 
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  padding: 60px 0; /* Adjust the padding values as needed */
+}
 .container {
-    max-width: 600px;
-    width: 90%;
+    width: 60%;
     background: #1c1c1c;
-    padding: 25px 30px;
+    padding: 30px;
     border-radius: 8px;
     height: 100vh;
     color: #8f8f8f;
@@ -164,7 +171,7 @@ background: #23242a;
     left: 0;
     bottom: 0;
     height: 3px;
-    width: 30px;
+    width: 225px;
     background: linear-gradient(135deg, #45f3ff, #45f3ff);
 }
 
@@ -264,6 +271,7 @@ form .button input:hover {
     background: linear-gradient(-135deg, #40e0eb, #45f3ff);
 }
 
+
 @media (max-width: 584px) {
     .container {
         max-width: 100%;
@@ -283,4 +291,11 @@ form .button input:hover {
         width: 0;
     }
 }
+
+@media (max-width: 1300px) {
+    .container{
+        width: 100%;
+    }
+}
+
 </style>
