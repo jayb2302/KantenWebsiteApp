@@ -5,9 +5,8 @@
       <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/events"> Events </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/gallery"> Gallery </RouterLink>
       
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/"> News </RouterLink>
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/news"> News </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/sign-in"> Admin </RouterLink> 
       <RouterLink class="li text-2xl mr-4 ml-4" :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
       

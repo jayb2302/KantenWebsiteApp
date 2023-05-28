@@ -18,8 +18,13 @@
             <input v-model="newEventDescription" class="input" type="text" placeholder="Description" />
           </p>
           <p class="control is-expanded">
-            <input v-model="newEventVenue" class="input" type="text" placeholder="Venue" />
-          </p>
+            <select v-model="newEventVenue" class="select">
+            <option disabled value="">Select Venue</option>
+            <option value="Manaclub">Manaclub</option>
+            <option value="Vertex">Vertex</option>
+            <option value="Deft">Deft</option>
+            <option value="Dub">Dub</option>
+          </select>          </p>
           <p class="control is-expanded">
             <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
           </p>
@@ -27,7 +32,7 @@
             <input v-model="newEventTime" class="input" type="time" placeholder="" />
           </p>
           <p class="control is-expanded">
-            <input v-model="newEventTags" class="input" type="text" placeholder="" />
+            <input v-model="newEventTags" class="input" type="text" placeholder="Tags" />
           </p>
 
           <p class="control is-expanded">
@@ -54,6 +59,7 @@
               <p><strong>Date:</strong> {{ event.date }}</p>
               <p><strong>Time:</strong> {{ event.time }}</p>
               <p><strong>Tags:</strong> {{ event.tags }}</p>
+              <p><strong>Venue</strong> {{ event.venue }}</p>
               <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
               
             </div>

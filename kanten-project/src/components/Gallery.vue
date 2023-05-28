@@ -59,7 +59,7 @@
   
   
   // import required modules
-  import { EffectCoverflow, Pagination, Autoplay } from "swiper";
+  import { EffectCoverflow, Pagination, Autoplay, EffectFade } from "swiper";
   
   export default {
     components: {
@@ -68,7 +68,7 @@
     },
     setup() {
       return {
-        modules: [EffectCoverflow, Pagination, Autoplay],
+        modules: [EffectCoverflow, Pagination, Autoplay, EffectFade ],
       };
     },
   };
@@ -97,6 +97,7 @@ body {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px; 
+  
 }
 
 .swiper-slide {
