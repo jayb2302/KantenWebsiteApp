@@ -3,15 +3,15 @@
     <!-- Your title content here -->
   </div>
 
-  <div class="timeline w-full h-screen flex">
-    <label class="accordion--1 flex w-full gap-52 justify-center" for="open-1">
+  <div class="container w-full h-screen flex mt-16">
+    <label class="accordion accordion--1 flex w-full gap-52 justify-center" for="open-1">
       
      
       <div
-        class="accordion__wrapper w-3/12 p-4 mb-5 mt-5"
+        class="accordion__wrapper w-4/12 pt-40"
       > 
       
-        <dl class="accordion__box flex-col ">
+        <dl class="accordion__box flex flex-col gap-32 ">
           <div
             v-for="(event, index) in leftEvents"
             :key="event.id"
@@ -19,7 +19,7 @@
             :class="{ 'has-background-success-light': event.done }"
             @click="toggleAccordion(event)"
           >
-          <div class="accordion__tab">{{ event.title }}</div>
+          <div class="accordion__tab">{{ event.venue }}</div>
 
             <div class="card-content  ">
               
@@ -59,33 +59,37 @@
         </dl>
       </div>
       <div
-        class="accordion__wrapper  w-3/12 p-4 mb-5 mt-5"
-      >
-        <dl class="accordion__box flex-col  ">
+        class="accordion__wrapper w-4/12 top-52"
+      > 
+      
+        <dl class="accordion__box flex flex-col gap-32 ">
           <div
             v-for="(event, index) in rightEvents"
             :key="event.id"
-            class="card "
+            class="card"
             :class="{ 'has-background-success-light': event.done }"
             @click="toggleAccordion(event)"
           >
-            <div class="card-content m-4 ">
-              <div class="content m-4">
+          <div class="accordion__tab">{{ event.venue }}</div>
+
+            <div class="card-content  ">
+              
+              <div class="content ">
                 <div class="columns is-mobile is-vcentered">
                   <div
                     class="column"
                     :class="{ 'has-text-success line-through': event.done }"
                   >
-                    <h3 class="accordion__tab">{{ event.title }}</h3>
-                    <span class="accordion__number"
-                      ><p>
-                        <strong>Date:</strong> {{ formatDate(event.date) }}
-                      </p></span
-                    >
-                    <dd 
-                      v-if="openedEvent === event.date"  
-                      class="accordion__text w-full h-3/6 rb"
-                    >
+                    <span class="accordion__number">
+                      
+                        <p> {{ formatDate(event.date) }}</p>
+                      
+                    </span>
+                    <dd
+                    v-if="openedEvent === event.date" 
+                       class="accordion__text w-full h-3/6 rb" 
+                       :class="{'rb': openedEvent === event.date }"
+                       >
                       <p><strong>Artist:</strong> {{ event.artist }}</p>
                       <p>
                         <strong>Description:</strong> {{ event.description }}
@@ -134,7 +138,7 @@ const sortedEvents = computed(() =>
     dateObj: new Date(item.date)
   }))
     .sort((a, b) => a.dateObj - b.dateObj)
-    .reverse()
+    
 )
 
 const leftEvents = computed(() =>
@@ -161,7 +165,7 @@ const toggleAccordion = (event) => {
 @import "bulma/css/bulma.min.css";
 @import "../modules/variables";
 
-.timeline {
+.container {
   background-image: url(../assets/fiber.png);
   background-size: contain;
   background-repeat: no-repeat;

@@ -24,15 +24,13 @@
             <option value="Vertex">Vertex</option>
             <option value="Deft">Deft</option>
             <option value="Dub">Dub</option>
+            <option value="Dub">Diverse</option>
           </select>          </p>
           <p class="control is-expanded">
             <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
           </p>
           <p class="control is-expanded">
             <input v-model="newEventTime" class="input" type="time" placeholder="" />
-          </p>
-          <p class="control is-expanded">
-            <input v-model="newEventTags" class="input" type="text" placeholder="Tags" />
           </p>
 
           <p class="control is-expanded">
@@ -41,7 +39,7 @@
 
       
           <div class="control">
-            <button  class="button is-info"> <!-- :disabled="!newEventTitle" --> 
+            <button  class="button is-info" :disabled="newEventImgVar === ''"> 
               Add
             </button>
           </div>
@@ -58,7 +56,6 @@
               <p><strong>Description:</strong> {{ event.description }}</p>
               <p><strong>Date:</strong> {{ event.date }}</p>
               <p><strong>Time:</strong> {{ event.time }}</p>
-              <p><strong>Tags:</strong> {{ event.tags }}</p>
               <p><strong>Venue</strong> {{ event.venue }}</p>
               <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
               
