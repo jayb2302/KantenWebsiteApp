@@ -8,10 +8,65 @@
       
      
       <div
-        class="accordion__wrapper w-4/12 pt-40"
+        class="accordion__wrapper w-4/12  top-72"
       > 
       
-        <dl class="accordion__box flex flex-col gap-32 ">
+        <dl class="accordion__box flex  flex-col gap-48 ">
+          <div
+            v-for="(event, index) in rightEvents"
+            :key="event.id"
+            class="card "
+            :class="{ 'has-background-success-light': event.done }"
+            @click="toggleAccordion(event)"
+          >
+            <div class="accordion__tab">
+            {{ event.venue }}
+            </div>
+
+            <div class="card-content  ">
+              
+              <div class="content  ">
+                <div class="columns  is-mobile is-vcentered">
+                  <div
+                    class="column "
+                    :class="{ 'has-text-success line-through': event.done }"
+                  >
+                    <span class="accordion__number pl-2 ">
+                      
+                        <p v-html="formatDate(event.date)"> </p>
+                      
+                    </span>
+                    <dd
+                    v-if="openedEvent === event.date" 
+                      class="accordion__text w-full flex flex-col " 
+                      :class="{'': openedEvent === event.date }"
+                      >
+                      <h3 class=" place-self-end text-end "> {{ event.artist }}</h3> 
+                      <h4 class=" place-self-end text-end">{{ event.time }}</h4>
+                      <p class="">
+                        <strong class="text-2xl">Description:</strong>
+                        <br> {{ event.description }}
+                      </p>
+                     
+                      <img
+                        :src="event.imgURL"
+                        alt="Event Image"
+                        class="h-52"
+                      />
+                    </dd>
+                  </div>
+                  <p>{{ event.tags }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </dl>
+      </div>
+      <div
+        class="accordion__wrapper w-4/12 top-40"
+      > 
+      
+        <dl class="accordion__box flex flex-col gap-48 ">
           <div
             v-for="(event, index) in leftEvents"
             :key="event.id"
@@ -29,76 +84,27 @@
                     class="column"
                     :class="{ 'has-text-success line-through': event.done }"
                   >
-                    <span class="accordion__number">
+                    <span class="accordion__number ">
                       
                         <p> {{ formatDate(event.date) }}</p>
                       
                     </span>
                     <dd
                     v-if="openedEvent === event.date" 
-                       class="accordion__text w-full h-3/6 rb" 
-                       :class="{'rb': openedEvent === event.date }"
+                       class="accordion__text w-full flex flex-col " 
+                       :class="{'': openedEvent === event.date }"
                        >
-                      <p><strong>Artist:</strong> {{ event.artist }}</p>
+                      <h3 class="place-self-end text-end"> {{ event.artist }}</h3>
+                      <h4 class="place-self-end text-end"> {{ event.time }}</h4>
                       <p>
-                        <strong>Description:</strong> {{ event.description }}
+                        <strong class="text-2xl">Description:</strong> 
+                        <br>{{ event.description }}
                       </p>
-                      <p>Time:{{ event.time }}</p>
+                      
                       <img
                         :src="event.imgURL"
                         alt="Event Image"
-                        class="w-52 h-52"
-                      />
-                    </dd>
-                  </div>
-                  <p>{{ event.tags }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </dl>
-      </div>
-      <div
-        class="accordion__wrapper w-4/12 top-52"
-      > 
-      
-        <dl class="accordion__box flex flex-col gap-32 ">
-          <div
-            v-for="(event, index) in rightEvents"
-            :key="event.id"
-            class="card"
-            :class="{ 'has-background-success-light': event.done }"
-            @click="toggleAccordion(event)"
-          >
-          <div class="accordion__tab">{{ event.venue }}</div>
-
-            <div class="card-content  ">
-              
-              <div class="content ">
-                <div class="columns is-mobile is-vcentered">
-                  <div
-                    class="column"
-                    :class="{ 'has-text-success line-through': event.done }"
-                  >
-                    <span class="accordion__number">
-                      
-                        <p> {{ formatDate(event.date) }}</p>
-                      
-                    </span>
-                    <dd
-                    v-if="openedEvent === event.date" 
-                       class="accordion__text w-full h-3/6 rb" 
-                       :class="{'rb': openedEvent === event.date }"
-                       >
-                      <p><strong>Artist:</strong> {{ event.artist }}</p>
-                      <p>
-                        <strong>Description:</strong> {{ event.description }}
-                      </p>
-                      <p>Time:{{ event.time }}</p>
-                      <img
-                        :src="event.imgURL"
-                        alt="Event Image"
-                        class="w-52 h-52"
+                        class="h-52"
                       />
                     </dd>
                   </div>
@@ -149,9 +155,11 @@ const rightEvents = computed(() =>
 );
 
 const formatDate = (date) => {
-  // Format the date as desired using the toLocaleDateString() function
-  return new Date(date).toLocaleDateString();
+  const options = { day: 'numeric', month: 'short' };
+  return new Date(date).toLocaleDateString(undefined, options);
 };
+
+
 
 const toggleAccordion = (event) => {
   if (openedEvent.value === event.date)
@@ -166,12 +174,16 @@ const toggleAccordion = (event) => {
 @import "../modules/variables";
 
 .container {
+  
   background-image: url(../assets/fiber.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-blend-mode: darken;
+  .accordion{
   .accordion__wrapper{
     .card {
+      min-height: 120px;
       background: $primaryone ;
       color: $gray;
       .accordion__tab{
@@ -198,53 +210,74 @@ const toggleAccordion = (event) => {
         border-right: solid 0 transparent;
         border-bottom: solid 0 transparent;
       }
-      .card-content {
+      
+      
+    }
+    .card-content {
+      height: auto;
         .content{
           .columns{
             .column{
-            .accordion__number{
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        width: 50px;
-        height: 40px;
-        margin-right: 16px;
-        font-size: 48px;
-        font-family: $brother;
-        color: $primarytwo;
-        &::before{
-          content: "";
-          position: absolute;
-          bottom: 4px;
-          left: 73px;
-          width: 0;
-          height: 40px;
-          background-color: $primarytwo;
-        }
-        &::after{
-          position: absolute;
-          bottom: 4px;
-          left: 88px;
-          width: 0;
-          height: 40px;
-        }
+              .accordion__text {
+                margin-left: 0;
+                margin-top: -10%;
+                font-family: $k2d;
+                h3{
+                  font-family: $brother;
+                  color: $primaryone;
+                  letter-spacing: 7px;
+                  font-size: 2.5em;
+                  opacity: 0.3;
+                  -webkit-text-stroke: 1px $kgreen;
+                  text-shadow: 2px 3px 0px $kpink;
+                }
+                h4{
+                  font-family: $brother;
+                  color: $gray;
+                  letter-spacing: 5px;
+                }
+                p {
+                  text-align: justify;
+                }
+              }
+              .accordion__number{
+                position: absolute;
+                top: 0;
+                left: 0;
+                align-items: center;
+                text-transform: uppercase;
+                height: 40px;
+                margin-right: 16px;
+                font-size: 3.3rem;
+                font-family: $brother;
+                color: $primaryone;
+                text-shadow: rgba(180, 65, 161, 0.76) 1px 1px 5px ;
+                &::before{
+                  content: "";
+                  position: absolute;
+                  bottom: 4px;               
+                  width: 0;
+                  background-color: $primarytwo;
+                }
+                &::after{
+                  content: "";
+                  position: absolute;
+                  bottom: 4px;
+                  width: 0;
+                  
+                }
+              }
             }
-          }
           }
           
           
         }
         
       }
-      
-    }
-    
   }
     
   }
- 
+ }
 }
  
 // .accordion__wrapper.active .accordion__text {
