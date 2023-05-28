@@ -28,6 +28,7 @@ const router = createRouter({
         { path: "/gallery", component: () => import("../components/Gallery.vue")},
         { path: "/registration", component: () => import("../views/Registration.vue")},
         { path: "/news", component: () => import("../views/Newsletter.vue")},
+        { path: "/volunteer", component: () => import("../views/Volunteer.vue")},
       ]
 });
 
