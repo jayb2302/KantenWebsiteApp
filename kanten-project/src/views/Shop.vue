@@ -1,4 +1,8 @@
 <template>
+    <div class="product-cards-wrapper">
+<div class="text">
+    <h1>Shop with us!</h1>
+</div>
 
     <div  class="shop flex center-align justify-center w-full h-screen" >
         <ProductDescriptionDrawer
@@ -6,18 +10,18 @@
             :active="active.product_drawer"
         />
  
-        <div class="product-cards-container flex wrap w-full relative overflow-hidden">
-                <ProductSummaryCard v-for="product in items"
-                   :key="product.id"
-                   :product="product"
-                   v-on:view-product="viewProduct($event)"
-                   
-                   />
-             
-                
-        </div>
        
+      <div class="product-cards-container">
+        <ProductSummaryCard
+          v-for="product in items"
+          :key="product.id"
+          :product="product"
+          v-on:view-product="viewProduct($event)"
+          class="card-item"
+        />
+      </div>
     </div>
+  </div>
 </template>
 
 <script >
@@ -56,15 +60,18 @@ export default {
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
 
-
-
-
-
-
-
-
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff !important;
+}
 .shop {
     font-family: $brother;
+    overflow-y: auto;
     background-color: $primaryone;
     #app {
     font-family: $brother;
@@ -140,7 +147,6 @@ export default {
         .card-content{
             z-index: 20;
             color: $white;
-            padding: 10px 20px;
         
             img{
                 width: 90%;
@@ -219,8 +225,39 @@ export default {
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    color: $kpink;
 
+}
+.product-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10%;
+  justify-items: center;
+  padding-top: 10%;
+}
+
+.card-item {
+  height: 200px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Rest of your card styles */
+}
+
+@media screen and (min-width: 768px) {
+  .product-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .product-cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-cards-wrapper {
+  height: 100vh; /* Set the height to occupy the full screen */
+  overflow-y: auto;
 }
 
 </style>
