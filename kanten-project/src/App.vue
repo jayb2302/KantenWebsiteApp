@@ -3,7 +3,7 @@
     <nav class="fixed w-full text-center shadow-slade-500 z-20">
 
       <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/events"> Events </RouterLink>
+      <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
       
       <RouterLink class="li text-2xl mr-4 ml-4" to="/news"> News </RouterLink>

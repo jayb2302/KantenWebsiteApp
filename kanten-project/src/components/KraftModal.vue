@@ -15,7 +15,7 @@
         class="modal-backdrop fixed bg-black w-full h-full bg-opacity-10 z-10 inset-0"
       >
         <div
-          class="flex justify-center overflow-auto scrollbar h-4/5 lg:h-screen pt-10 lg:pt-10 mt-0"
+          class="flex justify-center overflow-hidden scrollbar h-4/5 lg:h-screen p-10 lg:pt-10 mt-0"
         >
           <div
             class="modal overflow-auto hover:overflow-auto scrollbar-thin 
@@ -26,7 +26,7 @@
             <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
             <!-- <img src="../assets/smallkanten.svg" class="w-28 absolute" alt="" /> -->
             <h3 class=" mt-10 text-center ">Kraftværket</h3>
-            <p class="text-center ">SOUND STUDIO & TRANING facility</p>
+            <h4 class="text-center ">SOUND STUDIO & TRANING facility</h4>
             <button
               class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
               @click="closeModal"
@@ -34,15 +34,40 @@
               &cross;
             </button>
             <div
-              class="aboutme bb flex flex-col justify-center h-auto w-12/12 pt-1"
+            id="image-container"
+              class="flex  justify-center h-auto pt-1"
+              
             >
+            <img src="../assets/kraft01.jpeg" class="image"/>
+            <img src="../assets/kraft02.jpeg" class="image"/>
+            <img src="../assets/kraft03.jpeg" class="image"/>
+            <img src="../assets/kraft04.jpeg" class="image"/>
              
                
               </div>
               <div
-                class="flex rb place-self-center flex-col w-10/12 mb-4 h-72"
+                class="flex  place-self-center flex-col  mb-4 h-72"
               >
-              
+                <p class=" text-center place-self-center pt-2 pl-40 pr-40" >
+    
+                  For several years, Esbjerg has lacked dedicated music practice and recording facilities. 
+                  Kanten aims to fill this gap by offering a high-quality sound studio and practice space.
+                  In line with Kanten's vision to support the growth of local musicians, the studio will provide 
+                  the services of a sound technician who can offer instruction  on sound studio techniques as required.
+                <br> <br>
+                  Situated in Østerbyen, Kanten is expected to generate interest in music, especially among 
+                  local youth. To that end, the studio will offer music instruction and resources tailored 
+                  to the needs of young people in the area. The space is open to all musicians who wish to 
+                  take advantage of the sound studio and practice area
+                </p>
+                <div class="flex  w-10/12 m-auto pt-20 pb-20 gap-4">  
+                  <img src="../assets/logonoK.svg" style="height: 3em;" alt=""/>
+                  <p>Practice facility: 300 kr. per member for 3 months</p>
+                  <img src="../assets/logonoK.svg" style="height: 3em;" alt=""/>
+                  <p>Sound-studio: 350 kr. per member for 3 months + starting fee of 100 kr. </p>
+                  <img src="../assets/logonoK.svg" style="height: 3em;" alt=""/>
+                  <p>Kontakt:   28 97 11 85 / Musikforeningskanten@gmail.com</p>
+                 </div> 
               </div>
             </div>
           </div>
@@ -63,6 +88,8 @@ const props = {
     default: false,
   },
 };
+
+
 
 export default {
   name: "KraftModal",
@@ -109,106 +136,43 @@ export default {
   background-color: $primaryone;
   box-shadow: 0px 0px 2px $gray, inset 0 0 3px $gray;
   color: $white;
-  .aboutme {
-    .carousel-gallery{
-    margin: 10px 0;
-    padding: 0 30px;
-    width: 100%;
+  #image-container {
   
-
   
-  .div{
-    
-    height: 500px;
-    margin-top: 3%;
-    margin-left: 0%;
-    margin-bottom: 3%;
-   
-    a{
-      display: block;
-      
-      height: 600px;
-      border-radius: 4px;
-      position: relative;
-      gap: 10%;
-      -webkit-box-shadow: 3px 2px 20px 0px rgba(0,0,0, .2);
-      -moz-box-shadow: 3px 2px 20px 0px rgba(0,0,0, .2);
-      box-shadow: 3px 2px 20px 0px rgba(0,0,0, .2);
-
-      &:hover{
-        .image{
-          .overlay{opacity: 1}
-        }
-      }
-
-      .image{
-      
-        height: 100%;
-        background-size: cover;
-        background-position: center center;
-        .overlay{
-          
-          height: 100%;
-          background-color: rgba(20,20,20, .8);
-          text-align: center;
-          opacity: 0;
-          
-          -webkit-transition: all .2s linear; 
-          -o-transition: all .2s linear; 
-          transition: all .2s linear;
-
-          em{
-            color: #fff;
-            font-size: 26px;
-            position: relative;
-            top: 10%; 
-            -webkit-transform: translateY(-20%); 
-            -ms-transform: translateY(-20%); 
-            -o-transform: translateY(-20%); 
-            transform: translateY(-20%);
-            display: inline-block;
-          }
-        }
-      }
+    gap: 1.5rem;
+    .image {
+      width: 22%;
+      height: auto;
+      object-fit: cover;
+      object-position: 90% center;
+      z-index: 0;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      animation: float 2s ease;
     }
-  }
-  .swiper-pagination{
-    position: relative;
-    bottom: auto;
-    text-align: center;
-    margin-top: 25px;
-    height: 30px;
-
-    .swiper-pagination-bullet{
-      -webkit-transition: all .2s linear; 
-      -o-transition: all .2s linear; 
-      transition: all .2s linear;
-
-      &:hover{
-        opacity: .7;
-      }
-
-      &.swiper-pagination-bullet-active{
-        background-color: #d9d3d3;
-        transform: scale(1.1, 1.1)
-      }
-    }
-  }
-}
   }
 
   h3 {
-    font-size: 7rem;
+    font-size: 6.5rem;
     text-transform: uppercase;
     font-weight: 800;
     font-family: $brother;
     letter-spacing: 3rem;
   }
-  p {
+  h4 {
     font-family: $k2d;
     font-size: 2.5rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
+    z-index: 2;
+    margin-top: -2%;
+    border-bottom: 1px solid white;
+    
+  }
+  p {
+    font-family: $k2d;
+    font-size: 1.3em;
+    font-weight: 500;
   }
 
   .btn {
@@ -243,6 +207,6 @@ export default {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: $kpink;
+  background: $gray;
 }
 </style>
