@@ -4,24 +4,24 @@
         <div class="inner-container">
             <h1>About Us</h1>
             <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure necessitatibus consequuntur quasi, distinctio ad magnam, voluptas suscipit labore doloremque natus excepturi eos quos hic ut inventore expedita dolores corporis delectus.
+              Kanten will be Esbjerg's new cultural community driven by Kanten association. Our vision is to create a platform for the emerging creative scene that lacks a visible space in Esbjerg's cultural life. Through this platform, we aim to support the communities that arise from growing creative environments. Kanten will provide the underrepresented emerging scene with a stage. We achieve this through a wide range of projects, including events, club nights, rehearsal spaces, and a sound studio.
             </p>
         </div>
     </div>
     <div class="about-section2">
         <div class="inner-container2">
-            <h1>About Us</h1>
-            <p class="text2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure necessitatibus consequuntur quasi, distinctio ad magnam, voluptas suscipit labore doloremque natus excepturi eos quos hic ut inventore expedita dolores corporis delectus.
+            <h1>Kanten Venue</h1>
+            <p class="text">
+              The venue "Kanten" is becoming Esbjerg's new focal point for the local emerging music scene and youth. The venue, primarily focusing on the underground music scene, hosts a variety of events ranging from art exhibitions and DJ schools to electronic parties and concerts, promoting diversity. Esbjerg is in need of more music venues and cultural initiatives, and Kanten aims to be a safe alternative with a safe space policy that will contribute to a safer nightlife in Esbjerg.
+Likewise, our ambition is to create an alternative platform for the youth community in Esbjerg, where the music program reflects a diverse selection of subgenres across genders and identities. On the first floor of Huset Esbjerg's premises, we are establishing a youth cultural center and community. The Kanten venue is operated by our association, which consists of young residents of Esbjerg and newcomers. All types of individuals are welcome, and through music and art events, we aspire to enhance the cultural life in Esbjerg.
             </p>
         </div>
     </div>
-    <div class="about-section">
-        <div class="inner-container">
-            <h1>About Us</h1>
+    <div class="about-section3">
+        <div class="inner-container3">
+            <h1>Kraftværket</h1>
             <p class="text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure necessitatibus consequuntur quasi, distinctio ad magnam, voluptas suscipit labore doloremque natus excepturi eos quos hic ut inventore expedita dolores corporis delectus.
-            </p>
+              For several years, Esbjerg has been lacking conventional rehearsal spaces with recording capabilities, and Kanten aims to fill this gap by providing access to a high-quality sound studio and rehearsal space. In line with Kanten's vision of supporting the emerging music scene in creating music, a sound engineer will be available to offer instruction in sound studio techniques, depending on individual needs. With Kraftværket located in Østerbyen, we seek to ignite a greater interest in music, particularly among the local youth. This will be achieved through inclusive teaching methods tailored to the specific needs and understanding of the young people in the area. Kraftværket is open to anyone who plays music or wishes to explore their musical talents.            </p>
         </div>
     </div>
 
@@ -193,30 +193,46 @@ body{
 }
 
 .about-section{
-    background: url(../assets/Billede1-7643998c.png) no-repeat left;
+    background: url(../assets/img/Kanten-About-Us.jpg) no-repeat left;
     background-size: 55%;
     background-color: #252625;
     overflow: hidden;
     padding: 100px 0;
 }
 .about-section2{
-    background: url(../assets/Billede1-7643998c.png) no-repeat right;
+    background: url(../assets/img/venue-kanten.jpg) no-repeat right;
+    background-size: 50%;
+    background-color: #252625;
+    overflow: hidden;
+    padding: 100px 0;
+}
+.about-section3{
+    background: url(../assets/img/Kraftværket.jpg) no-repeat left;
     background-size: 55%;
     background-color: #252625;
     overflow: hidden;
     padding: 100px 0;
 }
 .inner-container {
-    width: 55%;
+    width: 50%;
     float: right;
-    background-color: #fff;
-    padding: 150px;
+    background-color: #252625;
+    padding: 66px;
+    border: 3px solid greenyellow;
 }
 .inner-container2 {
     width: 55%;
     float: left;
-    background-color: #fff;
-    padding: 150px;
+    background-color: #252625;
+    padding: 66px;
+    border: 3px solid green;
+}
+.inner-container3 {
+    width: 50%;
+    float: right;
+    background-color: #252625;
+    padding: 66px;
+    border: 3px solid orange;
 }
 .inner-container h1 {
     margin-bottom: 30px;
@@ -228,16 +244,14 @@ body{
     font-size: 30px;
     font-weight: 900;
 }
+.inner-container3 h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
 .text {
     font-size: 13px;
-    color: #252625;
-    line-height: 30px;
-    text-align: justify;
-    margin-bottom: 40px;
-}
-.text2 {
-    font-size: 13px;
-    color: #252625;
+    color: #fff;
     line-height: 30px;
     text-align: justify;
     margin-bottom: 40px;
