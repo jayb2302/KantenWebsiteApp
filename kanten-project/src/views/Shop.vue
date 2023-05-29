@@ -1,5 +1,5 @@
 <template>
-<<<<<<< Updated upstream
+
     <div  class="shop flex center-align justify-center w-full h-screen" >
         <ProductDescriptionDrawer
             :product="product"
@@ -49,21 +49,11 @@ export default {
             }
         }
     },
-   
-}
-=======
-    <div>
-
-    </div>
-</template>
-
-<script setup>
->>>>>>> Stashed changes
+   }
 
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< Updated upstream
 @import '../modules/_variables.scss';
 
 
@@ -219,7 +209,7 @@ export default {
     border-width: 0.5px;
     border-color: rgb(162, 167, 192);
   }
-=======
+
 
 *{
     margin: 0;
@@ -232,7 +222,5 @@ export default {
     color: $kpink;
 
 }
-
->>>>>>> Stashed changes
 
 </style>
