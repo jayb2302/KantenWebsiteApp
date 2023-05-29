@@ -29,13 +29,12 @@
     <!-- Upcoming Events Section -->
     <section id="events" class="py-10 w-full mt-20 h-screen">
       <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
-      <div class="eventsbg"></div>
-
-      <router-view></router-view>
+     
+    <Events />
     </section>
 
     <!-- Recent Posts Section -->
-    <section id="posts" class="py-10 w-full">
+    <section id="posts" class="py-10 mt-36 w-full">
       <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
       <div class="recents-posts flex justify-center gap-5">
         <iframe
@@ -252,6 +251,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "vue-router";
 import Genre from "./Genre.vue";
 import KraftModal from "../components/KraftModal.vue";
+import Events from "./Events.vue";
 
 export default {
   name: "HomePage",
@@ -259,6 +259,7 @@ export default {
   components: {
     KraftModal,
     Genre,
+    Events,
     routerView: useRouter.component,
   },
 
@@ -377,12 +378,7 @@ progress::-moz-progress-bar {
     }
   }
 }
-#events {
-  background-image: url("../assets/fiber.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 
 #genre {
   display: flex;
