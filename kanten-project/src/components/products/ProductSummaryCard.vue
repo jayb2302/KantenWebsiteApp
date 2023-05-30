@@ -1,15 +1,15 @@
 <template>
     <div class="w-full  flex-wrap ">
-      <div class="wrapper mt-10 flex pt-10 justify-center">
-        <div class="container mb-5 flex  relative">
-          <div class="card flex justify-center w-full overflow-hidden">
-            <div class="card-content w-full flex flex-col justify-evenly text-center items-center">
+      <div class="wrapper mt-10 flex  justify-center">
+        <div class="container  flex  relative">
+          <div class="card flex justify-center w-full  overflow-hidden">
+            <div class="card-content w-full flex flex-col text-center items-center">
+              <h5 class="text-muted">{{ product.category }}</h5>
               <img :src="product.image" style="height: 200px; width: auto;" alt="" class="image">
               <h1>{{ product.name }}</h1>
-              <p class="description">Description: <br>{{ description }}</p> <br>
+              <p class="description">Description: <br>{{ description }}</p> 
               <h5 class="price">Price: {{ product.price.toFixed(2) }}DKK</h5>
-              <p class="text-muted">{{ product.category }}</p>
-              <button class="view-product-button" @click="addToCart">Buy</button>
+              <button class="view-product-button " @click="addToCart">Buy</button>
             </div>
           </div>
           <div class="effect flex justify-center items-center absolute "></div>
@@ -91,18 +91,17 @@
   }
   
   .card {
-    
     cursor: pointer;
     transition: 0.9s ease-in-out;
     z-index: 10;
     background-color: $primaryone;
     height: auto;
+
     h1 {
       font-weight: 800;
       padding-bottom: 2;
       font-size: 1.2rem;
     }
-  
     &::after {
       position: absolute;
       content: "";
@@ -110,7 +109,7 @@
       height: 190%;
       background-color: $kblue;
       animation: spin 10s linear infinite;
-      box-shadow: 0 0 10px 10px $kblue;
+      box-shadow: 0 0 7px 7px $kblue;
       transition: 5s linear;
     }
   
@@ -150,7 +149,7 @@
   
       img {
         width: 100%;
-        margin-top: 10%;
+        margin-top: 5%;
         object-fit: contain;
         filter: drop-shadow(0 10px 10px $primaryone);
       }
@@ -167,6 +166,7 @@
         transition: 0.5s ease;
         border: none;
         margin-top: 10px;
+        margin-bottom: 15%;
         color: $primaryone;
   
         &::after {
@@ -196,18 +196,5 @@
     }
   }
   
- 
-  
-  .rb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: red;
-  }
-  
-  .bb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: rgb(162, 167, 192);
-  }
   </style>
   

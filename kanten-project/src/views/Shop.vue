@@ -217,14 +217,15 @@ export default {
 
 }
 
-    
-
-
-
-
-
-
-
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $gray;
+}
 
 
 @media screen and (min-width: 768px) {

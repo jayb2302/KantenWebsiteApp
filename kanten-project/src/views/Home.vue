@@ -1,9 +1,16 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div class="body">
+  <div ref="body">
 
     <!-- Home Section -->
+      <button
+        type="button"
+        @click="showModalKraft = !showModalKraft"
+        class=" z-10 "
+      >
+        <p>Kraftværket</p>
+      </button>
     <section id="home" class="w-full h-screen"
     >
       <div class="logo">
@@ -11,20 +18,15 @@
       </div>
 
       <!-- Home Section Content -->
-      <button
-        type="button"
-        @click="showModalKraft = !showModalKraft"
-        class="w-5/12 h-28"
-      >
-        <p>Kraftværket</p>
-      </button>
+     
       <KraftModal :show="showModalKraft" />
     </section>
+
     <div class="wrapper absolute">
   <!-- Our Genre Section -->
-    <section id="genre" class="w-full justify-center items-center text-center"
+    <section id="genre" class="w-full h-screen justify-center text-center"
     >
-      <div class="flex justify-between">
+      <div class="flex  justify-between ">
         <Genre />
       </div>
     </section>
@@ -88,9 +90,7 @@
     </section>
     </div>
   
-<!-- Footer section -->
-
-    
+    <!-- Footer section -->
   </div>
 </template>
 
@@ -118,9 +118,10 @@ export default {
 
   setup() {
     const showModalKraft = ref(false);
+    const showGenreSection = ref(false);
 
     onMounted(() => {
-      const body = document.querySelector("body");
+      
 
       gsap.registerPlugin(ScrollTrigger);
       gsap.to("progress", {
@@ -128,25 +129,35 @@ export default {
         ease: "none",
         scrollTrigger: { scrub: 0.3 },
       });
-      gsap.to("#home::after",{
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-        trigger: "#home",
-        start: "top 80%", // Adjust the start position as needed
-        end: "bottom 20%", // Adjust the end position as needed
-        scrub: true,
-      },
-      })
-      
+     
+    
+      gsap.set(".wrapper", { opacity: 0, y: "2%" });
+      ScrollTrigger.create({
+        trigger: "#genre", // Use the #genre section as the trigger
+        start: "top top ",
+        end: "top bottom",
+        duration: 3,
+       
+        markers: true,
+       
+        onEnter: () => {
+          gsap.to(".wrapper", { opacity: 1, y: 0 });
+        showGenreSection.value=true; 
+      },// Show the .wrapper when entering the trigger area
+        onLeaveBack: () => {
+          gsap.to(".wrapper", { opacity: 1, y: 0 });
+          showGenreSection.value = true; 
+        },// Hide the .wrapper when leaving the trigger area
+      });
 
       ScrollTrigger.create({
         trigger: "body",
         start: "top top",
         end: "bottom bottom",
-
-        markers: true,
+       
       });
+      
+      
     });
 
     return {
@@ -167,7 +178,7 @@ progress {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 5px;
+  height: 4px;
   border: none;
   background: transparent;
   z-index: 102;
@@ -200,9 +211,50 @@ progress::-moz-progress-bar {
   background-attachment: fixed;
 }
 
+button {
+    position: fixed;
+    color: $white;
+    background: $primaryone;
+    z-index: 10;
+    right: 5%;
+    font-size: 2rem;
+    width: 65px;
+    margin-top: 5%;
+    height: 430px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+    transition: all 0.5s;
+
+    p {
+      
+      letter-spacing: 9px;
+      font-family: $brother;
+      text-transform: uppercase;
+      rotate: 90deg;
+      top: -30%;
+      
+      
+     
+      
+    }
+    &:hover {
+     height: 440px;
+      border-color: #ffffff;
+      font-size: 2.2em;
+      top: -25%;
+      transform: scaleX(1.1);
+      box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+      -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
+      -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
+    }
+  }
 #home {
   background-image: url("../assets/kantenbg.webp");
   background-size: cover;
+  position: fixed;
   filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
     saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
@@ -219,61 +271,33 @@ progress::-moz-progress-bar {
       height: 200px; /* Adjust the height as needed */
       
     }
-  button {
-    position: absolute;
-    color: $white;
-    background: $primaryone;
-    z-index: 110;
-    right: 2%;
-    bottom: 50%;
-    width: 300px;
-    height: 70px;
-    cursor: pointer;
-    color: #fff;
-    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-    -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
-    -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
-    transition: all 0.4s;
-
-    p {
-      font-size: 1.5rem;
-      letter-spacing: 9px;
-      font-family: $brother;
-      text-transform: uppercase;
-    }
-    &:hover {
-      border-radius: 0px;
-      border-color: #ffffff;
-      font-size: 20em;
-      transform: scaleX(1.1);
-      box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-      -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
-      -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
-    }
-  }
+  
 }
 
 
 #genre {
   display: flex;
-  margin-bottom: 12%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.709) 0%, rgba(37,38,37,1) 57%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.709) 0%, rgba(37,38,37,1) 57%,rgba(37,38,37,1) 57%,rgba(37,38,37,1) 0%);
+  padding-top: 10%;
+ height: 120vh;
+  
 }
-.fade {
-  opacity: 0;
-  pointer-events: none;
-}
+
 
 h2 {
   text-align: center;
   font-size: 6em;
   font-family: $brother;
-  padding-bottom: 5%;
-  margin-top: -5%;
+  height: 300px;
+  margin-top: 0;
+  padding-top: 10%;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+
 }
 
 #posts {
+  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37,38,37,1) 57%, rgba(69, 68, 68, 0.439) 70%,);
+  padding-top: 5%;
   position: relative;
 }
 

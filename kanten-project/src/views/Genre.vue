@@ -1,5 +1,5 @@
 <template class="w-full">
-  <main v-if="true" class="aboutme-section w-screen pt-6 justify-center">
+  <main v-if="true" class="aboutme-section w-screen  justify-center">
     <div class="w-12/12 flex justify-center">
       <div class="bgtext text-5xl">
         <h1 class="opacity-20"></h1>
@@ -106,13 +106,13 @@ export default {
       const index = Array.from(el.parentNode.children).indexOf(el);
       const directions = ["top", "left", "right", "bottom"];
       const direction = directions[index % directions.length];
-      const delay = index * 0.6; // Adjust the delay duration as needed
+      const delay = index * 0.8; // Adjust the delay duration as needed
 
       const initialPosition = {
-        top: { opacity: 0, x: -0 },
+        top: { opacity: 0, y: -0, },
         left: { opacity: 0, x: 0 },
-        right: { opacity: 0, y: 0 },
-        bottom: { opacity: 0, y: 0 },
+        right: { opacity: 0, x: 0 },
+        bottom: { opacity: 0, x: -0 },
       };
 
       const finalPosition = { opacity: 1, x: 0, y: 0 };
@@ -120,8 +120,9 @@ export default {
       gsap.fromTo(el, initialPosition[direction], {
         ...finalPosition,
         opacity: 0.8,
-        y: 120,
-        duration: 0.9,
+        
+        y: 100,
+        duration: 0.7,
         delay: delay,
         ease: 1,
         onComplete: done,
@@ -198,7 +199,7 @@ export default {
     transform: translatey(0px);
   }
   50% {
-    transform: translatey(-20px);
+    transform: translatey(-15px);
   }
   100% {
     transform: translatey(0px);

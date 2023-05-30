@@ -1,6 +1,6 @@
 <template> 
 
-    <nav class="fixed w-full text-center shadow-slade-500 z-20">
+    <nav class="fixed w-full text-center pt-4  shadow-slade-500 z-20">
 
       <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
       <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
