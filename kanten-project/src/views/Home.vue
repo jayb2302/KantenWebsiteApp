@@ -1,9 +1,11 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div>
+  <div class="body">
+
     <!-- Home Section -->
-    <section id="home" class="w-full h-screen">
+    <section id="home" class="w-full h-screen"
+    >
       <div class="logo">
         <img src="../assets/kantenhomelogo.gif" class="m-auto top-52" alt="" />
       </div>
@@ -18,23 +20,24 @@
       </button>
       <KraftModal :show="showModalKraft" />
     </section>
-
-    <!-- Our Genre Section -->
-    <section id="genre" class="w-full justify-center items-center text-center">
+    <div class="wrapper absolute">
+  <!-- Our Genre Section -->
+    <section id="genre" class="w-full justify-center items-center text-center"
+    >
       <div class="flex justify-between">
         <Genre />
       </div>
     </section>
 
     <!-- Upcoming Events Section -->
-    <section id="events" class="py-10 w-full mt-20 h-screen">
+    <section id="events" class="py-10 w-full mt-20 z-10 mb-20 h-screen">
       <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
      
     <Events />
     </section>
 
     <!-- Recent Posts Section -->
-    <section id="posts" class="py-10 mt-36 w-full">
+    <section id="posts" class="top-16 mt-36 w-full">
       <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
       <div class="recents-posts flex justify-center gap-5">
         <iframe
@@ -83,7 +86,19 @@
         ></iframe>
       </div>
     </section>
+    </div>
+  
 
+    <!-- <footer class="relative h-2 w-full">
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
+      <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
+      
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/news"> News </RouterLink>
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/sign-in"> Admin </RouterLink> 
+      <RouterLink class="li text-2xl mr-4 ml-4" :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
+     <Newsletter/>
+    </footer> -->
     
   </div>
 </template>
@@ -97,6 +112,7 @@ import { useRouter } from "vue-router";
 import Genre from "./Genre.vue";
 import KraftModal from "../components/KraftModal.vue";
 import Events from "./Events.vue";
+import Newsletter from "./Newsletter.vue";
 
 export default {
   name: "HomePage",
@@ -120,6 +136,17 @@ export default {
         ease: "none",
         scrollTrigger: { scrub: 0.3 },
       });
+      gsap.to("#home::after",{
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+        trigger: "#home",
+        start: "top 80%", // Adjust the start position as needed
+        end: "bottom 20%", // Adjust the end position as needed
+        scrub: true,
+      },
+      })
+      
 
       ScrollTrigger.create({
         trigger: "body",
@@ -190,6 +217,16 @@ progress::-moz-progress-bar {
     saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
     saturate(170%) opacity(87%) contrast(206%) invert(3%);
+    transition: opacity 0.5s ease-in-out;
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px; /* Adjust the height as needed */
+      
+    }
   button {
     position: absolute;
     color: $white;
@@ -228,7 +265,11 @@ progress::-moz-progress-bar {
 #genre {
   display: flex;
   margin-bottom: 12%;
-  margin-top: 5%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.709) 0%, rgba(37,38,37,1) 57%);
+}
+.fade {
+  opacity: 0;
+  pointer-events: none;
 }
 
 h2 {
@@ -240,124 +281,138 @@ h2 {
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
 }
 
-#team {
-  .our-team {
-    padding: 15px 0 25px;
-    margin-bottom: 30px;
-    background-color: $white;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-    box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-    -webkit-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-    -moz-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
+#posts {
+  position: relative;
+}
 
-    .name {
-      font-size: 1.3rem;
-    }
-    .picture {
-      display: inline-block;
-      height: 130px;
-      width: 180px;
-      margin-bottom: 50px;
-      z-index: 1;
-      position: relative;
-      &::before {
-        content: "";
-        width: 100%;
-        height: 120%;
-        border-radius: 50%;
-        background-color: $primaryone;
-        position: absolute;
-        bottom: 100%;
-        right: 0;
-        left: 0;
-        opacity: 1;
-        transform: scale(3);
-        transition: all 0.3s linear 0s;
-      }
-      &::after {
-        content: "";
-        height: 100%;
-        border-radius: 50%;
-        background-color: $primaryone;
-        position: absolute;
-        top: 10%;
-        left: 0;
-        z-index: -1;
-      }
-      img {
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-        height: auto;
-        border-radius: 50%;
-        transform: scale(1);
-        transition: all 1.3s ease 0s;
-      }
-    }
-  }
+// #team {
+//   .our-team {
+//     padding: 15px 0 25px;
+//     margin-bottom: 30px;
+//     background-color: $white;
+//     text-align: center;
+//     overflow: hidden;
+//     position: relative;
+//     box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
+//     -webkit-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
+//     -moz-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
 
-  .our-team:hover .picture::before {
-    height: 100%;
-  }
+//     .name {
+//       font-size: 1.3rem;
+//     }
+//     .picture {
+//       display: inline-block;
+//       height: 130px;
+//       width: 180px;
+//       margin-bottom: 50px;
+//       z-index: 1;
+//       position: relative;
+//       &::before {
+//         content: "";
+//         width: 100%;
+//         height: 120%;
+//         border-radius: 50%;
+//         background-color: $primaryone;
+//         position: absolute;
+//         bottom: 100%;
+//         right: 0;
+//         left: 0;
+//         opacity: 1;
+//         transform: scale(3);
+//         transition: all 0.3s linear 0s;
+//       }
+//       &::after {
+//         content: "";
+//         height: 100%;
+//         border-radius: 50%;
+//         background-color: $primaryone;
+//         position: absolute;
+//         top: 10%;
+//         left: 0;
+//         z-index: -1;
+//       }
+//       img {
+//         margin-left: auto;
+//         margin-right: auto;
+//         width: 90%;
+//         height: auto;
+//         border-radius: 50%;
+//         transform: scale(1);
+//         transition: all 1.3s ease 0s;
+//       }
+//     }
+//   }
 
-  .our-team:hover .picture img {
-    box-shadow: 0 0 0 3px $kblue;
+//   .our-team:hover .picture::before {
+//     height: 100%;
+//   }
 
-    transform: scale(0.9);
-  }
+//   .our-team:hover .picture img {
+//     box-shadow: 0 0 0 3px $kblue;
 
-  .our-team:hover .team-content {
-    transform: translateY(-30px);
-    transition: all 1s ease 0s;
-  }
+//     transform: scale(0.9);
+//   }
 
-  .our-team .title {
-    display: block;
-    font-size: 19px;
-    color: $primaryone;
-    text-transform: capitalize;
-  }
+//   .our-team:hover .team-content {
+//     transform: translateY(-30px);
+//     transition: all 1s ease 0s;
+//   }
 
-  .our-team .social {
-    width: 100%;
-    padding: 0;
-    padding-top: 2%;
-    margin: 0;
-    background-color: $gray;
-    border-bottom: 4px solid $kblue;
-    position: absolute;
-    bottom: -100px;
-    left: 0;
-    transition: all 1s ease 0s;
-  }
+//   .our-team .title {
+//     display: block;
+//     font-size: 19px;
+//     color: $primaryone;
+//     text-transform: capitalize;
+//   }
 
-  .our-team:hover .social {
-    bottom: 0;
-    box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-    -webkit-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-    -moz-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-  }
+//   .our-team .social {
+//     width: 100%;
+//     padding: 0;
+//     padding-top: 2%;
+//     margin: 0;
+//     background-color: $gray;
+//     border-bottom: 4px solid $kblue;
+//     position: absolute;
+//     bottom: -100px;
+//     left: 0;
+//     transition: all 1s ease 0s;
+//   }
 
-  .our-team .social li {
-    display: inline-block;
-  }
+//   .our-team:hover .social {
+//     bottom: 0;
+//     box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
+//     -webkit-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
+//     -moz-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
+//   }
 
-  .our-team .social li a {
-    display: block;
-    padding: 5px;
+//   .our-team .social li {
+//     display: inline-block;
+//   }
 
-    color: $white;
-    transition: all 0.3s ease 0s;
-    text-decoration: none;
-  }
+//   .our-team .social li a {
+//     display: block;
+//     padding: 5px;
 
-  .our-team .social li a:hover {
-    color: $kpink;
-    background-color: transparent;
+//     color: $white;
+//     transition: all 0.3s ease 0s;
+//     text-decoration: none;
+//   }
+
+//   .our-team .social li a:hover {
+//     color: $kpink;
+//     background-color: transparent;
+//   }
+// }
+
+footer {
+  font-family: $brother;
+  display: flex;
+  justify-content: center;
+  .li {
+    color: $gray;
   }
 }
+
 .rb {
   box-sizing: border-box;
   border-color: red;

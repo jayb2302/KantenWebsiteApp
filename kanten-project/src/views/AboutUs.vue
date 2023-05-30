@@ -178,6 +178,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
 </script>
 
 <style lang="scss" scoped>
+@import '../modules/_variables.scss';
 
 *{
     margin: 0;
@@ -368,7 +369,7 @@ body{
   }
 
   .our-team:hover .picture img {
-    box-shadow: 0 0 0 3px blue;
+    box-shadow: 0 0 0 3px $kblue;
 
     transform: scale(0.9);
   }
@@ -381,7 +382,7 @@ body{
   .our-team .title {
     display: block;
     font-size: 19px;
-    color: #252625;
+    color: $primaryone;
     text-transform: capitalize;
   }
 
@@ -390,8 +391,8 @@ body{
     padding: 0;
     padding-top: 2%;
     margin: 0;
-    background-color: gray;
-    border-bottom: 4px solid blue;
+    background-color: $gray;
+    border-bottom: 4px solid $kblue;
     position: absolute;
     bottom: -100px;
     left: 0;
@@ -407,21 +408,26 @@ body{
 
   .our-team .social li {
     display: inline-block;
+   
   }
 
   .our-team .social li a {
     display: block;
     padding: 5px;
-
-    color: white;
+  
+    color: $white;
     transition: all 0.3s ease 0s;
     text-decoration: none;
   }
 
   .our-team .social li a:hover {
-    color: pink;
+    color: $kpink;
     background-color: transparent;
   }
+}
+.icon {
+  width: 25px;
+  height: 25px;
 }
   .container2 {
     display: flex;
