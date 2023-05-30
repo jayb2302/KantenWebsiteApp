@@ -1,27 +1,28 @@
 <template>
-    <div class="product-cards-wrapper">
 <div class="text">
     <h1>Shop with us!</h1>
 </div>
-
     <div  class="shop flex center-align justify-center w-full h-screen" >
         <ProductDescriptionDrawer
             :product="product"
             :active="active.product_drawer"
         />
  
-       
-      <div class="product-cards-container">
-        <ProductSummaryCard
-          v-for="product in items"
-          :key="product.id"
-          :product="product"
-          v-on:view-product="viewProduct($event)"
-          class="card-item"
-        />
-      </div>
+        <div class="product-cards-container flex wrap w-full relative overflow-hidden">
+                <ProductSummaryCard v-for="product in items"
+                   :key="product.id"
+                   :product="product"
+                   v-on:view-product="viewProduct($event)"
+                   />
+        </div>
     </div>
-  </div>
+
+    <div class="footer">
+        <footer>
+            
+        </footer>
+    </div>
+
 </template>
 
 <script >
@@ -230,8 +231,9 @@ export default {
 .product-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 10%;
+  grid-gap: 20px;
   justify-items: center;
+  padding-left: 10%;
   padding-top: 10%;
 }
 
@@ -253,11 +255,6 @@ export default {
   .product-cards-container {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.product-cards-wrapper {
-  height: 100vh; /* Set the height to occupy the full screen */
-  overflow-y: auto;
 }
 
 </style>
