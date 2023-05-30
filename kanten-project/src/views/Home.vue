@@ -104,7 +104,7 @@ import Genre from "./Genre.vue";
 import KraftModal from "../components/KraftModal.vue";
 import Events from "./Events.vue";
 import Newsletter from "./Newsletter.vue";
-import Footer from "../components/Footer.vue";
+// import Footer from "../components/Footer.vue";
 
 export default {
   name: "HomePage",
