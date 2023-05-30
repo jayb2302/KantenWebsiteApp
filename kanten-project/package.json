@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "boxicons": "^2.1.4",
     "bulma": "^0.9.4",
     "firebase": "^9.22.0",
     "swiper": "^9.3.2",

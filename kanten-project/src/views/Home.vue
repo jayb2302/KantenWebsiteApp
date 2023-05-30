@@ -88,17 +88,8 @@
     </section>
     </div>
   
+<!-- Footer section -->
 
-    <!-- <footer class="relative h-2 w-full">
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
-      <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
-      
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/news"> News </RouterLink>
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/sign-in"> Admin </RouterLink> 
-      <RouterLink class="li text-2xl mr-4 ml-4" :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
-     <Newsletter/>
-    </footer> -->
     
   </div>
 </template>
@@ -113,6 +104,7 @@ import Genre from "./Genre.vue";
 import KraftModal from "../components/KraftModal.vue";
 import Events from "./Events.vue";
 import Newsletter from "./Newsletter.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "HomePage",
