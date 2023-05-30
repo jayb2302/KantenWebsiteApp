@@ -3,12 +3,11 @@
        
         <div class="container flex justify-center mt-6 pt-5 top-20">
             <div class="card gap-6 flex flex-col justify-center items-center">
-                <a class="signup">Log in</a>
+                <h1 class="signup">Log in</h1>
                 <div class="inputBox1">
                     <input type="text" v-model="email" required="required">
                     <span class="user">Email</span>
                 </div>
-
 
                 <div class="inputBox">
                     <input v-model="password" type="password" required="required">
@@ -16,6 +15,7 @@
                 </div>
 
                 <button @click="register" class="enter">Log in</button>
+                <router-link class="signup" to="/register">Register</router-link>
 
         </div>
     </div>
@@ -73,6 +73,16 @@ const register = () => {
     -10px -10px 32px $kblue,
     inset 2px 2px 10px rgba(35, 34, 34, 0.8),
     inset -2px -2px 10px rgba(35, 34, 34, 0.8);
+    h1 {
+        font-family: $brother;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        margin-bottom: 2%;
+    }
+    .signup {
+        font-family: $brother;
+        text-transform: uppercase;
+    }
     .inputBox, .inputBox1 {
     position: relative;
         width: 250px;
@@ -168,17 +178,4 @@ const register = () => {
 }
     }
 
-   
-
-
-    .rb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: red;
-    }
-    .bb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: rgb(162, 167, 192);
-  }
 </style>

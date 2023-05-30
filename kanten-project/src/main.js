@@ -1,6 +1,6 @@
 import './assets/main.css'
 import router from './router' 
-import { createStore} from 'vuex'
+import store from './store'
 import { createApp } from 'vue'
 import App from './App.vue'
 import './index.css'
@@ -13,11 +13,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faUserSecret, fab)
 
-const store = createStore({
-    state: {
-      count: 0,
-    },
-  });
 const app =createApp(App)
 
 

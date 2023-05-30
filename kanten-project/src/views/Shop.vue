@@ -1,25 +1,29 @@
 <template>
-    <div class="product-cards-wrapper">
-<div class="text">
-    <h1>Shop with us!</h1>
-</div>
+    <div class="product-cards-wrapper w-full ">
+      <div class="text">
+          <h1>Shop with us!</h1>
+      </div>
 
-    <div  class="shop flex center-align justify-center w-full h-screen" >
+      <div  class="shop flex center-align justify-center w-full h-screen" >
         <ProductDescriptionDrawer
             :product="product"
             :active="active.product_drawer"
         />
  
        
-      <div class="product-cards-container">
-        <ProductSummaryCard
-          v-for="product in items"
-          :key="product.id"
-          :product="product"
-          v-on:view-product="viewProduct($event)"
-          class="card-item"
-        />
-      </div>
+       <div class="product-cards-container w-full">
+          <ProductSummaryCard
+            v-for="product in items"
+            :key="product.id"
+            :product="product"
+            v-on:view-product="viewProduct($event)"
+            class="card-item"
+            @add-to-cart="addToCartHandler"
+          />
+        </div>
+        <div class="cart">
+         <Cart/>
+        </div>
     </div>
   </div>
 </template>
@@ -28,21 +32,29 @@
 import items from '../data/items.js';
 import ProductSummaryCard from '../components/products/ProductSummaryCard.vue';
 import ProductDescriptionDrawer from '../components/products/ProductDescriptionDrawer.vue';
+import { mapActions, mapGetters } from 'vuex';
+import Cart from '../components/Cart.vue';
 
-import {ref, toHandlers} from 'vue'
-import { increment } from 'firebase/firestore';
+
 
 export default {
-    name: 'Shop',
+  
+    
     components: {
-        ProductSummaryCard, ProductDescriptionDrawer,
+        ProductSummaryCard, ProductDescriptionDrawer, Cart,
     },
     methods: {
-        viewProduct(product){
-            this.product = product
-            console.log(this.product)
-        },
+      ...mapActions(['addToCart']),
+      addToCartHandler(product) {
+        this.addToCart(product);
+      },
+      removeFromCart(state, index) {
+      state.cartItems.splice(index, 1);
+    }
        
+    },
+    computed: {
+      ...mapGetters(['cartItems'])
     },
     data () {
         return {
@@ -64,24 +76,22 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10%;
+    margin-top: 5%;
     font-size: 30px;
     font-weight: 700;
-    color: #fff !important;
+    color: $white;
 }
 .shop {
     font-family: $brother;
-    overflow-y: auto;
     background-color: $primaryone;
-    #app {
     font-family: $brother;
     background-color: $primaryone;
     .container {
         width: 15rem;
         height: 28em;
-        margin: 10px;
+      
         flex-wrap: wrap ;
-        
+        margin-bottom: 3%;
         
       .effect{
         border-radius: 50%;
@@ -147,6 +157,7 @@ export default {
         .card-content{
             z-index: 20;
             color: $white;
+            margin-bottom: 2%;
         
             img{
                 width: 90%;
@@ -203,18 +214,8 @@ export default {
     
 }
     
-}
 
-.rb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: red;
-    }
-    .bb {
-    box-sizing: border-box;
-    border-width: 0.5px;
-    border-color: rgb(162, 167, 192);
-  }
+
 
 
 *{
@@ -230,18 +231,12 @@ export default {
 .product-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 10%;
-  justify-items: center;
-  padding-top: 10%;
+  
+  padding-top: 5%;
+ 
 }
 
-.card-item {
-  height: 200px; /* Adjust the height as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Rest of your card styles */
-}
+
 
 @media screen and (min-width: 768px) {
   .product-cards-container {

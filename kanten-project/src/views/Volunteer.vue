@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
         <div class="text-container">
-            <h1 style="font-size:200%; padding-bottom: 20px;">Become part of our team by becoming a volunteer!</h1>
-            <p style="font-size: larger; text-align: center; padding-bottom: 30px;">At Kanten, we truly appreciate and value the contributions of individuals who share
+            <h1 style=" padding-bottom: 20px;">Become part of our team by becoming a volunteer!</h1>
+            <p style=" text-align: center; padding-bottom: 30px;">At Kanten, we truly appreciate and value the contributions of individuals who share
                 our mission and vision. That's why we're excited to offre a variety of volunteer 
                 opportunities that allow you to make a meaningful impact within our community.
             </p>
@@ -55,6 +55,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../modules/_variables.scss';
 *
 {
     margin: 0;
@@ -73,9 +74,22 @@ background: #23242a;
 .text-container{
     display: flex;
     justify-content: center;
-    align-items: center;
+   
     flex-direction: column;
-    width: 70%;
+    width: 10 0%;
+    h1{
+        font-size: 3rem;
+        font-family: $brother;
+        text-align: center;
+    }
+    p {
+    
+        font-size: 1.4rem;
+        padding-left: 10%;
+        padding-right: 10%;
+       margin-bottom: 3%;
+       font-family: $k2d;
+    }
 }
 
 .wrapper {

@@ -1,4 +1,4 @@
-<script setup>
+<script >
 
 import Card from '../components/Card.vue'
 /* import allProjects from '../data/projects.json' */

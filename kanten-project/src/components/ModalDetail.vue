@@ -9,7 +9,7 @@
                         <div class=" modal bg-slate-800 w-11/12 md:w-10/12 lg:w-8/12 shadow-md shadow-slate-500 shadow-inner md:w-2/5 pt-7 pl-7 pr-5 h-4/5 rounded-lg " role="dialog" ref="modal">
                             <button class=" absolute right-3 top-2 z-20" @click="$emit('close')"><font-awesome-icon style="color: aliceblue;" id="closebutton" :icon="['fas', 'x']" /></button>
                         
-                            <div class="portfolio-container  overflow-auto hover:overflow-auto scrollbar md:w-full lg:w-full ">
+                            <div class="modal-container  overflow-auto hover:overflow-auto scrollbar md:w-full lg:w-full ">
 
                                 <div class="portfolio-item flex flex-col h-96" v-if="portfolioDetails" >            
                                     
@@ -71,14 +71,7 @@ import { toRefs, computed} from 'vue'
 </script>
 
 <style lang="scss" scoped>
-  @font-face {
-    font-family: republica;
-    src: url(../../src/assets/republica.otf);
-  }
-  @font-face {
-    font-family: lettergothic;
-    src: url(../../src/assets/lettergothic.otf);
-  }
+ 
   
 .modal {
     height: 590px;
@@ -88,7 +81,7 @@ import { toRefs, computed} from 'vue'
         text-shadow: 2px 1px 1px #4f5255;
 
 
-    .portfolio-container{
+    .modal-container{
     font-family: republica;
     color: aliceblue;
     height: 490px;  

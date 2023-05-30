@@ -6,8 +6,8 @@
       <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4" :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
-      <RouterLink class="li text-2xl mr-4 ml-4 border-l-2 pl-3" to="/about"> Membership </RouterLink>
-      <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> Volunteer </RouterLink>
+      <RouterLink class="li text-2xl mr-4 ml-4 border-l-2 pl-3" to="/registration"> Membership </RouterLink>
+      <RouterLink class="li text-2xl mr-4 ml-4" to="/volunteer"> Volunteer </RouterLink>
 
 
     </nav>

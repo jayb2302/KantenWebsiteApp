@@ -1,25 +1,46 @@
-import { createApp } from 'vue'
-import {createStore} from 'vuex'
+// src/store/index.js
+import { createStore } from 'vuex';
 
-const store = createStore ({
-    state () {
-        return {
-            count:0
-        }
-    }, 
-    mutations: {
-        increment (state) {
-            state.count++
-        }
 
+
+
+const store = createStore({
+  state: {
+    cart: []
+  },
+  mutations: {
+    ADD_TO_CART(state, item) {
+      state.cart.push(item);
+    },
+    REMOVE_FROM_CART(state, index) {
+      state.cart.splice(index, 1);
+    },
+    CLEAR_CART(state) {
+      state.cart = [];
     }
-})
+  },
+  actions: {
+    addToCart({ commit }, item) {
+      commit('ADD_TO_CART', item);
+    },
+    removeFromCart({ commit }, index) {
+      commit('REMOVE_FROM_CART', index);
+    },
+    clearCart({ commit }) {
+      commit('CLEAR_CART');
+    }
+  },
+  getters: {
+    cartItems(state) {
+      return state.cart;
+    },
+    cartTotal(state) {
+      return state.cart.reduce((total, item) => total + item.price, 0);
+    }
+  }
+});
 
-const app = createApp
+export default store;
 
-app.use(store)
-
-store.commit('increment')
-console.log(store.state.count)
 
 
