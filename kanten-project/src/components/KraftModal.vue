@@ -190,16 +190,6 @@ export default {
   }
 }
 
-.rb {
-  box-sizing: border-box;
-  border-width: 0.5px;
-  border-color: red;
-}
-.bb {
-  box-sizing: border-box;
-  border-width: 0.5px;
-  border-color: rgb(162, 167, 192);
-}
 ::-webkit-scrollbar {
   width: 2px;
 }

@@ -1,7 +1,7 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div ref="body">
+  <div id="home-wrapper">
 
     <!-- Home Section -->
       <button
@@ -23,71 +23,142 @@
     </section>
 
     <div class="wrapper ">
+      <!-- Upcoming Events Section -->
+      <section id="events" class="py-10 w-full relative   z-10 mb-52 h-6/6">
+        <TransitionGroup
+          appear
+          tag="div"
+          @before-enter="beforeEnter"
+          @enter="enter"
+        >
+          <div class="text rb "> <p> Upcoming Events </p></div>
+          <Events />
+        </TransitionGroup> 
+        
+      </section>
 
-    <div class="wrapper">
-    </div>
-  <!-- Our Genre Section -->
-    <section id="genre" class="w-full h-screen justify-center text-center"
-    >
-      <div class="flex  justify-between ">
-        <Genre />
-      </div>
-    </section>
+      <!-- Our Genre Section -->
+      <section id="genre" class="w-full justify-center text-center"
+      >
+      
+          <div class="flex  justify-between ">
+          <TransitionGroup
+            appear
+            tag="div"
+            @before-enter="beforeEnter"
+            @enter="enter"
+          >
+          <div class="text"><p class="">Discover</p></div>
+            <Genre />
+          </TransitionGroup> 
+          
+        </div>
+      </section>
+      <!-- Recent Posts Section -->
+      <section id="posts" class=" w-full">
+        <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
+        <div class="recents-posts flex justify-center gap-5">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
+            width="300"
+            height="584"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"
+          ></iframe>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
+            width="300"
+            height="584"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"
+          ></iframe>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
+            width="300"
+            height="584"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"
+          ></iframe>
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
+            width="300"
+            height="584"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"
+          ></iframe>
+        </div>
+      </section>
+      <!-- Footer Section -->
+      <footer id="footer" class="flex flex-col w-full ">
+          <div class="footer-content flex flex-row justify-center">
+              <div class="footer-list w-3/12 ">
+                  <h3>Find us here</h3>
+                <ul>
+                  <li>
+                    <h4>Kanten</h4>
+                    <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
+                  </li>
+                  <li>
+                    <h4>Kraftværket</h4>
+                    <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
+                  </li>
+                </ul>
+              </div>
+    
+              <div class="footer-contact w-3/12 ">
+                <div class="footer-widget-heading">
+                  <h3>Contact us</h3>
+                </div>
+                <ul>
+                  <li>
+                    <h4>Phone</h4>
+                    <p>+45 28 97 11 85</p>
+                  </li>
+                  <li>
+                    <h4>E-mail</h4>
+                    <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                  </li>
+                </ul>
+              </div>
+            
+          </div>
+        
+                  
+          <div class="copyright-area  ">
+                <div class="copyright">
+                  <p>Copyright &copy; 2018, All Right Reserved Kanten</p>  
+                </div>
+                <div class="footer-widget">
+                  
+                  <!-- Follow button -->
+                  <!-- <div class="footer-social-icon">
+                    <span>Follow us</span>
+                    <a href="#"><i class='bx bxl-facebook' style='color:$whitefff'></i></a>
+                    <a href="#"><i class='bx bxl-instagram' style='color:$whitefff'  ></i></a>
+                  </div> -->
+                </div>
+          </div>                    
+          <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
 
-   
-
-    <!-- Recent Posts Section -->
-    <section id="posts" class=" w-full">
-      <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
-      <div class="recents-posts flex justify-center gap-5">
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-          width="300"
-          height="584"
-          style="border: none; overflow: hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowFullScreen="true"
-        ></iframe>
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-          width="300"
-          height="584"
-          style="border: none; overflow: hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowFullScreen="true"
-        ></iframe>
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-          width="300"
-          height="584"
-          style="border: none; overflow: hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowFullScreen="true"
-        ></iframe>
-        <iframe
-          src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-          width="300"
-          height="584"
-          style="border: none; overflow: hidden"
-          scrolling="no"
-          frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowFullScreen="true"
-        ></iframe>
-      </div>
-    </section>
+      </footer>
     </div>
-    </div>
+  </div>
 
 </template>
 
@@ -118,7 +189,7 @@ export default {
 
     const beforeEnter = (el) => {
       el.style.opacity = 0;
-      el.style.transform = "translateY(-600px)";
+      el.style.transform = "translateY(0px)";
       console.log("after");
     }; 
 
@@ -134,12 +205,12 @@ export default {
         bottom: { opacity: 0, x: -0 },
       };
 
-      const finalPosition = { opacity: 1, x: 0, y: 0 };
+      const finalPosition = { opacity: 1, x: 0, y: 10 };
 
       gsap.fromTo(el, initialPosition[direction], {
         ...finalPosition,
         opacity: 0.8,
-        y: 300,
+        y: 100,
         duration: 0.7,
         delay: 1,
         ease: 1,
@@ -158,12 +229,13 @@ export default {
       });
      
     
-      gsap.set(".wrapper", { opacity: 0, y: "5%" });
+      gsap.set(".wrapper", { opacity: 0, y: "0%" });
       ScrollTrigger.create({
         trigger: "#events", // Use the #genre section as the trigger
         start: "top top ",
         end: "bottom bottom",
-        duration: 2,
+        duration: 0.2,
+        
        
         onEnter: () => {
           gsap.to(".wrapper", { opacity: 1, y: 0 });
@@ -177,7 +249,7 @@ export default {
       });
 
       ScrollTrigger.create({
-        trigger: "body",
+        trigger: "#home-wrapper",
         start: "top top",
         end: "bottom bottom",
        
@@ -248,7 +320,7 @@ button {
     margin-top: 5%;
     height: 430px;
     cursor: pointer;
-    color: #fff;
+    color: $white;
     box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
     -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
     -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
@@ -266,7 +338,7 @@ button {
     }
     &:hover {
      height: 440px;
-      border-color: #ffffff;
+      border-color: $white;
       font-size: 2.2em;
       transform: scaleX(1.1);
       box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
@@ -303,19 +375,64 @@ button {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%,rgba(79, 44, 95, 0.3) 60%,rgba(37,38,37,0.6) 70%, rgba(37,38,37,0) 100%);
   margin-top: -10%;
   height: 100vh;
+  .text {
+  position: fixed;
+  color: $white;
+  background: $primaryone;
+  z-index: 10;
+  left: 1%;
+  font-size: 1.3rem;
+  width: auto;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  top: 45%;
+  height: 65px;
+  cursor: pointer;
+  color: $white;
+  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+  transition: all 0.5s;
+  letter-spacing: 9px;
+  font-family: $brother;
+  text-transform: uppercase;
+  rotate: -90deg;
+  
+
+  
+
+}
   
 }
 
 
-h2 {
-  text-align: center;
-  font-size: 6em;
+.text {
+  position: fixed;
+  color: $white;
+  background: $primaryone;
+  z-index: 10;
+  left: -5%;
+  font-size: 1.3rem;
+  width: auto;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  top: 15%;
+  height: 65px;
+  cursor: pointer;
+  color: $white;
+  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+  transition: all 0.5s;
+  letter-spacing: 9px;
   font-family: $brother;
-  height: 100px;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  padding-top: 0%;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  rotate: -90deg;
+  
+
+  
 
 }
 
@@ -324,13 +441,75 @@ h2 {
   
 }
 
-footer {
+
+#footer {
   font-family: $brother;
-  display: flex;
-  justify-content: center;
-  .li {
-    color: $gray;
+    background: $primaryone;
+    padding: 0;
+    height: 300px;
+    padding-top: 1%;
+    .footer-content {
+     
+     
+      ul {
+        list-style-type: none;
+        padding: 0; 
+        a {
+        color: $gray;
+        font-size: 1em;
+        font-family: $k2d;
+        
+        }
+        p {
+          color: $gray;
+          font-size: 1em;
+          font-family: $k2d;
+          line-height: 28px;
+        }
+      }
+      h4 {
+        font-size: 1.2em;
+        padding-top: 3%;
+        color: $gray;
+        font-weight: 800;
+
+
+      }
+
+        h3 {
+        color: $white;
+        font-weight: 800;
+        position: relative;
+        font-size: 1.2em;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            height: 2px;
+            width: 117px;
+            background: $kpink;
+          }
+        }
+        
+       
+    }
+    img {
+          position: absolute;
+          right: 0;
+          bottom: 2%;
+        }
+   
+    
+    .copyright {
+      margin: 0;
+      font-size: 1em;
+      color: $gray;
+      text-align: center;
+      padding-top: 5%;
+      opacity: 0.5;
+      
+    }
   }
-}
+
 
 </style>

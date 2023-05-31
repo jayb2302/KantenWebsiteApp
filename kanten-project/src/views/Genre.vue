@@ -4,7 +4,7 @@
       <div class="bgtext text-5xl">
         <h1 class="opacity-20"></h1>
       </div>
-      <div class="box absolute top-52"><h2 class="">Discover</h2></div>
+      
       <div class="flex w-full justify-center border-l-3">
         <div class="btnwrapper flex text-center wrap w-9/12 h-[600px]">
           <TransitionGroup
