@@ -15,22 +15,13 @@
 
 
     <footer class="footer">
+      
       <div class="container">
         <div class="footer-content">
           <div class="row">
-            <div class="footer-widget">
-              <div class="footer-logo">
-                <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-              </div>
-              <!-- Follow button -->
-              <!-- <div class="footer-social-icon">
-                <span>Follow us</span>
-                <a href="#"><i class='bx bxl-facebook' style='color:#ffffff'></i></a>
-                <a href="#"><i class='bx bxl-instagram' style='color:#ffffff'  ></i></a>
-              </div> -->
-            </div>
+            
   
-            <div class="footer-widget">
+            <div class="footer-widget2">
               <div class="footer-widget-heading">
                 <h3>Find us here</h3>
               </div>
@@ -46,7 +37,7 @@
               </ul>
             </div>
   
-            <div class="footer-widget">
+            <div class="footer-widget2">
               <div class="footer-widget-heading">
                 <h3>Contact us</h3>
               </div>
@@ -71,6 +62,17 @@
                             <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
                         </div>                    
                 </div>
+                <div class="footer-widget">
+              <div class="footer-logo">
+                <img src="./assets/img/Logo.png" class="img-fluid" alt="logo">
+              </div>
+              <!-- Follow button -->
+              <!-- <div class="footer-social-icon">
+                <span>Follow us</span>
+                <a href="#"><i class='bx bxl-facebook' style='color:#ffffff'></i></a>
+                <a href="#"><i class='bx bxl-instagram' style='color:#ffffff'  ></i></a>
+              </div> -->
+            </div>
             </div>
         </div>
     
@@ -111,7 +113,7 @@ nav {
 
 .footer {
   background: #252625;
-  padding: 20px;
+  padding-top: 70px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -121,22 +123,25 @@ nav {
     gap: 5px;
   display: flex;
   justify-content: center;
-  margin-right: 0;
 }
 .footer-content {
   width: 100%;
-  max-width: 900px;
   flex-grow: 1;
 }
 .row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .footer-widget {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -70px;
+}
+.footer-widget2 {
   width: 100%;
   max-width: 300px;
-  text-align: justify;
+  text-align: left;
 }
 .footer-widget-heading {
   margin-bottom: 10px;
@@ -166,16 +171,15 @@ p{
 .footer-pattern img {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height: 330px;
   background-size: cover;
   background-position: 100% 100%;
 }
-.footer-logo {
-  margin-bottom: 30px;
-}
+
 .footer-logo img {
     max-width: 200px;
+    position: initial !important;
 }
 .footer-text p {
   margin-bottom: 14px;
@@ -202,10 +206,9 @@ p{
 
 .copyright-area{
   background: #252625;
-  padding: 25px 0;
   display: flex;
   justify-content: center;
-  height: 100px !important;
+  height: 50px !important;
 }
 .copyright-text p {
   margin: 0;

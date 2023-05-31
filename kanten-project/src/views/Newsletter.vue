@@ -27,10 +27,8 @@
     },
     methods: {
       subscribe() {
-        // Simulating an asynchronous subscription request
+        
         setTimeout(() => {
-          // Here, you can perform an actual API request to subscribe the user
-          // Once the subscription is successful, you can set the subscribed flag to true
           this.subscribed = true;
         }, 1000);
       },

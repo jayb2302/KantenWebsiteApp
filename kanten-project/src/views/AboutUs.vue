@@ -28,7 +28,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
 <!-- Meet Our Team Section -->
 <section id="team" class="py-10">
       <h2 class="team">Meet Our Team</h2>
-      <div class="container2">
+      <div class="container3">
             <div class="our-team">
               <div class="picture">
                 <img
@@ -193,16 +193,22 @@ body{
     background-color: #252625;
 }
 
-.container {
-  padding-top: 150px;
+.container2 {
+  padding-top: 100px;
   flex-direction: column;
   align-items: center;
+}
+.container3 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .about-section{
     background: url(../assets/img/Kanten-About-Us.jpg) no-repeat left;
     background-size: 55%;
-    background-color: #252625;
+    background-color: $primaryone;
     overflow: hidden;
     padding: 100px 0;
 }
@@ -218,7 +224,7 @@ body{
     background-size: 55%;
     background-color: #252625;
     overflow: hidden;
-    padding: 100px 0;
+    padding-bottom: 150px;
 }
 .inner-container {
     width: 50%;
@@ -435,11 +441,5 @@ body{
   width: 25px;
   height: 25px;
 }
-  .container2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:5%;
-  }
 
 </style>

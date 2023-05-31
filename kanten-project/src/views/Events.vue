@@ -178,6 +178,7 @@ const toggleAccordion = (event) => {
 @import "../modules/variables";
 
 .container {
+  padding-top: 70px;
   
   background-image: url(../assets/fiber.png);
   background-size: contain;
