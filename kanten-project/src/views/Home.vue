@@ -21,8 +21,12 @@
      
       <KraftModal :show="showModalKraft" />
     </section>
+<<<<<<< Updated upstream
 
     <div class="wrapper absolute">
+=======
+    <div class="wrapper">
+>>>>>>> Stashed changes
   <!-- Our Genre Section -->
     <section id="genre" class="w-full h-screen justify-center text-center"
     >
@@ -90,7 +94,12 @@
     </section>
     </div>
   
+<<<<<<< Updated upstream
     <!-- Footer section -->
+=======
+<!-- Footer section -->
+    
+>>>>>>> Stashed changes
   </div>
 </template>
 

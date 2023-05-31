@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container2">
     <div class="about-section">
         <div class="inner-container">
             <h1>About Us</h1>
@@ -191,6 +191,12 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #252625;
+}
+
+.container {
+  padding-top: 150px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-section{

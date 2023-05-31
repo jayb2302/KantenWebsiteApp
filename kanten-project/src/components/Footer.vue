@@ -64,6 +64,8 @@
 
 <script setup>
 import 'boxicons'
+
+
 </script>
 
 <style scoped>
