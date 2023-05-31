@@ -3,7 +3,7 @@
     <!-- Your title content here -->
   </div>
 
-  <div class="container w-full h-screen flex mt-16">
+  <div class="container w-full h-screen flex mt-3">
     <label class="accordion accordion--1 flex w-full gap-52 justify-center" for="open-1">
       
      

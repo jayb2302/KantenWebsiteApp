@@ -23,26 +23,40 @@
     </section>
 
     <div class="wrapper ">
+<<<<<<< Updated upstream
 
     <div class="wrapper">
     </div>
   <!-- Our Genre Section -->
     <section id="genre" class="w-full h-screen justify-center text-center"
+=======
+      <!-- Upcoming Events Section -->
+      <section id="events" class="py-10 w-full relative   z-10 mb-52 h-6/6">
+        <TransitionGroup
+          appear
+          tag="div"
+          @before-enter="beforeEnter"
+          @enter="enter"
+        >
+          <h2 class=" font-bold  mt-28 relative pb-3 text-center">Upcoming Events</h2>
+          <Events />
+        </TransitionGroup> 
+        
+      </section>
+
+    <!-- Our Genre Section -->
+    <section id="genre" class="w-full justify-center text-center"
+>>>>>>> Stashed changes
     >
       <div class="flex  justify-between ">
         <Genre />
       </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section id="events" class="py-10 w-full mt-20 z-10 mb-20 h-screen">
-      <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
-     
-    <Events />
-    </section>
+   
 
     <!-- Recent Posts Section -->
-    <section id="posts" class="top-16 mt-36 w-full">
+    <section id="posts" class=" w-full">
       <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
       <div class="recents-posts flex justify-center gap-5">
         <iframe
@@ -98,7 +112,6 @@
 
 <script>
 import { onMounted, ref } from "vue";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRouter } from "vue-router";
@@ -122,6 +135,37 @@ export default {
     const showModalKraft = ref(false);
     const showGenreSection = ref(false);
 
+    const beforeEnter = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(-600px)";
+      console.log("after");
+    }; 
+
+    const enter = (el, done) => {
+      const index = Array.from(el.parentNode.children).indexOf(el);
+      const directions = ["top", "left", "right", "bottom"];
+      const direction = directions[index % directions.length];
+
+      const initialPosition = {
+        top: { opacity: 0, y: 10, },
+        left: { opacity: 0, x: 0 },
+        right: { opacity: 0, x: 0 },
+        bottom: { opacity: 0, x: -0 },
+      };
+
+      const finalPosition = { opacity: 1, x: 0, y: 0 };
+
+      gsap.fromTo(el, initialPosition[direction], {
+        ...finalPosition,
+        opacity: 0.8,
+        y: 300,
+        duration: 0.7,
+        delay: 1,
+        ease: 1,
+        onComplete: done,
+        rotation: 0,
+      });
+    };
     onMounted(() => {
       
 
@@ -133,21 +177,20 @@ export default {
       });
      
     
-      gsap.set(".wrapper", { opacity: 0, y: "2%" });
+      gsap.set(".wrapper", { opacity: 0, y: "5%" });
       ScrollTrigger.create({
-        trigger: "#genre", // Use the #genre section as the trigger
+        trigger: "#events", // Use the #genre section as the trigger
         start: "top top ",
-        end: "top bottom",
-        duration: 3,
-       
-        markers: true,
+        end: "bottom bottom",
+        duration: 2,
        
         onEnter: () => {
           gsap.to(".wrapper", { opacity: 1, y: 0 });
         showGenreSection.value=true; 
       },// Show the .wrapper when entering the trigger area
+
         onLeaveBack: () => {
-          gsap.to(".wrapper", { opacity: 1, y: 0 });
+          gsap.to(".wrapper", { opacity: 0, y: 100 });
           showGenreSection.value = true; 
         },// Hide the .wrapper when leaving the trigger area
       });
@@ -163,7 +206,7 @@ export default {
     });
 
     return {
-      showModalKraft,
+      showModalKraft, beforeEnter, enter
     };
   },
 };
@@ -239,14 +282,11 @@ button {
       top: -30%;
       
       
-     
-      
     }
     &:hover {
      height: 440px;
       border-color: #ffffff;
       font-size: 2.2em;
-      top: -25%;
       transform: scaleX(1.1);
       box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
       -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
@@ -279,9 +319,9 @@ button {
 
 #genre {
   display: flex;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.709) 0%, rgba(37,38,37,1) 57%,rgba(37,38,37,1) 57%,rgba(37,38,37,1) 0%);
-  padding-top: 10%;
- height: 120vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%,rgba(79, 44, 95, 0.3) 60%,rgba(37,38,37,0.6) 70%, rgba(37,38,37,0) 100%);
+  margin-top: -10%;
+  height: 100vh;
   
 }
 
@@ -290,137 +330,18 @@ h2 {
   text-align: center;
   font-size: 6em;
   font-family: $brother;
-  height: 300px;
-  margin-top: 0;
-  padding-top: 10%;
+  height: 100px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding-top: 0%;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
 
 }
 
 #posts {
-  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37,38,37,1) 57%, rgba(69, 68, 68, 0.439) 70%,);
-  padding-top: 5%;
-  position: relative;
+  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37,38,37,1) 57%, rgba(69, 68, 68, 0.439) 0%,);
+  
 }
-
-// #team {
-//   .our-team {
-//     padding: 15px 0 25px;
-//     margin-bottom: 30px;
-//     background-color: $white;
-//     text-align: center;
-//     overflow: hidden;
-//     position: relative;
-//     box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-//     -webkit-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-//     -moz-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-
-//     .name {
-//       font-size: 1.3rem;
-//     }
-//     .picture {
-//       display: inline-block;
-//       height: 130px;
-//       width: 180px;
-//       margin-bottom: 50px;
-//       z-index: 1;
-//       position: relative;
-//       &::before {
-//         content: "";
-//         width: 100%;
-//         height: 120%;
-//         border-radius: 50%;
-//         background-color: $primaryone;
-//         position: absolute;
-//         bottom: 100%;
-//         right: 0;
-//         left: 0;
-//         opacity: 1;
-//         transform: scale(3);
-//         transition: all 0.3s linear 0s;
-//       }
-//       &::after {
-//         content: "";
-//         height: 100%;
-//         border-radius: 50%;
-//         background-color: $primaryone;
-//         position: absolute;
-//         top: 10%;
-//         left: 0;
-//         z-index: -1;
-//       }
-//       img {
-//         margin-left: auto;
-//         margin-right: auto;
-//         width: 90%;
-//         height: auto;
-//         border-radius: 50%;
-//         transform: scale(1);
-//         transition: all 1.3s ease 0s;
-//       }
-//     }
-//   }
-
-//   .our-team:hover .picture::before {
-//     height: 100%;
-//   }
-
-//   .our-team:hover .picture img {
-//     box-shadow: 0 0 0 3px $kblue;
-
-//     transform: scale(0.9);
-//   }
-
-//   .our-team:hover .team-content {
-//     transform: translateY(-30px);
-//     transition: all 1s ease 0s;
-//   }
-
-//   .our-team .title {
-//     display: block;
-//     font-size: 19px;
-//     color: $primaryone;
-//     text-transform: capitalize;
-//   }
-
-//   .our-team .social {
-//     width: 100%;
-//     padding: 0;
-//     padding-top: 2%;
-//     margin: 0;
-//     background-color: $gray;
-//     border-bottom: 4px solid $kblue;
-//     position: absolute;
-//     bottom: -100px;
-//     left: 0;
-//     transition: all 1s ease 0s;
-//   }
-
-//   .our-team:hover .social {
-//     bottom: 0;
-//     box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-//     -webkit-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-//     -moz-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.76);
-//   }
-
-//   .our-team .social li {
-//     display: inline-block;
-//   }
-
-//   .our-team .social li a {
-//     display: block;
-//     padding: 5px;
-
-//     color: $white;
-//     transition: all 0.3s ease 0s;
-//     text-decoration: none;
-//   }
-
-//   .our-team .social li a:hover {
-//     color: $kpink;
-//     background-color: transparent;
-//   }
-// }
 
 footer {
   font-family: $brother;
@@ -431,14 +352,4 @@ footer {
   }
 }
 
-.rb {
-  box-sizing: border-box;
-  border-color: red;
-  border-width: 1px;
-}
-.bb {
-  box-sizing: border-box;
-  border-color: rgb(163, 163, 175);
-  border-width: 1px;
-}
 </style>

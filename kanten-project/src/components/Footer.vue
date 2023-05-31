@@ -64,7 +64,11 @@
 </template>
 
 <script setup>
+<<<<<<< Updated upstream
 
+=======
+import { boxicons } from 'boxicons'
+>>>>>>> Stashed changes
 </script>
 
 <style scoped>
