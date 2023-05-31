@@ -23,30 +23,11 @@
     </section>
 
     <div class="wrapper ">
-<<<<<<< Updated upstream
 
     <div class="wrapper">
     </div>
   <!-- Our Genre Section -->
     <section id="genre" class="w-full h-screen justify-center text-center"
-=======
-      <!-- Upcoming Events Section -->
-      <section id="events" class="py-10 w-full relative   z-10 mb-52 h-6/6">
-        <TransitionGroup
-          appear
-          tag="div"
-          @before-enter="beforeEnter"
-          @enter="enter"
-        >
-          <h2 class=" font-bold  mt-28 relative pb-3 text-center">Upcoming Events</h2>
-          <Events />
-        </TransitionGroup> 
-        
-      </section>
-
-    <!-- Our Genre Section -->
-    <section id="genre" class="w-full justify-center text-center"
->>>>>>> Stashed changes
     >
       <div class="flex  justify-between ">
         <Genre />
