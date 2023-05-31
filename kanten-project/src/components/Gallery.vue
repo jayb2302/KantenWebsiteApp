@@ -21,30 +21,27 @@
     >
       <swiper-slide
         ><img
-          src="../assets/img/01.JPG" /></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/02.JPG" /></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/03.JPG" /></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/04.JPG" /></swiper-slide
+          src="https://placehold.co/600x400"/></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/05.JPG"/></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/06.JPG" /></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
         ><img
-          src="../assets/img/07.JPG" /></swiper-slide
+          src="https://placehold.co/600x400" /></swiper-slide
       ><swiper-slide
-        ><img
-          src="../assets/img/08.JPG" /></swiper-slide
-      ><swiper-slide
-        ><img src="../assets/img/09.JPG" /></swiper-slide>
+        ><img src="https://placehold.co/600x400" /></swiper-slide>
     </swiper>
   </template>
   <script>

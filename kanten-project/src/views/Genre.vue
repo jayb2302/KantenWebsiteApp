@@ -106,7 +106,7 @@ export default {
       const index = Array.from(el.parentNode.children).indexOf(el);
       const directions = ["top", "left", "right", "bottom"];
       const direction = directions[index % directions.length];
-      const delay = index * 0.8; // Adjust the delay duration as needed
+      const delay = index * 1; // Adjust the delay duration as needed
 
       const initialPosition = {
         top: { opacity: 0, y: -0, },
@@ -154,6 +154,7 @@ export default {
   border: 2px solid $gray;
   border-radius: 0;
   background-color: transparent;
+  
   transform: rotate(45deg);
   height: 200px;
   width: 200px;
