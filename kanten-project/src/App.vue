@@ -201,7 +201,7 @@ p{
   bottom: -7px;
   height: 2px;
   width: 117px;
-  background: #ff5e14;
+  background: $kpink;
 }
 
 .copyright-area{
@@ -214,8 +214,5 @@ p{
   margin: 0;
   font-size: 14px;
   color: #878787;
-}
-.copyright-text p a{
-  color: #ff5e14;
 }
 </style>
