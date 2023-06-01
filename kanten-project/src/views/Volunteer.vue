@@ -48,6 +48,66 @@
 <br>
 <p style="font-size: larger;">We would love you to be part of our amazing team!</p>
 </div>
+
+<!-- Footer -->
+<footer class="footer">
+        <div class="footer-content">
+          <div class="line">
+            
+  
+            <div class="footer-widget2">
+              <div class="footer-widget-heading">
+                <h3>Find us here</h3>
+              </div>
+              <ul>
+                <li>
+                  <h2>Kanten</h2>
+                  <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
+                </li>
+                <li>
+                  <h2>Kraftværket</h2>
+                  <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="footer-widget2">
+              <div class="footer-widget-heading">
+                <h3>Contact us</h3>
+              </div>
+              <ul>
+                <li>
+                  <h2>Phone</h2>
+                  <p>+45 28 97 11 85</p>
+                </li>
+                <li>
+                  <h2>E-mail</h2>
+                  <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </footer>
+        <div class="copyright-area">
+                <div class="row">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2023, All Right Reserved Kanten</p>
+                        </div>                    
+                </div>
+                <div class="footer-widget">
+              <div class="footer-logo">
+                <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+              </div>
+              <!-- Follow button -->
+              <!-- <div class="footer-social-icon">
+                <span>Follow us</span>
+                <a href="#"><i class='bx bxl-facebook' style='color:#ffffff'></i></a>
+                <a href="#"><i class='bx bxl-instagram' style='color:#ffffff'  ></i></a>
+              </div> -->
+            </div>
+        </div>
+
 </template>
 
 <script setup>
@@ -68,7 +128,7 @@ display: flex;
 height: 100vh;
 justify-content: center;
 align-items: center;
-background: #23242a;
+background: $primaryone;
 }
 
 .text-container{
@@ -97,13 +157,12 @@ background: #23242a;
     display: flex;
     justify-content: center;
     align-items: center;
-  padding: 60px 0; /* Adjust the padding values as needed */
+  padding: 60px 0; 
 }
 .formula{
     position: absolute;
     inset: 2px;
     border-radius: 8px;
-    background: #252625;
     z-index: 1000;
     padding: 50px 40px;
     display: flex;
@@ -116,23 +175,22 @@ background: #23242a;
     gap: 3%;
     width: 60%;
     height: 500px;
-    background: #252625;
-    border: 2px solid #45f3ff;
+    border: 2px solid $kblue;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 0 2px #45f3ff, 0 0 20px 2px #45f3ff;
+    box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
     animation: animate 3s linear infinite;
   }
   
   @keyframes animate {
     0% {
-      box-shadow: 0 0 0 2px #45f3ff, 0 0 20px 2px #45f3ff;
+      box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
     }
     50% {
-      box-shadow: 0 0 0 2px #45f3ff, 0 0 40px 6px #45f3ff;
+      box-shadow: 0 0 0 2px $kblue, 0 0 40px 6px $kpink;
     }
     100% {
-      box-shadow: 0 0 0 2px #45f3ff, 0 0 20px 2px #45f3ff;
+      box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
     }
   }
 
@@ -140,6 +198,7 @@ background: #23242a;
     font-size: 25px;
     font-weight: 500;
     position: relative;
+    font-family: $brother;
 }
 
 .container .title::before {
@@ -149,7 +208,7 @@ background: #23242a;
     bottom: 0;
     height: 3px;
     width: 185px;
-    background: linear-gradient(135deg, #45f3ff, #45f3ff);
+    background: linear-gradient(135deg, $kblue, $kblue);
 }
 
 .container form .user-details {
@@ -157,6 +216,7 @@ background: #23242a;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
+    font-family: $k2d;
 }
 
 form .user-details .input-box {
@@ -175,7 +235,7 @@ form .user-details .input-box {
     width: 100%;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #45f3ff;
+    border: 1px solid $kblue;
     padding-left: 15px;
     font-size: 16px;
     border-bottom-width: 2px;
@@ -184,7 +244,7 @@ form .user-details .input-box {
 
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
-border-color: #45f3ff;
+border-color: $kblue;
 }
 
 
@@ -195,20 +255,20 @@ form .botton {
 }
 
 form .button input {
+    color: $white;
     height: 100%;
     width: 100%;
     outline: none;
-    color: #fff;
     border: none;
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #45f3ff, #45f3ff);
+    background: linear-gradient(135deg, $kblue, $kblue);
 }
 
 form .button input:hover {
-    background: linear-gradient(-135deg, #40e0eb, #45f3ff);
+    background: linear-gradient(-135deg, $kblue, $kblue);
 }
 
 
@@ -237,5 +297,129 @@ form .button input:hover {
         width: 100%;
     }
 }
+
+                                  /* Footer */
+
+
+.footer {
+  background: $primaryone;
+  padding-top: 70px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 300px !important;
+}
+
+.footer-content {
+  width: 100%;
+  flex-grow: 1;
+}
+.line {
+  display: flex;
+  justify-content: center;
+}
+.footer-widget {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.footer-widget2 {
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+}
+.footer-widget-heading {
+  margin-bottom: 10px;
+  font-family: $brother;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  font-family: $k2d;
+}
+
+li {
+  margin-bottom: 10px;
+  
+}
+
+h2{
+    font-weight: bold;
+    font-size: large;
+}
+
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+.footer-logo img {
+    max-width: 200px;
+}
+ 
+.footer-widget-heading h3 {
+  color: $white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  height: 3px;
+  width: 116px;
+  background: $kpink;
+}
+
+.copyright-area{
+  background: $primaryone;
+  display: flex;
+  justify-content: center;
+  height: 50px !important;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: $white;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    height: auto !important;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-widget {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    height: auto !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-content {
+    max-width: 600px;
+  }
+  
+  .line {
+    flex-direction: column;
+  }
+}
+
 
 </style>
