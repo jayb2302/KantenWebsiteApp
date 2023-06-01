@@ -4,56 +4,31 @@
       <div class="bgtext text-5xl">
         <h1 class="opacity-20"></h1>
       </div>
-      
+
       <div class="flex w-full justify-center border-l-3">
         <div class="btnwrapper flex text-center wrap w-9/12 h-[600px]">
-          <TransitionGroup
-            appear
-            tag="div"
-            @before-enter="beforeEnter"
-            @enter="enter"
-          >
-            <button
-              type="button"
-              key="button3"
-              @click="showModalMana = !showModalMana"
-              class="z-10 w-6/12 right-28 bottom-36 hover:text-gray-50"
-            >
-              <img
-                src="../assets/manaanimation.gif"
-                class="cover image"
-                alt=""
-              />
+          <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
+            <button type="button" key="button3" @click="showModalMana = !showModalMana"
+              class="z-10 w-6/12 right-28 bottom-36 hover:text-gray-50">
+              <img src="../assets/manaanimation.gif" class="cover image" alt="" />
             </button>
 
-            <button
-              type="button"
-              key="button2"
-              @click="showModal = !showModal"
-              class="z-10 w-6/12 left-28 bottom-40 hover:text-gray-50"
-            >
+            <button type="button" key="button2" @click="showModal = !showModal"
+              class="z-10 w-6/12 left-28 bottom-40 hover:text-gray-50">
               <div class="image1">
                 <img src="../assets/vertexanimtion.gif" class="cover" alt="" />
               </div>
             </button>
 
-            <button
-              type="button"
-              @click="showModalDeft = !showModalDeft"
-              key="button1"
-              class="z-10 right-36 bottom-20 w-6/12 hover:text-gray-50"
-            >
+            <button type="button" @click="showModalDeft = !showModalDeft" key="button1"
+              class="z-10 right-36 bottom-20 w-6/12 hover:text-gray-50">
               <div class="image">
                 <img src="../assets/deftanimation.gif" class="cover" alt="" />
               </div>
             </button>
 
-            <button
-              type="button"
-              key="button4"
-              @click="showModalDub = !showModalDub"
-              class="z-10 left-36 bottom-20 w-6/12 hover:text-gray-50"
-            >
+            <button type="button" key="button4" @click="showModalDub = !showModalDub"
+              class="z-10 left-36 bottom-20 w-6/12 hover:text-gray-50">
               <div class="image1">
                 <img src="../assets/dubanimation.gif" class="w-fit" alt="" />
               </div>
@@ -120,7 +95,7 @@ export default {
       gsap.fromTo(el, initialPosition[direction], {
         ...finalPosition,
         opacity: 0.8,
-        
+
         y: 100,
         duration: 0.7,
         delay: delay,
@@ -149,12 +124,13 @@ export default {
   width: 40rem;
   height: 280px;
 }
+
 .box {
   font-family: $brother;
   border: 2px solid $gray;
   border-radius: 0;
   background-color: transparent;
-  
+
   transform: rotate(45deg);
   height: 200px;
   width: 200px;
@@ -172,16 +148,19 @@ export default {
     line-height: 0.8em;
   }
 }
+
 .button {
   img {
     background-color: transparent;
   }
 }
+
 .rb {
   box-sizing: border-box;
   border-color: red;
   border-width: 1px;
 }
+
 .bb {
   box-sizing: border-box;
   border-color: rgb(163, 163, 175);
@@ -191,6 +170,7 @@ export default {
 .image {
   animation: float 6s ease-in-out infinite;
 }
+
 .image1 {
   animation: float 4s ease-in-out infinite;
 }
@@ -199,9 +179,11 @@ export default {
   0% {
     transform: translatey(0px);
   }
+
   50% {
     transform: translatey(-15px);
   }
+
   100% {
     transform: translatey(0px);
   }

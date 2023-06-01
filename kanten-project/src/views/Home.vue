@@ -4,54 +4,42 @@
   <div id="home-wrapper">
 
     <!-- Home Section -->
-      <button
-        type="button"
-        @click="showModalKraft = !showModalKraft"
-        class=" z-10 "
-      >
-        <p>Kraftværket</p>
-      </button>
-    <section id="home" class="w-full h-screen"
-    >
+    <button type="button" @click="showModalKraft = !showModalKraft" class=" z-10 ">
+      <p>Kraftværket</p>
+    </button>
+    <section id="home" class="w-full h-screen">
       <div class="logo">
         <img src="../assets/kantenhomelogo.gif" class="m-auto top-52" alt="" />
       </div>
 
       <!-- Home Section Content -->
-     
+
       <KraftModal :show="showModalKraft" />
     </section>
 
     <div class="wrapper ">
       <!-- Upcoming Events Section -->
       <section id="events" class="py-10 w-full relative   z-10 mb-52 h-6/6">
-        <TransitionGroup
-          appear
-          tag="div"
-          @before-enter="beforeEnter"
-          @enter="enter"
-        >
-          <div class="text rb "> <p> Upcoming Events </p></div>
+        <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
+          <div class="text rb ">
+            <p> Upcoming Events </p>
+          </div>
           <Events />
-        </TransitionGroup> 
-        
+        </TransitionGroup>
+
       </section>
 
       <!-- Our Genre Section -->
-      <section id="genre" class="w-full justify-center text-center"
-      >
-      
-          <div class="flex  justify-between ">
-          <TransitionGroup
-            appear
-            tag="div"
-            @before-enter="beforeEnter"
-            @enter="enter"
-          >
-          <div class="text"><p class="">Discover</p></div>
+      <section id="genre" class="w-full justify-center text-center">
+
+        <div class="flex  justify-between ">
+          <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
+            <div class="text">
+              <p class="">Discover</p>
+            </div>
             <Genre />
-          </TransitionGroup> 
-          
+          </TransitionGroup>
+
         </div>
       </section>
       <!-- Recent Posts Section -->
@@ -60,106 +48,81 @@
         <div class="recents-posts flex justify-center gap-5">
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300"
-            height="584"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen="true"
-          ></iframe>
+            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"></iframe>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300"
-            height="584"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen="true"
-          ></iframe>
+            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"></iframe>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300"
-            height="584"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen="true"
-          ></iframe>
+            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"></iframe>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300"
-            height="584"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen="true"
-          ></iframe>
+            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen="true"></iframe>
         </div>
       </section>
       <!-- Footer Section -->
       <footer id="footer" class="flex flex-col w-full ">
-          <div class="footer-content flex flex-row justify-center">
-              <div class="footer-list w-3/12 ">
-                  <h3>Find us here</h3>
-                <ul>
-                  <li>
-                    <h4>Kanten</h4>
-                    <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
-                  </li>
-                  <li>
-                    <h4>Kraftværket</h4>
-                    <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
-                  </li>
-                </ul>
-              </div>
-    
-              <div class="footer-contact w-3/12 ">
-                <div class="footer-widget-heading">
-                  <h3>Contact us</h3>
-                </div>
-                <ul>
-                  <li>
-                    <h4>Phone</h4>
-                    <p>+45 28 97 11 85</p>
-                  </li>
-                  <li>
-                    <h4>E-mail</h4>
-                    <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
-                  </li>
-                </ul>
-              </div>
-            
+        <div class="footer-content flex flex-row justify-center">
+          <div class="footer-list w-3/12 ">
+            <h3>Find us here</h3>
+            <ul>
+              <li>
+                <h4>Kanten</h4>
+                <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
+              </li>
+              <li>
+                <h4>Kraftværket</h4>
+                <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
+              </li>
+            </ul>
           </div>
-        
-                  
-          <div class="copyright-area  ">
-                <div class="copyright">
-                  <p>Copyright &copy; 2018, All Right Reserved Kanten</p>  
-                </div>
-                <div class="footer-widget">
-                  
-                  <!-- Follow button -->
-                  <!-- <div class="footer-social-icon">
+
+          <div class="footer-contact w-3/12 ">
+            <div class="footer-widget-heading">
+              <h3>Contact us</h3>
+            </div>
+            <ul>
+              <li>
+                <h4>Phone</h4>
+                <p>+45 28 97 11 85</p>
+              </li>
+              <li>
+                <h4>E-mail</h4>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+
+        <div class="copyright-area  ">
+          <div class="copyright">
+            <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+          </div>
+          <div class="footer-widget">
+
+            <!-- Follow button -->
+            <!-- <div class="footer-social-icon">
                     <span>Follow us</span>
                     <a href="#"><i class='bx bxl-facebook' style='color:$whitefff'></i></a>
                     <a href="#"><i class='bx bxl-instagram' style='color:$whitefff'  ></i></a>
                   </div> -->
-                </div>
-          </div>                    
-          <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+          </div>
+        </div>
+        <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
 
       </footer>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -191,7 +154,7 @@ export default {
       el.style.opacity = 0;
       el.style.transform = "translateY(0px)";
       console.log("after");
-    }; 
+    };
 
     const enter = (el, done) => {
       const index = Array.from(el.parentNode.children).indexOf(el);
@@ -219,7 +182,7 @@ export default {
       });
     };
     onMounted(() => {
-      
+
 
       gsap.registerPlugin(ScrollTrigger);
       gsap.to("progress", {
@@ -227,24 +190,24 @@ export default {
         ease: "none",
         scrollTrigger: { scrub: 0.3 },
       });
-     
-    
+
+
       gsap.set(".wrapper", { opacity: 0, y: "0%" });
       ScrollTrigger.create({
         trigger: "#events", // Use the #genre section as the trigger
         start: "top top ",
         end: "bottom bottom",
         duration: 0.2,
-        
-       
+
+
         onEnter: () => {
           gsap.to(".wrapper", { opacity: 1, y: 0 });
-        showGenreSection.value=true; 
-      },// Show the .wrapper when entering the trigger area
+          showGenreSection.value = true;
+        },// Show the .wrapper when entering the trigger area
 
         onLeaveBack: () => {
           gsap.to(".wrapper", { opacity: 0, y: 100 });
-          showGenreSection.value = true; 
+          showGenreSection.value = true;
         },// Hide the .wrapper when leaving the trigger area
       });
 
@@ -252,10 +215,10 @@ export default {
         trigger: "#home-wrapper",
         start: "top top",
         end: "bottom bottom",
-       
+
       });
-      
-      
+
+
     });
 
     return {
@@ -281,131 +244,127 @@ progress {
   background: transparent;
   z-index: 102;
 }
+
 progress::-webkit-progress-bar {
   background: transparent;
 }
+
 progress::-webkit-progress-value {
-  background: linear-gradient(
-    to left,
-    $kpink,
-    $kblue,
-    $kyellow,
-    $kgreen,
-    $primarytwo,
-    $kred
-  );
+  background: linear-gradient(to left,
+      $kpink,
+      $kblue,
+      $kyellow,
+      $kgreen,
+      $primarytwo,
+      $kred );
   background-attachment: fixed;
 }
+
 progress::-moz-progress-bar {
-  background: linear-gradient(
-    (45deg),
-    $kpink,
-    $kblue,
-    $kyellow,
-    $kgreen,
-    $primarytwo,
-    $kred
-  );
+  background: linear-gradient((45deg),
+      $kpink,
+      $kblue,
+      $kyellow,
+      $kgreen,
+      $primarytwo,
+      $kred );
   background-attachment: fixed;
 }
 
 button {
-    position: fixed;
-    color: $white;
-    background: $primaryone;
-    z-index: 10;
-    right: 5%;
-    font-size: 2rem;
-    width: 65px;
-    margin-top: 5%;
-    height: 430px;
-    cursor: pointer;
-    color: $white;
-    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-    -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
-    -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
-    transition: all 0.5s;
-
-    p {
-      
-      letter-spacing: 9px;
-      font-family: $brother;
-      text-transform: uppercase;
-      rotate: 90deg;
-      top: -30%;
-      
-      
-    }
-    &:hover {
-     height: 440px;
-      border-color: $white;
-      font-size: 2.2em;
-      transform: scaleX(1.1);
-      box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-      -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
-      -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
-    }
-  }
-#home {
-  background-image: url("../assets/kantenbg.webp");
-  background-size: cover;
-  position: fixed;
-  filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
-    saturate(170%) opacity(87%) contrast(206%) invert(3%);
-  -webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
-    saturate(170%) opacity(87%) contrast(206%) invert(3%);
-  -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg)
-    saturate(170%) opacity(87%) contrast(206%) invert(3%);
-    transition: opacity 0.5s ease-in-out;
-    &::after{
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 200px; /* Adjust the height as needed */
-      
-    }
-  
-}
-
-
-#genre {
-  display: flex;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%,rgba(79, 44, 95, 0.3) 60%,rgba(37,38,37,0.6) 70%, rgba(37,38,37,0) 100%);
-  margin-top: -10%;
-  height: 100vh;
-  .text {
   position: fixed;
   color: $white;
   background: $primaryone;
   z-index: 10;
-  left: 1%;
-  font-size: 1.3rem;
-  width: auto;
-  padding-top: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  top: 45%;
-  height: 65px;
+  right: 5%;
+  font-size: 2rem;
+  width: 65px;
+  margin-top: 5%;
+  height: 430px;
   cursor: pointer;
   color: $white;
   box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
   -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
   transition: all 0.5s;
-  letter-spacing: 9px;
-  font-family: $brother;
-  text-transform: uppercase;
-  rotate: -90deg;
   
+  p {
+    letter-spacing: 9px;
+    font-family: $brother;
+    text-transform: uppercase;
+    rotate: 90deg;
+    top: -30%;
+  }
 
-  
+  &:hover {
+    height: 440px;
+    border-color: $white;
+    font-size: 2.2em;
+    transform: scaleX(1.1);
+    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
+  }
+}
+
+#home {
+  background-image: url("../assets/kantenbg.webp");
+  background-size: cover;
+  position: fixed;
+  filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+  -webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+  -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
+  transition: opacity 0.5s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    /* Adjust the height as needed */
+
+  }
 
 }
-  
-}
 
+#genre {
+  display: flex;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0.6) 70%, rgba(37, 38, 37, 0) 100%);
+  margin-top: -10%;
+  height: 100vh;
+
+  .text {
+    position: fixed;
+    color: $white;
+    background: $primaryone;
+    z-index: 10;
+    left: 1%;
+    font-size: 1.3rem;
+    width: auto;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    top: 45%;
+    height: 65px;
+    cursor: pointer;
+    color: $white;
+    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+    -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+    transition: all 0.5s;
+    letter-spacing: 9px;
+    font-family: $brother;
+    text-transform: uppercase;
+    rotate: -90deg;
+
+
+
+
+  }
+
+}
 
 .text {
   position: fixed;
@@ -430,86 +389,77 @@ button {
   font-family: $brother;
   text-transform: uppercase;
   rotate: -90deg;
-  
 
-  
+
+
 
 }
 
 #posts {
-  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37,38,37,1) 57%, rgba(69, 68, 68, 0.439) 0%,);
-  
-}
+  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37, 38, 37, 1) 57%, rgba(69, 68, 68, 0.439) 0%, );
 
+}
 
 #footer {
   font-family: $brother;
-    background: $primaryone;
-    padding: 0;
-    height: 300px;
-    padding-top: 1%;
-    .footer-content {
-     
-     
-      ul {
-        list-style-type: none;
-        padding: 0; 
-        a {
+  background: $primaryone;
+  padding: 0;
+  height: 300px;
+  padding-top: 1%;
+  .footer-content {
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      a {
         color: $gray;
         font-size: 1em;
         font-family: $k2d;
-        
-        }
-        p {
-          color: $gray;
-          font-size: 1em;
-          font-family: $k2d;
-          line-height: 28px;
-        }
       }
-      h4 {
-        font-size: 1.2em;
-        padding-top: 3%;
+      p {
         color: $gray;
-        font-weight: 800;
-
-
+        font-size: 1em;
+        font-family: $k2d;
+        line-height: 28px;
       }
-
-        h3 {
-        color: $white;
-        font-weight: 800;
-        position: relative;
-        font-size: 1.2em;
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: -7px;
-            height: 2px;
-            width: 117px;
-            background: $kpink;
-          }
-        }
-        
-       
     }
-    img {
-          position: absolute;
-          right: 0;
-          bottom: 2%;
-        }
-   
-    
-    .copyright {
-      margin: 0;
-      font-size: 1em;
+
+    h4 {
+      font-size: 1.2em;
+      padding-top: 3%;
       color: $gray;
-      text-align: center;
-      padding-top: 5%;
-      opacity: 0.5;
-      
+      font-weight: 800;
+    }
+
+    h3 {
+      color: $white;
+      font-weight: 800;
+      position: relative;
+      font-size: 1.2em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        height: 2px;
+        width: 117px;
+        background: $kpink;
+      }
     }
   }
 
-
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 2%;
+  }
+  .copyright {
+    margin: 0;
+    font-size: 1em;
+    color: $gray;
+    text-align: center;
+    padding-top: 5%;
+    opacity: 0.5;
+  }
+}
 </style>
