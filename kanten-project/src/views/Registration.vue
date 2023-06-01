@@ -1,5 +1,11 @@
 <template>
+<div class="text-container">
+            <h1 style=" padding: 100px 0 20px 0;">Become part of Kanten by becoming a memeber!</h1>
+            <p style=" text-align: center;">By becoming a member of Kanten, you gain exclusive access to numerous benefits and opportunities. You will have the chance to actively contribute to our initiatives, events, and projects. <br> If you're interested in becoming a member or would like more information, please don't hesitate to reach out to us. We look forward to welcoming you into the Kanten family!
+            </p>
+        </div>
     <div class="wrapper">
+      
         <div class="container">
     <div class="formula">
     <form action="#">
@@ -149,6 +155,27 @@
     box-sizing: border-box;
 }
 
+.text-container{
+    display: flex;
+    justify-content: center;
+   
+    flex-direction: column;
+    width: 10 0%;
+    h1{
+        font-size: 3rem;
+        font-family: $brother;
+        text-align: center;
+    }
+    p {
+    
+        font-size: 1.4rem;
+        padding-left: 10%;
+        padding-right: 10%;
+       margin-bottom: 3%;
+       font-family: $k2d;
+    }
+}
+
 body{
 display: flex;
 height: 100vh;
@@ -161,7 +188,8 @@ background: $primaryone;
     display: flex;
     justify-content: center;
     align-items: center;
-  padding: 100px 0; 
+ padding-top: 30px;
+ height: 900px;
 }
 .container {
     width: 60%;
@@ -339,7 +367,7 @@ form .button input:hover {
         width: 100%;
     }
     .container form .user-details {
-        max-height: 300px;
+        max-height: 440px;
         overflow-y: scroll;
     }
     .user-details::-webkit-scrollbar {
