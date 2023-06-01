@@ -1,45 +1,32 @@
-<template> 
-<div class="site-wrapper flex flex-co h-screen">
+<template>
+  <div class="site-wrapper flex flex-co h-screen">
     <nav class="fixed w-full text-center pt-4 fixed shadow-slade-500 z-20">
 
       <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
       <a class="li text-2xl mr-4 ml-4" href="#events"> Events </a>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
-      <RouterLink class="li text-2xl mr-4 ml-4" :class="{active: $route.name === 'Shop'}" to="/shop"> Shop </RouterLink> 
+      <RouterLink class="li text-2xl mr-4 ml-4" :class="{ active: $route.name === 'Shop' }" to="/shop"> Shop </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4 border-l-2 pl-3" to="/registration"> Membership </RouterLink>
       <RouterLink class="li text-2xl mr-4 ml-4" to="/volunteer"> Volunteer </RouterLink>
-
 
     </nav>
 
     <main class="w-screen  ">
-      <RouterView/>  
+      <RouterView />
     </main>
-
-   
-</div>
-
-   
-   
-
-  
-    
-  
-  
+  </div>
 </template>
 
 <script>
-
 import Newsletter from './views/Newsletter.vue';
 export default {
-    computed: {
-        count() {
-            return this.$store.state.count;
-        },
+  computed: {
+    count() {
+      return this.$store.state.count;
     },
-    components: { Newsletter }
+  },
+  components: { Newsletter }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -48,19 +35,14 @@ export default {
 @import url("https://use.typekit.net/aav7gcq.css");
 @import 'modules/_variables.scss';
 
-
-.site-wrapper{
+.site-wrapper {
   nav {
     font-family: $brother;
     color: $gray;
+
     .li {
       color: $gray
     }
   }
-  
- 
 }
-
-
-
 </style>

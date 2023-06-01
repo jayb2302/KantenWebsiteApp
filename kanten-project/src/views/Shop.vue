@@ -1,22 +1,20 @@
-<template>  
-    <div class="text text-2xl  lg:w-12/12 mb-5">
-      <h1>Kanteen Merchandise Shop</h1>
-    </div>
-  <div class="product-cards-wrapper lg:flex w-full h-screen flex-row w-full ">
-    <div  class="shop flex  lg:w-8/12" >
+<template>
+  <div class="text text-2xl  lg:w-12/12 mb-5">
+    <h1>Kanteen Merchandise Shop</h1>
+  </div>
+  <div class="product-cards-wrapper 
+    lg:flex w-full h-screen flex-row w-full ">
+    <div class="shop flex  lg:w-8/12">
       <div class="product-cards-container w-full">
-        <ProductSummaryCard
-          v-for="product in items"
-          :key="product.id"
-          :product="product"
-          v-on:view-product="viewProduct($event)"
-          class="card-item"
-          @add-to-cart="addToCartHandler"
-        />
+        <ProductSummaryCard v-for="product in items" 
+          :key="product.id" :product="product"
+          v-on:view-product="viewProduct($event)" 
+          class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
-    <div div class="cart lg:w-4/12  lg:fixed lg:right-0 lg:top-44">
-        <Cart/>
+    <div div class="cart lg:w-4/12  lg:fixed 
+      lg:right-0 lg:top-44">
+      <Cart />
     </div>
   </div>
 
@@ -87,212 +85,224 @@ import ProductDescriptionDrawer from '../components/products/ProductDescriptionD
 import { mapActions, mapGetters } from 'vuex';
 import Cart from '../components/Cart.vue';
 
-
-
 export default {
-  
-    
-    components: {
-        ProductSummaryCard, ProductDescriptionDrawer, Cart,
+  components: {
+    ProductSummaryCard, ProductDescriptionDrawer, Cart,
+  },
+  methods: {
+    ...mapActions(['addToCart']),
+    addToCartHandler(product) {
+      this.addToCart(product);
     },
-    methods: {
-      ...mapActions(['addToCart']),
-      addToCartHandler(product) {
-        this.addToCart(product);
-      },
-      removeFromCart(state, index) {
+    removeFromCart(state, index) {
       state.cartItems.splice(index, 1);
     }
-       
-    },
-    computed: {
-      ...mapGetters(['cartItems'])
-    },
-    data () {
-        return {
-            items: items,
-            product: null,
-            active: {
-                product_drawer: false,
-            }
-        }
-    },
-   }
-
+  },
+  computed: {
+    ...mapGetters(['cartItems'])
+  },
+  data() {
+    return {
+      items: items,
+      product: null,
+      active: {
+        product_drawer: false,
+      }
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
-.text{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 5%;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: $white;
-  }
-.product-cards-wrapper {
-    
-  
-  .shop {
-      font-family: $brother;
-      background-color: $primaryone;
-      font-family: $brother;
-      background-color: $primaryone;
-      .product-cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: $white;
 }
-      .container {
-          width: 15rem;
-          height: 28em;
-          flex-wrap: wrap ;
-          margin-bottom: 3%;
-          
-        .effect{
-          border-radius: 50%;
-          background-color: &primaryone;
-          filter: blur(80px);
-          transition: 7s ease-in-out;
-          &::before{
-              position: absolute;
-              content: "";
-              width: 250%;
-              height: 430%;
-              background-color: $primaryone;
-              filter: blur(10px);
-              transform: scale(0);
-              transition: 5s ease-in-out;
-          }
-        }
-        .background {
-          
-          mix-blend-mode: multiply;
-        
-        }
-        .card{
-          
-          cursor: pointer;
-          transition: 1s ease-in-out;
-          z-index: 10;
+
+.product-cards-wrapper {
+
+
+  .shop {
+    font-family: $brother;
+    background-color: $primaryone;
+    font-family: $brother;
+    background-color: $primaryone;
+
+    .product-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    }
+
+    .container {
+      width: 15rem;
+      height: 28em;
+      flex-wrap: wrap;
+      margin-bottom: 3%;
+
+      .effect {
+        border-radius: 50%;
+        background-color: &primaryone;
+        filter: blur(80px);
+        transition: 7s ease-in-out;
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: 250%;
+          height: 430%;
           background-color: $primaryone;
-          
-          &::after{
-              position: absolute;
-              content: "";
-              width: 50%;
-              height: 150%;
-              background-color: $kblue;
-              animation: spin 6s linear infinite;
-              box-shadow: 0 0 10px 10px $kblue;
-              transition: 1.5s linear;
-          }
-          &::before{
-              position: absolute;
-              content: "";
-              inset: 4px;
-              background-color: $primaryone;
-              z-index: 10;
-              border-radius: 16px;
-          }
-          &:hover {
-              box-shadow: 0 0 5px #5ABFF9, 0 0 30px #5ABFF9,;
-              &::after {
-                  animation-play-state: paused;
-                  width: 200%;
-                  .effect{
-                      transform: scale(1.5);
-                      &::before {
-                          transform: scale(1.5);
-                          transition-delay: 1s;
-                      }
-                  }
-              }
-          }
-          .card-content{
-              z-index: 20;
-              color: $white;
-              margin-bottom: 2%;
-              height: 300px;
-          
-              img{
-                  width: 100%;
-                  object-fit: contain;
-                  filter: drop-shadow(0 10px 10px $primaryone);
-              }
-              button {
-                  width: 150px;
-                  height: 50px;
-                  background-color: $kblue;
-                  font-family: inherit;
-                  text-transform: uppercase;
-                  font-size: 20px;
-                  font-weight: 700;
-                  cursor: pointer;
-                  transition: 0.5s ease;
-                  border: none;
-                  margin-top: 10px;
-                  &::after{
-                      position: absolute;
-                      content: "";
-                      width: 20px;
-                      height: 20px;
-                      background-color: $primaryone;
-                      top: 0;
-                      left: 0;
-                      transform: translate(-50%, -50%) rotate(45deg);
-                      z-index: 1;
-                  }
-                  &::before {
-                      position: absolute;
-                      content: "";
-                      width: 20px;
-                      height: 20px;
-                      background-color: $primaryone;
-                      bottom: 0;
-                      right: 0;
-                      transform: translate(50%, 50%) rotate(45deg);
-                      z-index: 2;
-                  }
-              }
-          }
-        }
-        @keyframes spin {
-          0% {
-              transform: rotate(0);
-          }
-          100% {
-              transform: rotate(360deg);
-          }
-          
+          filter: blur(10px);
+          transform: scale(0);
+          transition: 5s ease-in-out;
         }
       }
-      
+
+      .background {
+
+        mix-blend-mode: multiply;
+
+      }
+
+      .card {
+
+        cursor: pointer;
+        transition: 1s ease-in-out;
+        z-index: 10;
+        background-color: $primaryone;
+
+        &::after {
+          position: absolute;
+          content: "";
+          width: 50%;
+          height: 150%;
+          background-color: $kblue;
+          animation: spin 6s linear infinite;
+          box-shadow: 0 0 10px 10px $kblue;
+          transition: 1.5s linear;
+        }
+
+        &::before {
+          position: absolute;
+          content: "";
+          inset: 4px;
+          background-color: $primaryone;
+          z-index: 10;
+          border-radius: 16px;
+        }
+
+        &:hover {
+          box-shadow: 0 0 5px #5ABFF9, 0 0 30px #5ABFF9, ;
+
+          &::after {
+            animation-play-state: paused;
+            width: 200%;
+
+            .effect {
+              transform: scale(1.5);
+
+              &::before {
+                transform: scale(1.5);
+                transition-delay: 1s;
+              }
+            }
+          }
+        }
+
+        .card-content {
+          z-index: 20;
+          color: $white;
+          margin-bottom: 2%;
+          height: 300px;
+
+          img {
+            width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 10px $primaryone);
+          }
+
+          button {
+            width: 150px;
+            height: 50px;
+            background-color: $kblue;
+            font-family: inherit;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.5s ease;
+            border: none;
+            margin-top: 10px;
+
+            &::after {
+              position: absolute;
+              content: "";
+              width: 20px;
+              height: 20px;
+              background-color: $primaryone;
+              top: 0;
+              left: 0;
+              transform: translate(-50%, -50%) rotate(45deg);
+              z-index: 1;
+            }
+
+            &::before {
+              position: absolute;
+              content: "";
+              width: 20px;
+              height: 20px;
+              background-color: $primaryone;
+              bottom: 0;
+              right: 0;
+              transform: translate(50%, 50%) rotate(45deg);
+              z-index: 2;
+            }
+          }
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+
+      }
+    }
+
   }
 
- 
+
 
 }
 
 ::-webkit-scrollbar {
   width: 2px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: $gray;
 }
 
-
 @media screen and (min-width: 768px) {
   .product-cards-container {
     grid-template-columns: repeat(2, 1fr);
-
   }
-  
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -302,132 +312,8 @@ export default {
 }
 
 .product-cards-wrapper {
-  height: 100vh; /* Set the height to occupy the full screen */
+  height: 100vh;
+  /* Set the height to occupy the full screen */
   overflow-y: auto;
 }
-
-                                  /* Footer */
-
-
-.footer {
-  background: $primaryone;
-  padding-top: 70px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  height: 300px !important;
-}
-
-.footer-content {
-  width: 100%;
-  flex-grow: 1;
-}
-.line {
-  display: flex;
-  justify-content: center;
-}
-.footer-widget {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.footer-widget2 {
-  width: 100%;
-  max-width: 300px;
-  text-align: left;
-}
-.footer-widget-heading {
-  margin-bottom: 10px;
-  font-family: $brother;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  font-family: $k2d;
-}
-
-li {
-  margin-bottom: 10px;
-  
-}
-
-h2{
-    font-weight: bold;
-    font-size: large;
-}
-
-.footer-pattern img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 330px;
-  background-size: cover;
-  background-position: 100% 100%;
-}
-
-.footer-logo img {
-    max-width: 200px;
-}
- 
-.footer-widget-heading h3 {
-  color: $white;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  position: relative;
-}
-.footer-widget-heading h3::before {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  height: 3px;
-  width: 116px;
-  background: $kpink;
-}
-
-.copyright-area{
-  background: $primaryone;
-  display: flex;
-  justify-content: center;
-  height: 50px !important;
-}
-.copyright-text p {
-  margin: 0;
-  font-size: 14px;
-  color: $white;
-}
-
-@media (max-width: 600px) {
-  .footer {
-    height: auto !important;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-widget {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 900px) {
-  .footer {
-    height: auto !important;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .footer-content {
-    max-width: 600px;
-  }
-  
-  .line {
-    flex-direction: column;
-  }
-}
-
-
 </style>

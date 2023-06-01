@@ -1,24 +1,39 @@
 <template>
     <h1 class="text-4xl text-red "> Hello </h1>
     <form @submit="submitForm" class="event-form">
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" id="title" v-model="event.title" required class="form-input">
+      <label for="title" class="form-label">
+        Title:
+      </label>
+      <input type="text" id="title" 
+        v-model="event.title" 
+        required class="form-input">
   
-      <label for="description" class="form-label">Description:</label>
+      <label for="description" class="form-label">
+        Description:
+      </label>
       <textarea id="description" v-model="event.description" required class="form-textarea"></textarea>
   
-      <label for="venue" class="form-label">Venue:</label>
-      <input type="text" id="venue" v-model="event.venue" required class="form-input">
+      <label for="venue" class="form-label">
+        Venue:
+      </label>
+      <input type="text" id="venue" 
+      v-model="event.venue" 
+      required class="form-input">
   
-      <label for="image" class="form-label">Image:</label>
-      <input type="file" id="image" @change="handleImageUpload" accept="image/*" required class="form-input">
-  
-      <button type="submit" class="form-submit">Submit</button>
+      <label for="image" class="form-label">
+        Image:
+      </label>
+      <input type="file" id="image" 
+        @change="handleImageUpload" 
+        accept="image/*" 
+        required class="form-input">
+      <button type="submit" class="form-submit">
+        Submit
+      </button>
     </form>
   </template>
   
   <script setup>
-
   import { ref } from 'vue';
   import firebase from 'firebase/app';
   import 'firebase/storage';
