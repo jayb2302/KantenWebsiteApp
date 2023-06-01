@@ -38,7 +38,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               </div>
               <div class="team-content">
                 <h3 class="name">Michele Miller</h3>
-                <h4 class="title">Web Developer</h4>
+                <h4 class="title">CEO</h4>
               </div>
               <ul class="social">
                 <li>
@@ -73,7 +73,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               </div>
               <div class="team-content">
                 <h3 class="name">Patricia Knott</h3>
-                <h4 class="title">Web Developer</h4>
+                <h4 class="title">General Manager</h4>
               </div>
               <ul class="social">
                 <li>
@@ -108,7 +108,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               </div>
               <div class="team-content">
                 <h3 class="name">Justin Ramos</h3>
-                <h4 class="title">Web Developer</h4>
+                <h4 class="title">Executive manager</h4>
               </div>
               <ul class="social">
                 <li>
@@ -143,7 +143,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               </div>
               <div class="team-content">
                 <h3 class="name">Mary Huntley</h3>
-                <h4 class="title">Web Developer</h4>
+                <h4 class="title">Intern</h4>
               </div>
               <ul class="social">
                 <li>
@@ -216,7 +216,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
         <div class="copyright-area">
                 <div class="row">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+                            <p>Copyright &copy; 2023, All Right Reserved Kanten</p>
                         </div>                    
                 </div>
                 <div class="footer-widget">
@@ -250,7 +250,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #252625;
+    background-color: $primaryone;
 }
 
 .container2 {
@@ -275,93 +275,89 @@ body{
 .about-section2{
     background: url(../assets/img/venue-kanten.jpg) no-repeat right;
     background-size: 50%;
-    background-color: #252625;
+    background-color: $primaryone;
     overflow: hidden;
     padding: 100px 0;
 }
 .about-section3{
     background: url(../assets/img/Kraftværket.jpg) no-repeat left;
     background-size: 55%;
-    background-color: #252625;
+    background-color: $primaryone;
     overflow: hidden;
-    padding-bottom: 150px;
+    padding-bottom: 23px;
+    margin-top: 10px;
 }
 .inner-container {
     width: 50%;
     float: right;
-    background-color: #252625;
+    background-color: $primaryone;
     padding: 66px;
-    border: 3px solid greenyellow;
+    border: 3px solid $kgreen;
 }
 .inner-container2 {
     width: 55%;
     float: left;
-    background-color: #252625;
+    background-color: $primaryone;
     padding: 66px;
-    border: 3px solid green;
+    border: 3px solid $kblue;
 }
 .inner-container3 {
     width: 50%;
     float: right;
-    background-color: #252625;
+    background-color: $primaryone;
     padding: 66px;
-    border: 3px solid orange;
+    border: 3px solid $kyellow;
+    margin-top: 20px;
 }
-.inner-container h1 {
+.inner-container h1,
+.inner-container2 h1,
+.inner-container3 h1
+ {
     margin-bottom: 30px;
     font-size: 30px;
     font-weight: 900;
+    font-family: $brother;
 }
-.inner-container2 h1 {
-    margin-bottom: 30px;
-    font-size: 30px;
-    font-weight: 900;
-}
-.inner-container3 h1 {
-    margin-bottom: 30px;
-    font-size: 30px;
-    font-weight: 900;
-}
+
 .text {
-    font-size: 13px;
-    color: #fff;
+    font-size: 15px;
+    color: $white;
     line-height: 30px;
     text-align: justify;
     margin-bottom: 40px;
+    font-family: $k2d;
 }
 
 @media screen and (max-width:1200px){
-    .inner-container{padding: 80px;}
-    .inner-container2{padding: 80px;}   
+    .inner-container,
+    .inner-container2,
+    .inner-container3 {padding: 80px;}  
 }
 
 @media screen and (max-width: 1000px) {
-    .about-section {
+    .about-section,
+    .about-section2,
+    .about-section3{
         background-size: 100%;
         padding: 100px 40px;
     }
-    .about-section2 {
-        background-size: 100%;
-        padding: 100px 40px;
-    }
-    .inner-container{
-        width: 100%;
-    }
-    .inner-container2{
+    .inner-container,
+    .inner-container2,
+    .inner-container3{
         width: 100%;
     }
 }
 @media screen and (max-width: 600px) {
-    .about-section{
+    .about-section,
+    .about-section2,
+    .about-section3
+    {
         padding: 0;
     }
-    .about-section2{
-        padding: 0;
-    }
-    .inner-container{
-        padding: 60px;
-    }
-    .inner-container2{
+    .inner-container,
+    .inner-container2,
+    .inner-container3
+    {
         padding: 60px;
     }
     .container2 {
@@ -378,6 +374,7 @@ body{
         margin-bottom: 30px;
         font-size: 30px;
         font-weight: 900;
+        padding-top: 50px;
     }
   .our-team {
     padding: 15px 0 25px;
@@ -392,6 +389,7 @@ body{
 
     .name {
       font-size: 1.3rem;
+      color: $kblue;
     }
     .picture {
       display: inline-block;
@@ -502,11 +500,10 @@ body{
   height: 25px;
 }
 
-                                   /* Footer */
 
-
+                                  /* Footer */
 .footer {
-  background: #252625;
+  background: $primaryone;
   padding-top: 70px;
   text-align: center;
   display: flex;
@@ -534,27 +531,23 @@ body{
 }
 .footer-widget-heading {
   margin-bottom: 10px;
+  font-family: $brother;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  font-family: $k2d;
 }
 
 li {
   margin-bottom: 10px;
+  
 }
 
-a {
-  color: #fff;
-  font-size: small;
-}
 h2{
     font-weight: bold;
     font-size: large;
-}
-p{
-    color: #fff;
 }
 
 .footer-pattern img {
@@ -569,15 +562,9 @@ p{
 .footer-logo img {
     max-width: 200px;
 }
-.footer-text p {
-  margin-bottom: 14px;
-  font-size: 14px;
-      color: #7e7e7e;
-  line-height: 28px;
-}
  
 .footer-widget-heading h3 {
-  color: #fff;
+  color: $white;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 40px;
@@ -588,12 +575,12 @@ p{
   position: absolute;
   bottom: -7px;
   height: 3px;
-  width: 117px;
+  width: 116px;
   background: $kpink;
 }
 
 .copyright-area{
-  background: #252625;
+  background: $primaryone;
   display: flex;
   justify-content: center;
   height: 50px !important;
@@ -601,7 +588,7 @@ p{
 .copyright-text p {
   margin: 0;
   font-size: 14px;
-  color: #878787;
+  color: $white;
 }
 
 @media (max-width: 600px) {
@@ -634,4 +621,5 @@ p{
     flex-direction: column;
   }
 }
+
 </style>
