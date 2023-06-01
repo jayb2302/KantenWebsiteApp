@@ -6,10 +6,8 @@
     lg:flex w-full h-screen flex-row w-full ">
     <div class="shop flex  lg:w-8/12">
       <div class="product-cards-container w-full">
-        <ProductSummaryCard v-for="product in items" 
-          :key="product.id" :product="product"
-          v-on:view-product="viewProduct($event)" 
-          class="card-item" @add-to-cart="addToCartHandler" />
+        <ProductSummaryCard v-for="product in items" :key="product.id" :product="product"
+          v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
     <div div class="cart lg:w-4/12  lg:fixed 
@@ -19,63 +17,59 @@
   </div>
 
   <!-- Footer -->
-<footer class="footer">
-        <div class="footer-content">
-          <div class="line">
-            
-  
-            <div class="footer-widget2">
-              <div class="footer-widget-heading">
-                <h3>Find us here</h3>
-              </div>
-              <ul>
-                <li>
-                  <h2>Kanten</h2>
-                  <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
-                </li>
-                <li>
-                  <h2>Kraftværket</h2>
-                  <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
-                </li>
-              </ul>
+  <footer id="footer" class="flex flex-col w-full ">
+        <div class="footer-content flex flex-row justify-center">
+          <div class="footer-list w-3/12 ">
+            <h3>Find us here</h3>
+            <ul>
+              <li>
+                <h4>Kanten</h4>
+                <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
+              </li>
+              <li>
+                <h4>Kraftværket</h4>
+                <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact w-3/12 ">
+            <div class="footer-widget-heading">
+              <h3>Contact us</h3>
             </div>
-  
-            <div class="footer-widget2">
-              <div class="footer-widget-heading">
-                <h3>Contact us</h3>
-              </div>
-              <ul>
-                <li>
-                  <h2>Phone</h2>
-                  <p>+45 28 97 11 85</p>
-                </li>
-                <li>
-                  <h2>E-mail</h2>
-                  <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <h4>Phone</h4>
+                <p>+45 28 97 11 85</p>
+              </li>
+              <li>
+                <h4>E-mail</h4>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+
+        <div class="copyright-area  ">
+          <div class="copyright">
+            <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+          </div>
+          <div class="footer-widget">
+
+            <!-- Follow button -->
+            <!-- <div class="footer-social-icon">
+                    <span>Follow us</span>
+                    <a href="#"><i class='bx bxl-facebook' style='color:$whitefff'></i></a>
+                    <a href="#"><i class='bx bxl-instagram' style='color:$whitefff'  ></i></a>
+                  </div> -->
           </div>
         </div>
-    </footer>
-        <div class="copyright-area">
-                <div class="row">
-                        <div class="copyright-text">
-                            <p>Copyright &copy; 2023, All Right Reserved Kanten</p>
-                        </div>                    
-                </div>
-                <div class="footer-widget">
-              <div class="footer-logo">
-                <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-              </div>
-              <!-- Follow button -->
-              <!-- <div class="footer-social-icon">
-                <span>Follow us</span>
-                <a href="#"><i class='bx bxl-facebook' style='color:#ffffff'></i></a>
-                <a href="#"><i class='bx bxl-instagram' style='color:#ffffff'  ></i></a>
-              </div> -->
-            </div>
-        </div>
+        
+        <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+
+      </footer>
 </template>
 
 <script >
@@ -128,7 +122,6 @@ export default {
 
 .product-cards-wrapper {
 
-
   .shop {
     font-family: $brother;
     background-color: $primaryone;
@@ -138,21 +131,17 @@ export default {
     .product-cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
     }
-
     .container {
       width: 15rem;
       height: 28em;
       flex-wrap: wrap;
       margin-bottom: 3%;
-
       .effect {
         border-radius: 50%;
         background-color: &primaryone;
         filter: blur(80px);
         transition: 7s ease-in-out;
-
         &::before {
           position: absolute;
           content: "";
@@ -164,15 +153,11 @@ export default {
           transition: 5s ease-in-out;
         }
       }
-
       .background {
-
         mix-blend-mode: multiply;
-
       }
 
       .card {
-
         cursor: pointer;
         transition: 1s ease-in-out;
         z-index: 10;
@@ -215,7 +200,6 @@ export default {
             }
           }
         }
-
         .card-content {
           z-index: 20;
           color: $white;
@@ -284,6 +268,70 @@ export default {
 
 
 
+}
+
+#footer {
+  font-family: $brother;
+  background: $primaryone;
+  padding: 0;
+  height: 300px;
+  padding-top: 1%;
+  .footer-content {
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      a {
+        color: $gray;
+        font-size: 1em;
+        font-family: $k2d;
+      }
+      p {
+        color: $gray;
+        font-size: 1em;
+        font-family: $k2d;
+        line-height: 28px;
+      }
+    }
+
+    h4 {
+      font-size: 1.2em;
+      padding-top: 3%;
+      color: $gray;
+      font-weight: 800;
+    }
+
+    h3 {
+      color: $white;
+      font-weight: 800;
+      position: relative;
+      font-size: 1.2em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        height: 2px;
+        width: 117px;
+        background: $kpink;
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 2%;
+    height: 10em;
+  }
+  .copyright {
+    margin: 0;
+    font-size: 1em;
+    color: $gray;
+    text-align: center;
+    padding-top: 5%;
+    opacity: 0.5;
+  }
 }
 
 ::-webkit-scrollbar {

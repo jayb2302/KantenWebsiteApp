@@ -2,11 +2,12 @@
   <div class=" title has-text-centered">
     <!-- Your title content here -->
   </div>
-  <button @click="handleSignOut" 
+  <button id="btn-out" @click="handleSignOut" 
     v-if="isLoggedIn">
-    Sign out
+    <p> Sign out</p>
   </button>
-  <div class="wrapper flex w-full flex-col ">
+  <div class="wrapper flex w-full flex-col "
+  v-if="isLoggedIn" >
     <div class="form-wrapper flex w-full  ">
       <form class="m-auto" 
         @submit.prevent="addEvent">
@@ -104,6 +105,10 @@
       </div>
     </div>
   </div>
+  <div v-else>
+      <p>Please log in to access this page.</p>
+      <button @click="redirectToSignIn">Log In</button>
+  </div>
 </template>
 
 <script setup>
@@ -113,6 +118,10 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { db } from '@/firebase'
 import router from '../router'
+
+const redirectToSignIn = () => {
+  router.push('/sign-in') 
+}
 
 let newEventVenue = refVue('')
 let newEventTitle = refVue('')
@@ -258,6 +267,7 @@ const newEventImg = async (event) => {
 </script>
 
 <style lang="scss" scoped>
+@import '../modules/variables';
 @import 'bulma/css/bulma.min.css';
 .field {
   margin: auto;
@@ -265,5 +275,28 @@ const newEventImg = async (event) => {
 
 .card {
   margin: auto;
+}
+
+#btn-out {
+  position: fixed;
+  color: $white;
+  background: $primaryone;
+  z-index: 10;
+  left: 1%;
+  font-size: 1.3rem;
+  width: auto;
+  padding-left: 1%;
+  top: 15%;
+  height: 65px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+  transition: all 0.5s;
+  letter-spacing: 9px;
+  font-family: $brother;
+  text-transform: uppercase;
+  rotate: -90deg;
+
 }
 </style>

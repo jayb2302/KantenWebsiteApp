@@ -1,70 +1,60 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div id="home-wrapper">
-
+  <div id="home-wrapper w-screen">
     <!-- Home Section -->
-    <button type="button" @click="showModalKraft = !showModalKraft" class=" z-10 ">
+    <button id="btn-kraft" type="button" @click="showModalKraft = !showModalKraft" 
+    class=" z-10 ">
       <p>Kraftværket</p>
     </button>
     <section id="home" class="w-full h-screen">
-      <div class="logo">
-        <img src="../assets/kantenhomelogo.gif" class="m-auto top-52" alt="" />
-      </div>
-
-      <!-- Home Section Content -->
-
+      <img src="../assets/kantenhomelogo.gif" class="m-auto top-52" alt="" />
       <KraftModal :show="showModalKraft" />
     </section>
 
     <div class="wrapper ">
       <!-- Upcoming Events Section -->
-      <section id="events" class="py-10 w-full relative   z-10 mb-52 h-6/6">
-        <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
-          <div class="text rb ">
+      <section id="events" class="w-full  ">
+        
+          <div :key="eventsText" class="text">
             <p> Upcoming Events </p>
           </div>
-          <Events />
-        </TransitionGroup>
-
+          <Events :key="'eventsKey'" />
+       
       </section>
 
       <!-- Our Genre Section -->
-      <section id="genre" class="w-full justify-center text-center">
-
-        <div class="flex  justify-between ">
-          <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
-            <div class="text">
+      <section id="genre" class="w-full pt-52">
+          
+            <div :key="genreText" class="text">
               <p class="">Discover</p>
             </div>
-            <Genre />
-          </TransitionGroup>
-
-        </div>
+            <Genre :key="genreKey" />
+         
       </section>
       <!-- Recent Posts Section -->
-      <section id="posts" class=" w-full">
-        <h2 class="text-3xl font-bold mb-5 text-center">Recent Posts</h2>
-        <div class="recents-posts flex justify-center gap-5">
+      <section id="posts" class="w-full">
+        
+            <div :key="genreText" class="text">
+              <p class="">Recent Posts</p>
+            </div>
+             
+        <div class="recent-posts flex  justify-center gap-5">
+        
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
             allowFullScreen="true"></iframe>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
             allowFullScreen="true"></iframe>
           <iframe
             src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen="true"></iframe>
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-            width="300" height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
             allowFullScreen="true"></iframe>
         </div>
       </section>
@@ -100,9 +90,7 @@
               </li>
             </ul>
           </div>
-
         </div>
-
 
         <div class="copyright-area  ">
           <div class="copyright">
@@ -118,8 +106,9 @@
                   </div> -->
           </div>
         </div>
-        <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
 
+        <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+        <RouterLink class="login  fixed right-1/2 " to="/sign-in"> Admin </RouterLink>
       </footer>
     </div>
   </div>
@@ -134,7 +123,6 @@ import Genre from "./Genre.vue";
 import KraftModal from "../components/KraftModal.vue";
 import Events from "./Events.vue";
 import Newsletter from "./Newsletter.vue";
-// import Footer from "../components/Footer.vue";
 
 export default {
   name: "HomePage",
@@ -198,6 +186,7 @@ export default {
         start: "top top ",
         end: "bottom bottom",
         duration: 0.2,
+        scrub: 0,
 
 
         onEnter: () => {
@@ -271,7 +260,7 @@ progress::-moz-progress-bar {
   background-attachment: fixed;
 }
 
-button {
+#btn-kraft {
   position: fixed;
   color: $white;
   background: $primaryone;
@@ -287,6 +276,27 @@ button {
   -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
   -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
   transition: all 0.5s;
+  box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
+    animation: animate 3s linear infinite;
+  
+
+@keyframes animate {
+    0% {
+      box-shadow: 0 0 0 2px $kblue, 0 0 20px 1px $kblue;
+    }
+    40% {
+      box-shadow: 0 0 0 2px $kblue, 0 0 30px 2px $kyellow;
+    }
+    60% {
+      box-shadow: 0 0 0 2px $kblue, 0 0 40px 3px $kpink;
+    } 
+    80% {
+      box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kgreen;
+    }
+    100% {
+      box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
+    }
+  }
   
   p {
     letter-spacing: 9px;
@@ -306,7 +316,28 @@ button {
     -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
   }
 }
-
+.text {
+  position: fixed;
+  color: $white;
+  background: $primaryone;
+  z-index: 10;
+  font-size: 1.3rem;
+  width: auto;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 65px;
+  cursor: pointer;
+  color: $white;
+  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+  transition: all 0.5s;
+  letter-spacing: 9px;
+  font-family: $brother;
+  text-transform: uppercase;
+  rotate: -90deg;
+  }
 #home {
   background-image: url("../assets/kantenbg.webp");
   background-size: cover;
@@ -321,7 +352,6 @@ button {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
     height: 200px;
     /* Adjust the height as needed */
 
@@ -329,75 +359,32 @@ button {
 
 }
 
-#genre {
-  display: flex;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0.6) 70%, rgba(37, 38, 37, 0) 100%);
-  margin-top: -10%;
-  height: 100vh;
-
+#events {
   .text {
-    position: fixed;
-    color: $white;
-    background: $primaryone;
-    z-index: 10;
-    left: 1%;
-    font-size: 1.3rem;
-    width: auto;
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    top: 45%;
-    height: 65px;
-    cursor: pointer;
-    color: $white;
-    box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-    -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
-    -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
-    transition: all 0.5s;
-    letter-spacing: 9px;
-    font-family: $brother;
-    text-transform: uppercase;
-    rotate: -90deg;
-
-
-
-
+    top: 15%;
+    left:-6%;
+    
   }
-
 }
 
-.text {
-  position: fixed;
-  color: $white;
-  background: $primaryone;
-  z-index: 10;
-  left: -5%;
-  font-size: 1.3rem;
-  width: auto;
-  padding-top: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  top: 15%;
-  height: 65px;
-  cursor: pointer;
-  color: $white;
-  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
-  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
-  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
-  transition: all 0.5s;
-  letter-spacing: 9px;
-  font-family: $brother;
-  text-transform: uppercase;
-  rotate: -90deg;
-
-
-
+#genre {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0.6) 70%, rgba(37, 38, 37, 0) 100%);
+  .text {
+    top: 45%;
+    left: 0%;
+    
+  }
 
 }
 
 #posts {
   background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37, 38, 37, 1) 57%, rgba(69, 68, 68, 0.439) 0%, );
-
+ 
+  .text {
+    top: 75%;
+    left: -2%;
+    
+  }
 }
 
 #footer {
@@ -452,6 +439,7 @@ button {
     position: absolute;
     right: 0;
     bottom: 2%;
+    height: 10em;
   }
   .copyright {
     margin: 0;
@@ -460,6 +448,10 @@ button {
     text-align: center;
     padding-top: 5%;
     opacity: 0.5;
+  }
+  .login {
+    color: gray;
+ 
   }
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="w-screen title has-text-centered">
+  <div class="title has-text-centered">
     <!-- Your title content here -->
   </div>
 
-  <div class="container w-full h-screen flex mt-3">
+  <div class="container h-screen flex mt-3 z-20">
     <label class="accordion accordion--1 flex w-full gap-52 justify-center" for="open-1">
       <div class="accordion__wrapper w-4/12  top-72">
         <dl class="accordion__box flex  flex-col gap-48 ">
@@ -144,34 +144,33 @@ const toggleAccordion = (event) => {
 
 .container {
   padding-top: 70px;
-
   background-image: url(../assets/fiber.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   background-blend-mode: darken;
-
   .accordion {
     .accordion__wrapper {
       .card {
         min-height: 120px;
         background: $primaryone ;
-        box-shadow: -0px 1px 9px #a020ea6a;
+        box-shadow: -0px 1px 9px #5b2a779c;
         color: $gray;
-
         .accordion__tab {
           display: flex;
           align-items: flex-end;
-          padding-left: 2%;
+          padding-left: 3%;
           position: relative;
-          z-index: 2;
+          z-index: 4;
           font-family: $brother;
           width: 5em;
           height: 33px;
           font-size: 1.3rem;
           border-radius: 0px 2px 0 0;
-          background: #fc67597d;
+          background: #a020ea6a;
           padding-bottom: 2px;
+          box-shadow: -0px -0px 9px #a020ea33;
+
 
           &::before {
             content: "";
@@ -182,9 +181,10 @@ const toggleAccordion = (event) => {
             width: 0;
             height: 0;
             border-top: solid 33px transparent;
-            border-left: solid 26px #fc67597d;
+            border-left: solid 26px #a020ea6a;
             border-right: solid 0 transparent;
             border-bottom: solid 0 transparent;
+            
           }
 
 

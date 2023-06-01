@@ -78,6 +78,7 @@ const register = () => {
         -10px -10px 32px $kblue,
         inset 2px 2px 10px rgba(35, 34, 34, 0.8),
         inset -2px -2px 10px rgba(35, 34, 34, 0.8);
+
     h1 {
         font-family: $brother;
         font-size: 1.6em;
