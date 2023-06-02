@@ -1,24 +1,25 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div id="home-wrapper w-screen">
+  <div id="home-wrapper" class="home.wrapper">
     <!-- Home Section -->
     <button id="btn-kraft" type="button" @click="showModalKraft = !showModalKraft" 
     class=" z-10 ">
       <p>Kraftværket</p>
     </button>
     <section id="home" class="w-full h-screen">
-      <img src="../assets/kantenhomelogo.gif" class="m-auto top-52" alt="" />
+      <img src="../assets/kantenhomelogo.gif" class="m-auto top-52 " alt="" />
       <KraftModal :show="showModalKraft" />
     </section>
 
-    <div class="wrapper ">
-      <!-- Upcoming Events Section -->
-      <section id="events" class="w-full  ">
-        
-          <div :key="eventsText" class="text">
+    <div class="wrapper w-full">
+      <!-- Upcoming Events Section -->  
+      
+      <section id="events" class="w-full ">
+        <div :key="eventsText" class="text ">
             <p> Upcoming Events </p>
           </div>
+        
           <Events :key="'eventsKey'" />
        
       </section>
@@ -26,36 +27,53 @@
       <!-- Our Genre Section -->
       <section id="genre" class="w-full pt-52">
           
-            <div :key="genreText" class="text">
+            <div :key="genreText" class="text left-20">
               <p class="">Discover</p>
             </div>
-            <Genre :key="genreKey" />
+            <Genre class="genre-box" :key="genreKey" />
          
       </section>
       <!-- Recent Posts Section -->
-      <section id="posts" class="w-full">
+      <section id="posts" class="w-10/12 m-auto ">
         
-            <div :key="genreText" class="text">
+            <div :key="genreText" class="text left-10">
               <p class="">Recent Posts</p>
             </div>
              
-        <div class="recent-posts flex  justify-center gap-5">
+        <div class="recent-posts w-full flex flex-col lg:flex-row gap-5 place-items-center">
         
           <iframe
-            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
-            allowFullScreen="true"></iframe>
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid022gnzUfacaS96zMnfKfF47RpUjz5w3msHchRfDDVZCgKateWQvkEQik6XENDfyr1Jl&show_text=true&width=500"
+            width="500"
+            height="712"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>          
+            <iframe
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid034yhdt6CAyNiU7h9NHvtXttbb2ciHdwSY6m79wYebSPThosttbVWF3HPEb12CYg9Sl&show_text=true&width=500"
+              width="500"
+              height="738"
+
+              style="border:none;overflow:hidden"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>     
           <iframe
-            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
-            allowFullScreen="true"></iframe>
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fvideos%2F1627597920996117%2F&show_text=true&width=560&t=0"
-             height="584" style="border: none; overflow: hidden" scrolling="no" frameborder="0"
-            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; "
-            allowFullScreen="true"></iframe>
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid034yhdt6CAyNiU7h9NHvtXttbb2ciHdwSY6m79wYebSPThosttbVWF3HPEb12CYg9Sl&show_text=true&width=500"
+              width="500"
+              height="738"
+
+              style="border:none;overflow:hidden"
+              scrolling="no"
+              frameborder="0"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>      
+          
         </div>
       </section>
       <!-- Footer Section -->
@@ -149,12 +167,7 @@ export default {
       const directions = ["top", "left", "right", "bottom"];
       const direction = directions[index % directions.length];
 
-      const initialPosition = {
-        top: { opacity: 0, y: 10, },
-        left: { opacity: 0, x: 0 },
-        right: { opacity: 0, x: 0 },
-        bottom: { opacity: 0, x: -0 },
-      };
+   
 
       const finalPosition = { opacity: 1, x: 0, y: 10 };
 
@@ -310,7 +323,7 @@ progress::-moz-progress-bar {
     height: 440px;
     border-color: $white;
     font-size: 2.2em;
-    transform: scaleX(1.1);
+    transform: scaleX(1);
     box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
     -webkit-box-shadow: 0px 0px 2px 3px rgb(255, 255, 255);
     -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
@@ -327,7 +340,8 @@ progress::-moz-progress-bar {
   padding-left: 1%;
   padding-right: 1%;
   height: 65px;
-  cursor: pointer;
+  top: 13%;
+  margin-left: -5%;
   color: $white;
   box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
@@ -347,31 +361,37 @@ progress::-moz-progress-bar {
   -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
   transition: opacity 0.5s ease-in-out;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 200px;
-    /* Adjust the height as needed */
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+    
+  //   /* Adjust the height as needed */
 
-  }
+  // }
 
 }
 
 #events {
-  .text {
-    top: 15%;
-    left:-6%;
+  
+  .test {
     
+    top: 20%;
   }
 }
 
+
 #genre {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0.6) 70%, rgba(37, 38, 37, 0) 100%);
+  
+  .genre-box{
+    transition: all 1s ease 0s;
+
+  }
   .text {
     top: 45%;
-    left: 0%;
+    
     
   }
 
@@ -382,7 +402,7 @@ progress::-moz-progress-bar {
  
   .text {
     top: 75%;
-    left: -2%;
+    
     
   }
 }

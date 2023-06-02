@@ -1,37 +1,36 @@
 <template>
-  <main v-if="true" class="aboutme-section">
-    <div class="">
-    
-      <div class="flex w-full border-l-3">
-        <div class="btnwrapper text-center wrap ">
-          <TransitionGroup appear tag="div" @before-enter="beforeEnter" @enter="enter">
-            <button type="button" :key="button3" @click="showModalMana = !showModalMana"
-              class="z-10  bottom-36 hover:text-gray-50">
-              <img src="../assets/manaanimation.gif" class="cover image" alt="" />
-            </button>
+   <main v-if="true" class="aboutme-section">
+    <div class="btnwrapper w-full ">
+      <div class="flex flex-wrap justify-center">
+        <button type="button" :key="button3" @click="showModalMana = !showModalMana"
+          class="z-10  bottom-36 hover:text-gray-50 ">
+          <div class="image1 transform ">
+            <img src="../assets/manaanimation.gif" class="cover hover:scale-110 " alt="" />
+          </div>
+        </button>
 
-            <button type="button" :key="button2" @click="showModal = !showModal"
-              class="z-10  bottom-40 hover:text-gray-50">
-              <div class="image1">
-                <img src="../assets/vertexanimtion.gif" class="cover" alt="" />
-              </div>
-            </button>
+        <button type="button" :key="button2" @click="showModal = !showModal"
+          class="z-10  bottom-40 hover:text-gray-50">
+          <div class="image1 transform hover:scale-110">
+            <img src="../assets/vertexanimtion.gif" class="cover hover:scale-110" alt="" />
+          </div>
+        </button>
+      </div>
 
-            <button type="button" @click="showModalDeft = !showModalDeft" :key="button1"
-              class="z-10 bottom-20  hover:text-gray-50">
-              <div class="image">
-                <img src="../assets/deftanimation.gif" class="cover" alt="" />
-              </div>
-            </button>
+      <div class="flex flex-wrap justify-center">
+        <button type="button" @click="showModalDeft = !showModalDeft" :key="button1"
+          class="z-10 bottom-20  hover:text-gray-50 ">
+          <div class="image hover:scale-110 ">
+            <img src="../assets/deftanimation.gif" class="cover hover:scale-110" alt="" />
+          </div>
+        </button>
 
-            <button type="button" :key="button4" @click="showModalDub = !showModalDub"
-              class="z-10 bottom-20 hover:text-gray-50">
-              <div class="image1">
-                <img src="../assets/dubanimation.gif" class="w-fit" alt="" />
-              </div>
-            </button>
-          </TransitionGroup>
-        </div>
+        <button type="button" :key="button4" @click="showModalDub = !showModalDub"
+          class="z-10 bottom-20 hover:text-gray-50 hover:scale-110">
+          <div class="image1 hover:scale-110 ">
+            <img src="../assets/dubanimation.gif" class="cover hover:scale-110" alt="" />
+          </div>
+        </button>
       </div>
     </div>
   </main>
@@ -132,18 +131,42 @@ export default {
   -moz-box-shadow: 14px 3px 44px -6px rgba(0, 0, 0, 0.64);
 }
 
+.btnwrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+// @media (min-width: 768px) {
+//   .btnwrapper {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: flex-start;
+//   }
+
+//   .btnwrapper button {
+//     margin-right: 4px;
+//     margin-bottom: 8px;
+//   }
+// }
+
 .button {
+  
   img {
     background-color: transparent;
+    
+    transition: all 1s ease 0.55s;
   }
 }
 
 .image {
   animation: float 4s ease-in-out infinite;
+  
 }
 
 .image1 {
   animation: float 4s ease-in-out infinite;
+  
 }
 
 @keyframes float {

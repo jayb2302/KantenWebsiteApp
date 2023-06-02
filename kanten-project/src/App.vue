@@ -1,5 +1,5 @@
 <template>
-  <div class="site-wrapper flex flex-co h-screen">
+  <div class="site-wrapper flex flex h-screen">
     <nav class="fixed w-full text-center fixed shadow-slade-500 z-20">
 
       <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>

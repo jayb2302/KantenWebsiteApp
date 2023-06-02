@@ -7,8 +7,8 @@ import './index.css'
 import { initializeApp } from "firebase/app";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faUserSecret, fas } from '@fortawesome/free-solid-svg-icons'
+import { fab  } from '@fortawesome/free-brands-svg-icons'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGroty_DwPsUK016nqp3FH8Ps4HzAivzQ",
@@ -22,7 +22,7 @@ const firebaseConfig = {
 
 
 initializeApp(firebaseConfig);
-library.add(faUserSecret, fab)
+library.add(faUserSecret, fab, fas)
 
 const app =createApp(App)
 

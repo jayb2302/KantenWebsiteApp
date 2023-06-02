@@ -41,6 +41,11 @@
                   <p>{{ event.tags }}</p>
                 </div>
               </div>
+              <div class="iconup absolute bottom-0 opacity-1 right-5">
+                <font-awesome-icon :icon="['fas', 'chevron-down',]" 
+                :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #a020ea89;" />
+              </div>
+
             </div>
           </div>
         </dl>
@@ -48,6 +53,7 @@
 
       <div class="accordion__wrapper w-4/12  top-36">
         <dl class="accordion__box flex  flex-col gap-48 ">
+        
           <div v-for="(event, index) in leftEvents" 
             :key="event.id" class="card "
             :class="{ 'has-background-success-light': event.done }" 
@@ -55,10 +61,13 @@
             <div class="accordion__tab">
               {{ event.venue }}
             </div>
-
+            
             <div class="card-content ">
               <div class="content w-full ">
+              
                 <div class="columns  flex-row is-mobile is-vcentered">
+                  
+
                   <div class="column  " 
                   :class="{ 'has-text-success line-through': event.done }">
                     <span class="accordion__number  ">
@@ -67,6 +76,7 @@
                     <h3 class=" place-self-end  -top-20 text-end ">
                       {{ event.artist }}
                     </h3>
+                    
                     <dd v-if="openedEvent === event.date" 
                       class="accordion__text w-full flex flex-col "
                       :class="{ '': openedEvent === event.date }">
@@ -84,6 +94,9 @@
                   <p>{{ event.tags }}</p>
                 </div>
               </div>
+              <div class="iconup absolute bottom-0 opacity-1 right-5">
+                <font-awesome-icon :icon="['fas', 'chevron-down',]" 
+                :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #a020ea89;" /></div>
             </div>
           </div>
         </dl>
@@ -143,7 +156,7 @@ const toggleAccordion = (event) => {
 @import "../modules/variables";
 
 .container {
-  padding-top: 70px;
+
   background-image: url(../assets/fiber.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -183,15 +196,19 @@ const toggleAccordion = (event) => {
             border-top: solid 33px transparent;
             border-left: solid 26px #a020ea6a;
             border-right: solid 0 transparent;
-            border-bottom: solid 0 transparent;
-            
+            border-bottom: solid 0 transparent; 
           }
-
 
         }
 
         .card-content {
+          
 
+          .iconup{
+            opacity: 0.2;
+            color: $primarytwo;
+            
+          }
           .content {
             .columns {
               .column {
@@ -266,6 +283,10 @@ const toggleAccordion = (event) => {
     }
   }
 }
+
+.rotated {
+  transform: rotate(180deg);
+          }
 
 // .accordion__wrapper.active .accordion__text {
 //   /* Styles for expanded state */
