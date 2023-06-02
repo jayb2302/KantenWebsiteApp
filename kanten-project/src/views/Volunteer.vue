@@ -1,7 +1,7 @@
 <template>
-    <div class="wrapper">
+    <div class="volunteer">
         <div class="text-container">
-            <h1 style=" padding: 100px 0 20px 0;">Become part of our team by becoming a volunteer!</h1>
+            <h1 style="0 20px 0;">Become part of our team by becoming a volunteer!</h1>
             <p style=" text-align: center; padding-bottom: 30px;">At Kanten, we truly appreciate and value the contributions of individuals who share
                 our mission and vision. That's why we're excited to offre a variety of volunteer 
                 opportunities that allow you to make a meaningful impact within our community.
@@ -116,13 +116,7 @@
     box-sizing: border-box;
 }
 
-body{
-display: flex;
-height: 100vh;
-justify-content: center;
-align-items: center;
-background: $primaryone;
-}
+
 
 .text-container{
     display: flex;
@@ -145,7 +139,7 @@ background: $primaryone;
     }
 }
 
-.wrapper {
+.volunteer {
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -346,11 +340,11 @@ form .button input:hover {
     }
 }
 
-@media (max-width: 1300px) {
-    .container{
-        width: 100%;
-    }
-}
+// @media (max-width: 1300px) {
+//     .container{
+//         width: 100%;
+//     }
+// }
 
 @media (max-width: 600px) {
   .footer {

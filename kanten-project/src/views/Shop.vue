@@ -3,15 +3,15 @@
     <h1>Kanteen Merchandise Shop</h1>
   </div>
   <div class="product-cards-wrapper 
-    lg:flex w-full h-screen flex-row w-full ">
-    <div class="shop flex  lg:w-8/12">
+    lg:flex-col w-full h-screen flex w-full ">
+    <div class="shop pl-16 pr-16 ">
       <div class="product-cards-container w-full">
         <ProductSummaryCard v-for="product in items" :key="product.id" :product="product"
           v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
     <div div class="cart lg:w-4/12  lg:fixed 
-      lg:right-0 lg:top-44">
+      lg:right-0 bottom-5">
       <Cart />
     </div>
   </div>
@@ -131,6 +131,7 @@ export default {
     .product-cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      overflow: hidden;
     }
     .container {
       width: 15rem;
@@ -346,22 +347,22 @@ export default {
   background: $gray;
 }
 
-@media screen and (min-width: 768px) {
-  .product-cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+// @media screen and (min-width: 768px) {
+//   // .product-cards-container {
+//   //   grid-template-columns: repeat(2, 1fr);
+//   // }
 
-}
+// }
 
-@media screen and (min-width: 1024px) {
-  .product-cards-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+// @media screen and (min-width: 1024px) {
+//   .product-cards-container {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+// }
 
 .product-cards-wrapper {
   height: 100vh;
   /* Set the height to occupy the full screen */
-  overflow-y: auto;
+  
 }
 </style>
