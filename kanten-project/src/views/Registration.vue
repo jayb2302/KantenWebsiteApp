@@ -1,12 +1,12 @@
 <template>
-<div class="text-container">
-            <h1 style=" padding: 100px 0 20px 0;">Become part of Kanten by becoming a memeber!</h1>
+<div class="text container">
+            <h1 style="   0 20px 0;">Become part of Kanten by becoming a memeber!</h1>
             <p style=" text-align: center;">By becoming a member of Kanten, you gain exclusive access to numerous benefits and opportunities. You will have the chance to actively contribute to our initiatives, events, and projects. <br> If you're interested in becoming a member or would like more information, please don't hesitate to reach out to us. We look forward to welcoming you into the Kanten family!
             </p>
         </div>
-    <div class="wrapper">
+    <div class="reg-wrapper">
       
-        <div class="container">
+        <div class="reg-container   w-10/12">
     <div class="formula">
     <form action="#">
         <div class="title">Become a Member</div>
@@ -141,55 +141,46 @@
 
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-.text-container{
+
+.reg-container{
     display: flex;
     justify-content: center;
-   
     flex-direction: column;
-    width: 10 0%;
+    m-auto
+     
     h1{
         font-size: 3rem;
         font-family: $brother;
         text-align: center;
     }
     p {
-    
         font-size: 1.4rem;
         padding-left: 10%;
         padding-right: 10%;
-       margin-bottom: 3%;
        font-family: $k2d;
     }
 }
 
-body{
-display: flex;
-height: 100vh;
-justify-content: center;
-align-items: center;
-background: $primaryone;
-}
+// body{
+// display: flex;
+// height: 100vh;
+// justify-content: center;
+// align-items: center;
+// background: $primaryone;
+// }
 
-.wrapper {
+.reg-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
  padding-top: 30px;
  height: 900px;
 }
-.container {
-    width: 60%;
+.reg-container {
+   
     background: $primaryone;
     padding: 30px;
-    border-radius: 8px;
-    height: 100vh;
     position: relative;
     overflow: hidden;
 }
@@ -203,12 +194,12 @@ background: $primaryone;
     flex-direction: column;
 }
 
-.container {
+.reg-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 60%;
+   
     height: 750px;
     border: 2px solid $kblue;
     position: relative;
@@ -229,14 +220,14 @@ background: $primaryone;
     }
   }
 
-.container .title{
+.reg-container .title{
     font-size: 25px;
     font-weight: 500;
     position: relative;
     font-family: $brother;
 }
 
-.container .title::before {
+.reg-container .title::before {
     content: '';
     position: absolute;
     left: 0;
@@ -246,7 +237,7 @@ background: $primaryone;
     background: linear-gradient(135deg, $kblue, $kblue);
 }
 
-.container form .user-details {
+.reg-container form .user-details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -413,18 +404,15 @@ form .button input:hover {
 
 
 @media (max-width: 600px) {
-    .container {
-        max-width: 100%;
-        padding-top: 100px;
-    }
+   
     form .user-details .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
-    form .gender-details .category {
-        width: 100%;
-    }
-    .container form .user-details {
+    // form .gender-details .category {
+    //     width: 100%;
+    // }
+    .reg-container form .user-details {
         max-height: 440px;
         overflow-y: scroll;
     }
@@ -433,40 +421,40 @@ form .button input:hover {
     }
 }
 @media (max-width: 1200px) {
-    .container{
+    .reg-container{
         width: 100%;
     }
 }
 
-@media (max-width: 600px) {
-  .footer {
-    height: auto !important;
-    flex-direction: column;
-    align-items: center;
-  }
+// @media (max-width: 600px) {
+//   .footer {
+//     height: auto !important;
+//     flex-direction: column;
+//     align-items: center;
+//   }
   
-  .footer-widget {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 20px;
-  }
-}
+//   .footer-widget {
+//     position: relative;
+//     bottom: auto;
+//     right: auto;
+//     margin-top: 20px;
+//   }
+// }
 
-@media (max-width: 900px) {
-  .footer {
-    height: auto !important;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+// @media (max-width: 900px) {
+//   .footer {
+//     height: auto !important;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//   }
   
-  .footer-content {
-    max-width: 600px;
-  }
+//   .footer-content {
+//     max-width: 600px;
+//   }
   
-  .line {
-    flex-direction: column;
-  }
-}
+//   .line {
+//     flex-direction: column;
+//   }
+// }
 
 </style>
