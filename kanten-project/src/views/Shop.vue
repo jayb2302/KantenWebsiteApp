@@ -10,7 +10,7 @@
           v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
-    <div div class="cart lg:w-4/12  lg:fixed 
+    <div div class="cart z-10 lg:w-4/12  lg:absolute 
       lg:right-0 bottom-5">
       <Cart />
     </div>
