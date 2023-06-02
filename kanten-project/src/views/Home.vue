@@ -202,17 +202,17 @@ export default {
       });
 
 
-      gsap.set(".wrapper", { opacity: 0, y: "0%" });
+      gsap.set(".wrapper", { opacity: 0, y: "5%" });
       ScrollTrigger.create({
         trigger: "#events", // Use the #genre section as the trigger
         start: "top top ",
         end: "bottom bottom",
-        duration: 0.2,
+        duration: 3,
         scrub: 0,
 
 
         onEnter: () => {
-          gsap.to(".wrapper", { opacity: 1, y: 0 });
+          gsap.to(".wrapper", { translateY: -50, y: 0 });
           showGenreSection.value = true;
         },// Show the .wrapper when entering the trigger area
 
@@ -225,7 +225,7 @@ export default {
       ScrollTrigger.create({
         trigger: "#home-wrapper",
         start: "top top",
-        end: "bottom bottom",
+        end: "top center",
 
       });
 
@@ -349,7 +349,7 @@ progress::-moz-progress-bar {
   padding-left: 1%;
   padding-right: 1%;
   height: 65px;
-  top: 13%;
+  top: 10%;
   margin-left: -5%;
   color: $white;
   box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);

@@ -3,21 +3,17 @@
     <h1>Kanteen Merchandise Shop</h1>
   </div>
   <div class="product-cards-wrapper 
-    lg:flex-col w-full h-screen flex w-full ">
-    <div class="shop pl-16 pr-16 ">
+    lg:flex-col  flex h-screen flex w-full ">
+    <div class="shop  w-8/12 pl-16 pr-16 ">
       <div class="product-cards-container w-full">
         <ProductSummaryCard v-for="product in items" :key="product.id" :product="product"
           v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
     <div div class="cart z-10 lg:w-4/12  lg:absolute 
-      lg:right-0 bottom-5">
+      lg:right-0 top-5">
       <Cart />
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer id="footer" class="flex flex-col w-full ">
+    </div><footer id="footer" class="flex flex-col w-full ">
         <div class="footer-content flex flex-row justify-center">
           <div class="footer-list w-3/12 ">
             <h3>Find us here</h3>
@@ -69,7 +65,11 @@
         
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
 
-      </footer>
+   </footer>
+  </div>
+
+  <!-- Footer -->
+  
 </template>
 
 <script >
