@@ -1,7 +1,7 @@
 <template>
-    <div class="wrapper">
-      <div class="container">
-        <div class="text-wrap">
+    <div class="wrap-box">
+      <div class="box-container">
+        <div class="text-wrap4">
           <h2>Enjoy the culture, join our Newsletter!</h2>
           <p>Stay up to date on events, your favorite bands <br> and find new inspiration through Kanten.</p>
         </div>
@@ -38,7 +38,8 @@
   </script>
   
   <style scoped>
-  .wrapper {
+
+  .wrap-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,33 +47,33 @@
     padding: 20% 0; /* Adjust the padding values as needed */
   }
   
-  .container {
+  .box-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3%;
     width: 70%;
     height: 300px;
-    border: 2px solid greenyellow;
+    border: 2px solid #EB4EBA;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 0 2px greenyellow, 0 0 20px 2px greenyellow;
+    box-shadow: 0 0 0 2px #EB4EBA, 0 0 20px 2px #EB4EBA;
     animation: animate 3s linear infinite;
   }
   
   @keyframes animate {
     0% {
-      box-shadow: 0 0 0 2px greenyellow, 0 0 20px 2px greenyellow;
+      box-shadow: 0 0 0 2px #EB4EBA, 0 0 20px 2px #EB4EBA;
     }
     50% {
-      box-shadow: 0 0 0 2px greenyellow, 0 0 40px 6px greenyellow;
+      box-shadow: 0 0 0 2px #EB4EBA, 0 0 40px 6px #EB4EBA;
     }
     100% {
-      box-shadow: 0 0 0 2px greenyellow, 0 0 20px 2px greenyellow;
+      box-shadow: 0 0 0 2px #EB4EBA, 0 0 20px 2px #EB4EBA;
     }
   }
   
-  .text-wrap {
+  .text-wrap4 {
     text-align: center;
     width: 50%;
   }
@@ -82,7 +83,7 @@
     padding: 40px 0;
   }
   
-  h2 {
+  .newsletter h2{
     font-size: 20px;
     margin-bottom: 10px;
   }
@@ -97,19 +98,31 @@
     width: 200px;
     padding: 8px;
     margin-right: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #c4c6c8;
     color: #252625;
   }
   
   button {
     padding: 8px 15px;
     background-color: #252625;
-    color: #fff;
-    border: 1px solid greenyellow;
+    color: #c4c6c8;
+    border: 1px solid #EB4EBA;
     cursor: pointer;
   }
   
   .success {
-    color: green;
+    color: #EB4EBA;
   }
+   @media (max-width: 600px) {
+  .box-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }}
+  @media (max-width: 900px) {
+  .box-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }} 
   </style>

@@ -28,12 +28,6 @@
                       @click="closeModal">                                
                       &cross;
                     </button>
-                                                      <!-- Upcoming Events Section -->
-    <section id="events" class="py-10 w-full h-auto">
-		<div class="eventsbg"></div>
-      <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
-      <router-view></router-view>
-    </section>
                      <!-- Gallery Section -->
     <section id="gallery" class="py-10 flex flex-col justify-center  h-auto">
           <h2 class="text-3xl font-bold mb-5 text-center">Gallery</h2>

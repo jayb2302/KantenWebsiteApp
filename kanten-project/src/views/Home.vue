@@ -73,9 +73,17 @@
               allowfullscreen="true"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>      
-          
         </div>
       </section>
+
+       <!-- Newsletter section --> 
+
+       <section id="news" class="py-10 flex flex-col justify-center  h-auto">
+          <h2 class="text-3xl font-bold mb-5 text-center"></h2>
+		<div class="newsbg  "><Newsletter/>
+    </div>
+  </section>
+
       <!-- Footer Section -->
       <footer id="footer" class="flex flex-col w-full ">
         <div class="footer-content flex flex-row justify-center">
@@ -149,6 +157,7 @@ export default {
     KraftModal,
     Genre,
     Events,
+    Newsletter,
     routerView: useRouter.component,
   },
 
@@ -377,7 +386,7 @@ progress::-moz-progress-bar {
   
   .test {
     
-    top: 20%;
+    top: 2%;
   }
 }
 
@@ -390,7 +399,7 @@ progress::-moz-progress-bar {
 
   }
   .text {
-    top: 45%;
+    top: 35%;
     
     
   }
@@ -401,7 +410,7 @@ progress::-moz-progress-bar {
   background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37, 38, 37, 1) 57%, rgba(69, 68, 68, 0.439) 0%, );
  
   .text {
-    top: 75%;
+    top: 57%;
     
     
   }
@@ -474,4 +483,10 @@ progress::-moz-progress-bar {
  
   }
 }
+
+/* Newsletter */
+.newsbg{
+  margin: auto;
+}
+
 </style>
