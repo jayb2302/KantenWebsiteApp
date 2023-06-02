@@ -40,7 +40,7 @@
               <p class="">Recent Posts</p>
             </div>
              
-        <div class="recent-posts w-full flex flex-col lg:flex-row gap-5 place-items-center">
+        <div class="recent-posts w-full flex flex-col lg:flex-row gap-5 place-items-center ">
         
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid022gnzUfacaS96zMnfKfF47RpUjz5w3msHchRfDDVZCgKateWQvkEQik6XENDfyr1Jl&show_text=true&width=500"
@@ -407,8 +407,11 @@ progress::-moz-progress-bar {
 }
 
 #posts {
+  
   background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37, 38, 37, 1) 57%, rgba(69, 68, 68, 0.439) 0%, );
- 
+ iframe{
+  background: $gray;
+ }
   .text {
     top: 57%;
     
