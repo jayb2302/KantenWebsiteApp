@@ -25,8 +25,7 @@
                     <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
                     <img src="../assets/deft.svg" class="w-28 relative " alt="">
                     <p class="text-2xl w-8/12 mb-3 m-auto text-center"> 
-                    Rhythm and Beats: Hip-hop is known for its distinctive rhythm and beats. 
-                    Turntablism and DJing: Hip-hop culture often includes DJing and turntablism. </p>                 
+                    Hip-hop is a powerful voice and cultural phenomenon that continues to shape the music landscape. With its rhythmic beats, poetic lyrics, and expressive storytelling, hip-hop has transcended boundaries and resonated with people from all walks of life. </p>                 
                     <button
                       class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
                       @click="closeModal">                                

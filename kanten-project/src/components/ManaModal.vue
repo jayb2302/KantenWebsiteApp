@@ -19,19 +19,12 @@
 
             <p class="text-2xl w-8/12 mb-3 m-auto text-center">
               Electronic Music Vibes: Rave culture is closely associated
-              with electronic dance music (EDM).
+              with electronic dance music (EDM). It is a vibrant and dynamic genre with pulsating beats, infectious melodies, and energetic rhythms, exhilarating party vibes and electrifying live performances.
             </p>
             
             <button class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20" @click="closeModal">
               &cross;
             </button>
-
-            <!-- Upcoming Events Section -->
-            <section id="events" class="py-10 w-full h-auto">
-              <div class="eventsbg"></div>
-              <h2 class="text-3xl font-bold mb-5 text-center">Upcoming Events</h2>
-              <router-view></router-view>
-            </section>
 
             <!-- Gallery Section -->
             <section id="gallery" class="py-10 flex flex-col justify-center  h-auto">

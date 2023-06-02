@@ -22,7 +22,7 @@
                     ref="modal">  
                     <!-- <h1 class="text-2xl mb-3">Vertex</h1>    -->
                     <img src="../assets/vertex.svg" class="w-20 relative " alt="">
-                    <p class="text-2xl text-center">House Music Groove: House music is known for its groovy beats and repetitive rhythms.</p>                 
+                    <p class="text-2xl text-center">House Music is a global phenomenon that ignites dance floors and brings people together. With its infectious beats, soulful melodies, and uplifting energy, house music has created a culture of unity, celebration, and pure joy.</p>                 
                     <button
                       class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
                       @click="closeModal">                                
