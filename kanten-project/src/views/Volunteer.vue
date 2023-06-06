@@ -1,8 +1,8 @@
 <template>
     <div class="volunteer">
         <div class="text-container">
-            <h1 style="0 20px 0;">Become part of our team by becoming a volunteer!</h1>
-            <p style=" text-align: center; padding-bottom: 30px;">At Kanten, we truly appreciate and value the contributions of individuals who share
+            <h1 style=" ">Become part of our team by becoming a volunteer!</h1>
+            <p style=" text-align: center; padding-bottom: 20px;">At Kanten, we truly appreciate and value the contributions of individuals who share
                 our mission and vision. That's why we're excited to offre a variety of volunteer 
                 opportunities that allow you to make a meaningful impact within our community.
             </p>
@@ -121,7 +121,6 @@
 .text-container{
     display: flex;
     justify-content: center;
-   
     flex-direction: column;
     width: 10 0%;
     h1{
@@ -134,7 +133,7 @@
         font-size: 1.4rem;
         padding-left: 10%;
         padding-right: 10%;
-       margin-bottom: 3%;
+       margin-bottom: 2%;
        font-family: $k2d;
     }
 }
@@ -221,12 +220,12 @@ form .user-details .input-box {
     height: 45px;
     width: 100%;
     outline: none;
-    border-radius: 5px;
     border: 1px solid $kblue;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 17px;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+    background-color: $primaryone;
 }
 
 .user-details .input-box input:focus,
@@ -235,25 +234,25 @@ border-color: $kblue;
 }
 
 form .botton {
-    margin: 45px 0;
+    margin: 20px 0;
     width: 400px;
     height: 150px !important;
 }
 form .button input {
-    color: $white;
     height: 100%;
-    width: 100%;
+    width: 30%;
+    margin-left: 35%;
     outline: none;
     border: none;
     font-size: 18px;
+    font-family:$brother;
     font-weight: 500;
-    border-radius: 5px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, $kblue, $kblue);
+    background: linear-gradient(-135deg, $kblue, $kblue);
+    color:$primaryone;
 }
 form .button input:hover {
-    background: linear-gradient(-135deg, $kblue, $kblue);
-}
+  background: linear-gradient(135deg, $primaryone, $kblue,  $primaryone);}
 
 
 #footer {

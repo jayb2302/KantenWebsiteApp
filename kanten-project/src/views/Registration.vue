@@ -1,12 +1,12 @@
 <template>
-<div class="text container">
-            <h1 style="   0 20px 0;">Become part of Kanten by becoming a memeber!</h1>
+<div class="text ">
+            <h1 class="text-center pt-20">Become part of Kanten by becoming a memeber!</h1>
             <p style=" text-align: center;">By becoming a member of Kanten, you gain exclusive access to numerous benefits and opportunities. You will have the chance to actively contribute to our initiatives, events, and projects. <br> If you're interested in becoming a member or would like more information, please don't hesitate to reach out to us. We look forward to welcoming you into the Kanten family!
             </p>
         </div>
     <div class="reg-wrapper">
       
-        <div class="reg-container   w-10/12">
+        <div class="reg-container  w-10/12">
     <div class="formula">
     <form action="#">
         <div class="title">Become a Member</div>
@@ -141,53 +141,51 @@
 
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
-
+.text {
+  h1 {
+   font-size: 3rem;
+  }
+  p {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
 
 .reg-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    m-auto
-     
-    h1{
-        font-size: 3rem;
-        font-family: $brother;
-        text-align: center;
-    }
-    p {
-        font-size: 1.4rem;
-        padding-left: 10%;
-        padding-right: 10%;
-       font-family: $k2d;
-    }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+    
+  h1{
+    font-size: 3rem;
+    font-family: $brother;
+    text-align: center;
+  }
+  p {
+    font-size: 1.4rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: $k2d;
+  }
 }
 
-// body{
-// display: flex;
-// height: 100vh;
-// justify-content: center;
-// align-items: center;
-// background: $primaryone;
-// }
+
 
 .reg-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
- padding-top: 30px;
- height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
 }
 .reg-container {
-   
-    background: $primaryone;
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
+  background: $primaryone;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
 }
 .formula{
     position: absolute;
     inset: 2px;
-    border-radius: 8px;
     z-index: 1000;
     padding: 50px 40px;
     display: flex;
@@ -199,7 +197,6 @@
     justify-content: center;
     align-items: center;
     gap: 3%;
-   
     height: 750px;
     border: 2px solid $kblue;
     position: relative;
@@ -242,12 +239,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
+    color: $white;
 }
 
 form .user-details .input-box {
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
     font-family: $k2d;
+    color: $white;
 }
 
 .user-details .input-box .details {
@@ -260,12 +259,12 @@ form .user-details .input-box {
     height: 45px;
     width: 100%;
     outline: none;
-    border-radius: 5px;
     border: 1px solid $kblue;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 17px;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+    background-color: $primaryone;
 }
 
 .user-details .input-box input:focus,
@@ -305,7 +304,7 @@ form .gender-details .category {
 #dot-2:checked ~ .category label .two,
 #dot-3:checked ~ .category label .three {
     border-color: $white;
-    background: $kblue;
+    background: $kpink;
 }
 
 form input[type="radio"] {
@@ -321,20 +320,22 @@ form .botton {
 
 form .button input {
     height: 100%;
-    width: 100%;
+    width: 30%;
+    margin-left: 35%;
     outline: none;
     border: none;
     font-size: 18px;
     font-family:$brother;
     font-weight: 500;
-    border-radius: 5px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, $kblue, $kblue);
-    color:$white;
+    background: linear-gradient(-135deg, $kblue, $kblue);
+    color:$primaryone;
 }
 
 form .button input:hover {
-    background: linear-gradient(-135deg, $kblue, $kblue);
+ 
+    background: linear-gradient(135deg, $primaryone, $kblue,  $primaryone);
+
 }
 
 

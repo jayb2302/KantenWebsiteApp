@@ -12,7 +12,7 @@
       <KraftModal :show="showModalKraft" />
     </section>
 
-    <div class="wrapper w-full top-32">
+    <div class="wrapper-home w-full ">
       <!-- Upcoming Events Section -->  
       
       <section id="events" class="w-full ">
@@ -34,45 +34,43 @@
          
       </section>
       <!-- Recent Posts Section -->
-      <section id="posts" class="w-10/12 m-auto ">
+      <section id="posts" class="w-9/12 m-auto ">
         
-            <div :key="genreText" class="text left-10">
-              <p class="">Recent Posts</p>
-            </div>
+        <div :key="genreText" class="text left-10">
+          <p class="">Recent Posts</p>
+        </div>
              
         <div class="recent-posts w-full flex flex-col lg:flex-row gap-5 place-items-center ">
-        
           <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid022gnzUfacaS96zMnfKfF47RpUjz5w3msHchRfDDVZCgKateWQvkEQik6XENDfyr1Jl&show_text=true&width=500"
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid0APFNu3KA4dNv2D7tjhbsvEnG6U4Z7Ee6pQubrmLuCKSmhxcGwUjGonJWxS6Azmz2l&show_text=true&width=500"
             width="500"
-            height="712"
-            style="border:none;overflow:hidden"
+            height="600"
+            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
             scrolling="no"
             frameborder="0"
             allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>          
-            <iframe
-              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid034yhdt6CAyNiU7h9NHvtXttbb2ciHdwSY6m79wYebSPThosttbVWF3HPEb12CYg9Sl&show_text=true&width=500"
-              width="500"
-              height="738"
-
-              style="border:none;overflow:hidden"
-              scrolling="no"
-              frameborder="0"
-              allowfullscreen="true"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>     
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>          
           <iframe
-              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid034yhdt6CAyNiU7h9NHvtXttbb2ciHdwSY6m79wYebSPThosttbVWF3HPEb12CYg9Sl&show_text=true&width=500"
-              width="500"
-              height="738"
-
-              style="border:none;overflow:hidden"
-              scrolling="no"
-              frameborder="0"
-              allowfullscreen="true"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>      
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid031ZpGHW6FeC4gxnvfpKvEUnnPmaiTdZp9KtRh52jMmWpMRgz4S3eHsUu65YUPbiWwl&show_text=true&width=500"
+            width="500"
+            height="481"
+            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>              
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid036Bvh53xxns6cDMSpFdCytZ8QpD69zmmjj97dVJrGANv61F4gBvDfuDT15vtngftKl&show_text=true&width=500"
+            width="500"
+            height="586"
+            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>                  
         </div>
       </section>
 
@@ -202,22 +200,22 @@ export default {
       });
 
 
-      gsap.set(".wrapper", { opacity: 0, y: "5%" });
+      gsap.set(".wrappe-home", { opacity: 0, y: "2%" });
       ScrollTrigger.create({
-        trigger: "#events", // Use the #genre section as the trigger
+        trigger: "#events",
         start: "top top ",
         end: "bottom bottom",
-        duration: 3,
+        duration: 2,
         scrub: 0,
 
 
         onEnter: () => {
-          gsap.to(".wrapper", { opacity: 1, y: 0 });
+          gsap.to(".wrapper-home", { opacity: 1, y: 90 });
           showGenreSection.value = true;
         },// Show the .wrapper when entering the trigger area
 
         onLeaveBack: () => {
-          gsap.to(".wrapper", { opacity: 0, y: 100 });
+          gsap.to(".wrapper-home", { opacity: 0, y: 100 });
           showGenreSection.value = true;
         },// Hide the .wrapper when leaving the trigger area
       });
@@ -226,6 +224,7 @@ export default {
         trigger: "#home-wrapper",
         start: "top top",
         end: "top center",
+        
 
       });
 
@@ -407,11 +406,9 @@ progress::-moz-progress-bar {
 }
 
 #posts {
+ 
   
-  background: linear-gradient(180deg, rgba(69, 68, 68, 0) 0%, rgba(37, 38, 37, 1) 57%, rgba(69, 68, 68, 0.439) 0%, );
- iframe{
-  background: $gray;
- }
+
   .text {
     top: 57%;
     
