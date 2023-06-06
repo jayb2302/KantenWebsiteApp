@@ -12,7 +12,7 @@
       <KraftModal :show="showModalKraft" />
     </section>
 
-    <div class="wrapper w-full">
+    <div class="wrapper w-full top-32">
       <!-- Upcoming Events Section -->  
       
       <section id="events" class="w-full ">
@@ -212,7 +212,7 @@ export default {
 
 
         onEnter: () => {
-          gsap.to(".wrapper", { translateY: -50, y: 0 });
+          gsap.to(".wrapper", { opacity: 1, y: 0 });
           showGenreSection.value = true;
         },// Show the .wrapper when entering the trigger area
 
