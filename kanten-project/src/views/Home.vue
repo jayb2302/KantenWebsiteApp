@@ -1,10 +1,10 @@
 <template>
   <progress max="100" value="0"></progress>
 
-  <div id="home-wrapper" class="home.wrapper">
+  <div id="home-wrapper" class="home-wrapper w-screen lg:w-screen ">
     <!-- Home Section -->
     <button id="btn-kraft" type="button" @click="showModalKraft = !showModalKraft" 
-    class=" z-10 ">
+    class=" z-28 ">
       <p>Kraftværket</p>
     </button>
     <section id="home" class="w-full h-screen">
@@ -12,35 +12,35 @@
       <KraftModal :show="showModalKraft" />
     </section>
 
-    <div class="wrapper-home w-full ">
+    <div class="wrapperhome md:w-full lg:w-full   ">
       <!-- Upcoming Events Section -->  
       
-      <section id="events" class="w-full ">
-        <div :key="eventsText" class="text ">
-            <p> Upcoming Events </p>
+      <section id="events" class="pt-20 md:pt-20 lg:pt-20 ">
+        <div :key="eventsText" class="lg:fixed md:fixed text top-32 md:top-80 md:-left-32 lg:-left-36">
+            <p class="sm:pt-2 "> Upcoming Events </p>
           </div>
         
-          <Events :key="'eventsKey'" />
+          <Events key="'eventsKey'" />
        
       </section>
 
       <!-- Our Genre Section -->
-      <section id="genre" class="w-full pt-52">
+      <section id="genre" class=" -mt-16 md:pt-28 lg:pt-20">
           
-            <div :key="genreText" class="text left-20">
-              <p class="">Discover</p>
+            <div :key="genreText" class="lg:fixed md:fixed text  md:-left-12 lg:-left-16">
+              <p class="sm:pt-2">Discover</p>
             </div>
-            <Genre class="genre-box" :key="genreKey" />
+            <Genre class="genre-box" key="genreKey" />
          
       </section>
       <!-- Recent Posts Section -->
-      <section id="posts" class="w-9/12 m-auto ">
+      <section id="posts" class="  lg:justify-center ">
         
-        <div :key="genreText" class="text left-10">
-          <p class="">Recent Posts</p>
+        <div :key="genreText" class="lg:fixed text  md:fixed md:-left-20 lg:-left-24">
+          <p class="sm:pt-2">Recent Posts</p>
         </div>
              
-        <div class="recent-posts w-full flex flex-col lg:flex-row gap-5 place-items-center ">
+        <div class="recent-posts ml-32 mr-32 flex flex-col lg:flex-row gap-2 place-items-center ">
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid0APFNu3KA4dNv2D7tjhbsvEnG6U4Z7Ee6pQubrmLuCKSmhxcGwUjGonJWxS6Azmz2l&show_text=true&width=500"
             width="500"
@@ -77,15 +77,15 @@
        <!-- Newsletter section --> 
 
        <section id="news" class="py-10 flex flex-col justify-center  h-auto">
-          <h2 class="text-3xl font-bold mb-5 text-center"></h2>
+          <h2 class="text-3xl font-bold lg:mb-5 text-center"></h2>
 		<div class="newsbg  "><Newsletter/>
     </div>
   </section>
 
       <!-- Footer Section -->
-      <footer id="footer" class="flex flex-col w-full ">
-        <div class="footer-content flex flex-row justify-center">
-          <div class="footer-list w-3/12 ">
+      <footer id="footer" class="flex flex-col pt-4  ">
+        <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
+          <div class="footer-list lg:w-3/12 ">
             <h3>Find us here</h3>
             <ul>
               <li>
@@ -99,26 +99,28 @@
             </ul>
           </div>
 
-          <div class="footer-contact w-3/12 ">
+          <div class="footer-contact lg:w-3/12 ">
             <div class="footer-widget-heading">
               <h3>Contact us</h3>
             </div>
             <ul>
               <li>
                 <h4>Phone</h4>
-                <p>+45 28 97 11 85</p>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
               </li>
               <li>
                 <h4>E-mail</h4>
-                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                <p>+45 28 97 11 85</p>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="copyright-area  ">
-          <div class="copyright">
+          <div class="copyright  pt-16 lg:pt-24">
+            <RouterLink class="login  fixed right-1/2 bottom-4 lg:bottom-3 pb-2 " to="/sign-in"> Admin </RouterLink>
             <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+
           </div>
           <div class="footer-widget">
 
@@ -132,7 +134,7 @@
         </div>
 
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-        <RouterLink class="login  fixed right-1/2 " to="/sign-in"> Admin </RouterLink>
+        
       </footer>
     </div>
   </div>
@@ -161,12 +163,11 @@ export default {
 
   setup() {
     const showModalKraft = ref(false);
-    const showGenreSection = ref(false);
+    const showEventSection = ref(false);
 
     const beforeEnter = (el) => {
       el.style.opacity = 0;
       el.style.transform = "translateY(0px)";
-      console.log("after");
     };
 
     const enter = (el, done) => {
@@ -174,24 +175,25 @@ export default {
       const directions = ["top", "left", "right", "bottom"];
       const direction = directions[index % directions.length];
 
-   
-
       const finalPosition = { opacity: 1, x: 0, y: 10 };
 
-      gsap.fromTo(el, initialPosition[direction], {
-        ...finalPosition,
-        opacity: 0.8,
-        y: 100,
-        duration: 0.7,
-        delay: 1,
-        ease: 1,
-        onComplete: done,
-        rotation: 0,
-      });
+      gsap.fromTo(
+        el,
+        initialPosition[direction],
+        {
+          ...finalPosition,
+          opacity: 0.8,
+          y: 100,
+          duration: 0.7,
+          delay: 1,
+          ease: 1,
+          onComplete: done,
+          rotation: 0,
+        }
+      );
     };
+
     onMounted(() => {
-
-
       gsap.registerPlugin(ScrollTrigger);
       gsap.to("progress", {
         value: 100,
@@ -199,44 +201,41 @@ export default {
         scrollTrigger: { scrub: 0.3 },
       });
 
+      gsap.set(".wrapperhome", { opacity: 0, y: "3%" });
 
-      gsap.set(".wrappe-home", { opacity: 0, y: "2%" });
-      ScrollTrigger.create({
-        trigger: "#events",
-        start: "top top ",
-        end: "bottom bottom",
-        duration: 2,
-        scrub: 0,
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-
-        onEnter: () => {
-          gsap.to(".wrapper-home", { opacity: 1, y: 90 });
-          showGenreSection.value = true;
-        },// Show the .wrapper when entering the trigger area
-
-        onLeaveBack: () => {
-          gsap.to(".wrapper-home", { opacity: 0, y: 100 });
-          showGenreSection.value = true;
-        },// Hide the .wrapper when leaving the trigger area
-      });
-
-      ScrollTrigger.create({
-        trigger: "#home-wrapper",
-        start: "top top",
-        end: "top center",
-        
-
-      });
-
-
+      if (!isMobile) {
+        ScrollTrigger.create({
+          trigger: "#events",
+          start: "top top",
+          end: "bottom bottom",
+          duration: 2,
+          scrub: 0,
+          onEnter: () => {
+            gsap.to(".wrapperhome", { opacity: 1, y: 90 });
+            showEventSection.value = true;
+          },
+          onLeaveBack: () => {
+            gsap.to(".wrapperhome", { opacity: 0, y: 100 });
+            showEventSection.value = true;
+          },
+        });
+      }
     });
 
+    // Rest of your code...
+
     return {
-      showModalKraft, beforeEnter, enter
+      showModalKraft,
+      showEventSection,
+      beforeEnter,
+      enter,
     };
   },
 };
 </script>
+
 
 <style lang="scss" scoped>
 @import "bulma/css/bulma.min.css";
@@ -286,7 +285,7 @@ progress::-moz-progress-bar {
   color: $white;
   background: $primaryone;
   z-index: 10;
-  right: 5%;
+  right: 2%;
   font-size: 2rem;
   width: 65px;
   margin-top: 5%;
@@ -337,19 +336,18 @@ progress::-moz-progress-bar {
     -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
   }
 }
+$text-rotation: -90deg;
 .text {
-  position: fixed;
+  
   color: $white;
   background: $primaryone;
   z-index: 10;
   font-size: 1.3rem;
-  width: auto;
-  padding-top: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-top: 1.2%;
+  padding-left: 3%;
+  padding-right: 3%;
   height: 65px;
-  top: 10%;
-  margin-left: -5%;
+  margin-left: 0%;
   color: $white;
   box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
@@ -358,12 +356,19 @@ progress::-moz-progress-bar {
   letter-spacing: 9px;
   font-family: $brother;
   text-transform: uppercase;
-  rotate: -90deg;
+  rotate: $text-rotation;
+
+  @media (max-width: 708px) {
+    rotate: 0deg;
+    
+  }
+
   }
 #home {
   background-image: url("../assets/kantenbg.webp");
   background-size: cover;
   position: fixed;
+  
   filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
@@ -434,7 +439,7 @@ progress::-moz-progress-bar {
       }
       p {
         color: $gray;
-        font-size: 1em;
+        font-size: 0.9em;
         font-family: $k2d;
         line-height: 28px;
       }
@@ -475,8 +480,9 @@ progress::-moz-progress-bar {
     font-size: 1em;
     color: $gray;
     text-align: center;
-    padding-top: 5%;
     opacity: 0.5;
+    position:relative;
+    
   }
   .login {
     color: gray;

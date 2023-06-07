@@ -82,9 +82,9 @@
 </div>
 
  <!-- Footer Section -->
- <footer id="footer" class="flex flex-col w-full ">
-        <div class="footer-content flex flex-row justify-center">
-          <div class="footer-list w-3/12 ">
+ <footer id="footer" class="flex flex-col pt-4  ">
+        <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
+          <div class="footer-list lg:w-3/12 ">
             <h3>Find us here</h3>
             <ul>
               <li>
@@ -98,26 +98,28 @@
             </ul>
           </div>
 
-          <div class="footer-contact w-3/12 ">
+          <div class="footer-contact lg:w-3/12 ">
             <div class="footer-widget-heading">
               <h3>Contact us</h3>
             </div>
             <ul>
               <li>
                 <h4>Phone</h4>
-                <p>+45 28 97 11 85</p>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
               </li>
               <li>
                 <h4>E-mail</h4>
-                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                <p>+45 28 97 11 85</p>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="copyright-area  ">
-          <div class="copyright">
+          <div class="copyright  pt-16 lg:pt-24">
+            <RouterLink class="login relative right-1 bottom-2 lg:bottom-3 pb-2 " to="/sign-in"> Admin </RouterLink>
             <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+
           </div>
           <div class="footer-widget">
 
@@ -131,6 +133,7 @@
         </div>
 
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+        
       </footer>
 
 </template>
@@ -142,19 +145,29 @@
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
 .text {
-  h1 {
-   font-size: 3rem;
-  }
-  p {
-    padding-left: 20%;
-    padding-right: 20%;
-  }
+  h1{
+        font-size: 1.3em;
+        padding: 7% 0 2% 0;
+        font-family: $brother;
+        text-align: center;
+        color: $gray;
+    }
+    p {
+    
+        font-size: 1em;
+        padding-left: 20%;
+        padding-right: 20%;
+       margin-bottom: 0%;
+       font-family: $k2d;
+       color: $white;
+    }
 }
 
 .reg-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
+  
     
   h1{
     font-size: 3rem;
@@ -176,6 +189,8 @@
   justify-content: center;
   align-items: center;
   height: 900px;
+  width: 90%;
+  margin: auto;
 }
 .reg-container {
   background: $primaryone;
@@ -270,6 +285,7 @@ form .user-details .input-box {
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
 border-color: $kpink;
+background: $primaryone;
 }
 
 form .gender-details .gender-title {
@@ -339,6 +355,7 @@ form .button input:hover {
 }
 
 
+
 #footer {
   font-family: $brother;
   background: $primaryone;
@@ -357,7 +374,7 @@ form .button input:hover {
       }
       p {
         color: $gray;
-        font-size: 1em;
+        font-size: 0.9em;
         font-family: $k2d;
         line-height: 28px;
       }
@@ -398,8 +415,13 @@ form .button input:hover {
     font-size: 1em;
     color: $gray;
     text-align: center;
-    padding-top: 5%;
     opacity: 0.5;
+    position:relative;
+    
+  }
+  .login {
+    color: gray;
+ 
   }
 }
 

@@ -13,7 +13,7 @@
             <h1>Kanten Venue</h1>
             <p class="text">
               The venue "Kanten" is becoming Esbjerg's new focal point for the local emerging music scene and youth. The venue, primarily focusing on the underground music scene, hosts a variety of events ranging from art exhibitions and DJ schools to electronic parties and concerts, promoting diversity. Esbjerg is in need of more music venues and cultural initiatives, and Kanten aims to be a safe alternative with a safe space policy that will contribute to a safer nightlife in Esbjerg.
-Likewise, our ambition is to create an alternative platform for the youth community in Esbjerg, where the music program reflects a diverse selection of subgenres across genders and identities. On the first floor of Huset Esbjerg's premises, we are establishing a youth cultural center and community. The Kanten venue is operated by our association, which consists of young residents of Esbjerg and newcomers. All types of individuals are welcome, and through music and art events, we aspire to enhance the cultural life in Esbjerg.
+              Likewise, our ambition is to create an alternative platform for the youth community in Esbjerg, where the music program reflects a diverse selection of subgenres across genders and identities. On the first floor of Huset Esbjerg's premises, we are establishing a youth cultural center and community. The Kanten venue is operated by our association, which consists of young residents of Esbjerg and newcomers. All types of individuals are welcome, and through music and art events, we aspire to enhance the cultural life in Esbjerg.
             </p>
         </div>
     </div>
@@ -33,23 +33,23 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               <div class="picture">
                 <img
                   class="img-fluid"
-                  src="https://picsum.photos/130/130?image=1027"
+                  src="https://keytokids.com.au/wp-content/uploads/2017/09/placeholder-face-big.png"
                 />
               </div>
               <div class="team-content">
-                <h3 class="name">Michele Miller</h3>
-                <h4 class="title">CEO</h4>
+                <h3 class="name">Thomas Palmkvist</h3>
+                <h4 class="title">Volunteer</h4>
               </div>
               <ul class="social">
                 <li>
-                  <a href="#" class="fa fa-facebook" aria-hidden="true"
+                  <a href="" class="fa fa-facebook" aria-hidden="true"
                     ><font-awesome-icon
                       class="icon"
                       :icon="['fab', 'facebook-f']"
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-instagram" aria-hidden="true"
+                  <a href="https://www.instagram.com/yopalmen/" class="fa fa-instagram" aria-hidden="true"
                     ><font-awesome-icon
                       class="icon"
                       :icon="['fab', 'instagram']"
@@ -68,12 +68,12 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               <div class="picture">
                 <img
                   class="img-fluid"
-                  src="https://picsum.photos/130/130?image=839"
+                  src="https://keytokids.com.au/wp-content/uploads/2017/09/placeholder-face-big.png"
                 />
               </div>
               <div class="team-content">
-                <h3 class="name">Patricia Knott</h3>
-                <h4 class="title">General Manager</h4>
+                <h3 class="name">Henrik Sæderup</h3>
+                <h4 class="title">Volunteer</h4>
               </div>
               <ul class="social">
                 <li>
@@ -84,7 +84,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-instagram" aria-hidden="true"
+                  <a href="https://www.instagram.com/henriksaederup/" class="fa fa-instagram" aria-hidden="true"
                     ><font-awesome-icon
                       class="icon"
                       :icon="['fab', 'instagram']"
@@ -103,12 +103,12 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               <div class="picture">
                 <img
                   class="img-fluid"
-                  src="https://picsum.photos/130/130?image=856"
+                  src="https://keytokids.com.au/wp-content/uploads/2017/09/placeholder-face-big.png"
                 />
               </div>
               <div class="team-content">
-                <h3 class="name">Justin Ramos</h3>
-                <h4 class="title">Executive manager</h4>
+                <h3 class="name">Gustav Alvarez</h3>
+                <h4 class="title">Volunteer</h4>
               </div>
               <ul class="social">
                 <li>
@@ -119,7 +119,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-instagram" aria-hidden="true"
+                  <a href="https://www.instagram.com/alva_alva_alva_alva_/" class="fa fa-instagram" aria-hidden="true"
                     ><font-awesome-icon
                       class="icon"
                       :icon="['fab', 'instagram']"
@@ -138,12 +138,12 @@ Likewise, our ambition is to create an alternative platform for the youth commun
               <div class="picture">
                 <img
                   class="img-fluid"
-                  src="https://picsum.photos/130/130?image=836"
+                  src="https://keytokids.com.au/wp-content/uploads/2017/09/placeholder-face-big.png"
                 />
               </div>
               <div class="team-content">
-                <h3 class="name">Mary Huntley</h3>
-                <h4 class="title">Intern</h4>
+                <h3 class="name">Lea Julie</h3>
+                <h4 class="title">Volunteer</h4>
               </div>
               <ul class="social">
                 <li>
@@ -154,7 +154,7 @@ Likewise, our ambition is to create an alternative platform for the youth commun
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-instagram" aria-hidden="true"
+                  <a href="https://www.instagram.com/lea.juliie/" class="fa fa-instagram" aria-hidden="true"
                     ><font-awesome-icon
                       class="icon"
                       :icon="['fab', 'instagram']"
@@ -464,7 +464,7 @@ body{
     background-color: $gray;
     border-bottom: 4px solid $kblue;
     position: absolute;
-    bottom: -100px;
+    bottom: -80px;
     left: 0;
     transition: all 1s ease 0s;
   }
@@ -484,7 +484,6 @@ body{
   .our-team .social li a {
     display: block;
     padding: 5px;
-  
     color: $white;
     transition: all 0.3s ease 0s;
     text-decoration: none;
@@ -541,7 +540,7 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   
 }
 

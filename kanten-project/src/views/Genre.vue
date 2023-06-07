@@ -1,17 +1,17 @@
 <template>
    <main v-if="true" class="aboutme-section">
-    <div class="btnwrapper w-full ">
+    <div class="btnwrapper pt-36 md:pt-5 w-full ">
 
-      <div class="flex flex-wrap justify-center">
+      <div class="flex flex-wrap  justify-center">
         <button type="button" :key="button3" @click="showModalMana = !showModalMana"
-          class="z-10  bottom-52 left-52 ">
+          class="z-10  bottom-36 md:bottom-52 left-48 md:left-52  ">
           <div class="image1  ">
             <img src="../assets/manaanimation.gif" class="cover  hover:scale-105 " alt="" />
           </div>
         </button>
 
         <button type="button" :key="button2" @click="showModal = !showModal"
-          class="z-10  bottom-36 left-0 ">
+          class="z-10  bottom-60 lg:bottom-36 left-0 ">
           <div class="image1  ">
             <img src="../assets/vertexanimtion.gif" class="cover  hover:scale-105" alt="" />
           </div>
@@ -20,14 +20,14 @@
 
       <div class="flex flex-wrap justify-center">
         <button type="button" @click="showModalDeft = !showModalDeft" :key="button1"
-          class="z-10 bottom-20 right-0  ">
+          class="z-10 top-16 md:bottom-0 lg:-top-20  md:right-0  ">
           <div class="image  ">
             <img src="../assets/deftanimation.gif" class="cover  hover:scale-105" alt="" />
           </div>
         </button>
 
         <button type="button" :key="button4" @click="showModalDub = !showModalDub"
-          class="z-10 bottom-5 right-52 ">
+          class="z-10 bottom-10 right-52 ">
           <div class="image1  ">
             <img src="../assets/dubanimation.gif" class="cover  hover:scale-105 " alt="" />
           </div>

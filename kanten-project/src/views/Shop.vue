@@ -1,21 +1,31 @@
 <template>
-  <div class="text text-2xl  lg:w-12/12 mb-5">
+  <main class="w-screen">
+  <div class="text  mt-10 lg:w-12/12 mb-5">
     <h1>Kanteen Merchandise Shop</h1>
+    
   </div>
+  <div class="cart-icon absolute z-20 right-20  -top-5 lg:top-16 "  @click="toggleCart" :class="{ 'showCart': showCart }" >
+      <font-awesome-icon  :icon="['fas', 'basket-shopping']" size="2xl" style="color: #5ABFF9" />
+      </div>
+
+    <div class="cart-wrapper " :class="{ 'hidden': !showCart }">
+      <Cart />
+    </div>
   <div class="product-cards-wrapper 
-    lg:flex-col  flex h-screen flex w-full ">
-    <div class="shop  w-8/12 pl-16 pr-16 ">
+      flex flex ">
+    <div class="shop  w-10/12 m-auto ">
       <div class="product-cards-container w-full">
         <ProductSummaryCard v-for="product in items" :key="product.id" :product="product"
           v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
     </div>
-    <div div class="cart z-10 lg:w-4/12  lg:absolute 
-      lg:right-0 top-5">
-      <Cart />
-    </div><footer id="footer" class="flex flex-col w-full ">
-        <div class="footer-content flex flex-row justify-center">
-          <div class="footer-list w-3/12 ">
+  
+  </div>
+  
+   </main> <!-- Footer Section -->
+    <footer id="footer" class="flex flex-col pt-4  ">
+        <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
+          <div class="footer-list lg:w-3/12 ">
             <h3>Find us here</h3>
             <ul>
               <li>
@@ -29,28 +39,28 @@
             </ul>
           </div>
 
-          <div class="footer-contact w-3/12 ">
+          <div class="footer-contact lg:w-3/12 ">
             <div class="footer-widget-heading">
               <h3>Contact us</h3>
             </div>
             <ul>
               <li>
                 <h4>Phone</h4>
-                <p>+45 28 97 11 85</p>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
               </li>
               <li>
                 <h4>E-mail</h4>
-                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                <p>+45 28 97 11 85</p>
               </li>
             </ul>
           </div>
-
         </div>
 
-
         <div class="copyright-area  ">
-          <div class="copyright">
+          <div class="copyright  pt-16 lg:pt-24">
+            <RouterLink class="login  static right-1/2 bottom-4 lg:bottom-0 pb-2 " to="/sign-in"> Admin </RouterLink>
             <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+
           </div>
           <div class="footer-widget">
 
@@ -62,13 +72,10 @@
                   </div> -->
           </div>
         </div>
-        
+
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-
-   </footer>
-  </div>
-
-  <!-- Footer -->
+        
+      </footer>
   
 </template>
 
@@ -84,6 +91,9 @@ export default {
     ProductSummaryCard, ProductDescriptionDrawer, Cart,
   },
   methods: {
+    toggleCart() {
+      this.showCart = !this.showCart;
+    },
     ...mapActions(['addToCart']),
     addToCartHandler(product) {
       this.addToCart(product);
@@ -99,6 +109,7 @@ export default {
     return {
       items: items,
       product: null,
+      showCart: false,
       active: {
         product_drawer: false,
       }
@@ -115,7 +126,7 @@ export default {
   justify-content: center;
   align-items: center;
   padding-top: 5%;
-  font-size: 2.6rem;
+  font-size: 2.0rem;
   font-weight: 700;
   color: $white;
 }
@@ -131,7 +142,7 @@ export default {
     .product-cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      overflow: hidden;
+      
     }
     .container {
       width: 15rem;
@@ -270,6 +281,16 @@ export default {
 
 
 }
+.cart-wrapper {
+  
+  transition: all 0.3s;
+  
+}
+
+.cart-wrapper .show {
+  display: block;
+  transform: translateX(0);
+}
 
 #footer {
   font-family: $brother;
@@ -289,7 +310,7 @@ export default {
       }
       p {
         color: $gray;
-        font-size: 1em;
+        font-size: 0.9em;
         font-family: $k2d;
         line-height: 28px;
       }
@@ -330,8 +351,13 @@ export default {
     font-size: 1em;
     color: $gray;
     text-align: center;
-    padding-top: 5%;
     opacity: 0.5;
+    position:relative;
+    
+  }
+  .login {
+    color: gray;
+ 
   }
 }
 
@@ -360,9 +386,5 @@ export default {
 //   }
 // }
 
-.product-cards-wrapper {
-  height: 100vh;
-  /* Set the height to occupy the full screen */
-  
-}
+
 </style>

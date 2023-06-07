@@ -1,58 +1,58 @@
 <template>
-    <div class="volunteer">
-        <div class="text-container">
-            <h1 style=" ">Become part of our team by becoming a volunteer!</h1>
-            <p style=" text-align: center; padding-bottom: 20px;">At Kanten, we truly appreciate and value the contributions of individuals who share
-                our mission and vision. That's why we're excited to offre a variety of volunteer 
-                opportunities that allow you to make a meaningful impact within our community.
-            </p>
-        </div>
-        <div class="container">
+  <div class="volunteer w-full">
+      <div class="text-container w-full ">
+          <h1 class="top-10" style=" ">Become part of our team by becoming a volunteer!</h1>
+          <p class="top-5" style=" text-align: center; padding-bottom: 20px;">At Kanten, we truly appreciate and value the contributions of individuals who share
+              our mission and vision. That's why we're excited to offre a variety of volunteer 
+              opportunities that allow you to make a meaningful impact within our community.
+          </p>
+      </div>
+      <div class="container">
     <div class="formula">
-    <form action="#">
-        <div class="title">Volunteer Form</div>
-        <div class="user-details">
-            <div class="input-box">
-                <span class="details">Full Name</span>
-                <input type="text" placeholder="Write your first name" required>
-            </div>
-            <div class="input-box">
-                <span class="details">E-mail</span>
-                <input type="text" placeholder="Write your e-mail" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Address</span>
-                <input type="text" placeholder="Write your address" required>
-            </div>
-            <div class="input-box">
-                <span class="details">Postnr.</span>
-                <input type="text" placeholder="Write your postnr." required>
-            </div>
-            <div class="input-box">
-                <span class="details">City</span>
-                <input type="text" placeholder="Write your city" required>
-            </div>
-            <br>
-            <div class="input-box">
-                <span class="details">Phone Number</span>
-                <input type="text" placeholder="Write your phone number" required>
-            </div>
-        </div>
-        <div class="button">
-            <input type="submit" value="Sign up" style="height: 45px;">
-        </div>
-    </form>
-</div>
-</div>
-<br>
-<br>
-<p style="font-size: larger;">We would love you to be part of our amazing team!</p>
-</div>
+      <form action="#">
+          <div class="title">Volunteer Form</div>
+          <div class="user-details">
+              <div class="input-box">
+                  <span class="details">Full Name</span>
+                  <input type="text" placeholder="Write your first name" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">E-mail</span>
+                  <input type="text" placeholder="Write your e-mail" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">Address</span>
+                  <input type="text" placeholder="Write your address" required>
+              </div>
+              <div class="input-box">
+                  <span class="details">Postnr.</span>
+                  <input type="text" placeholder="Write your postnr." required>
+              </div>
+              <div class="input-box">
+                  <span class="details">City</span>
+                  <input type="text" placeholder="Write your city" required>
+              </div>
+              <br>
+              <div class="input-box">
+                  <span class="details">Phone Number</span>
+                  <input type="text" placeholder="Write your phone number" required>
+              </div>
+          </div>
+          <div class="button">
+              <input type="submit" value="Sign up" style="height: 45px;">
+          </div>
+      </form>
+    </div>
+  </div>
+  <br>
+    <br>
+  <p style="font-size: larger;">We would love you to be part of our amazing team!</p>
+  </div>
 
-<!-- Footer -->
-<footer id="footer" class="flex flex-col w-full ">
-        <div class="footer-content flex flex-row justify-center">
-          <div class="footer-list w-3/12 ">
+ <!-- Footer Section -->
+ <footer id="footer" class="flex flex-col pt-4  ">
+        <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
+          <div class="footer-list lg:w-3/12 ">
             <h3>Find us here</h3>
             <ul>
               <li>
@@ -66,26 +66,28 @@
             </ul>
           </div>
 
-          <div class="footer-contact w-3/12 ">
+          <div class="footer-contact lg:w-3/12 ">
             <div class="footer-widget-heading">
               <h3>Contact us</h3>
             </div>
             <ul>
               <li>
                 <h4>Phone</h4>
-                <p>+45 28 97 11 85</p>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
               </li>
               <li>
                 <h4>E-mail</h4>
-                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+                <p>+45 28 97 11 85</p>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="copyright-area  ">
-          <div class="copyright">
+          <div class="copyright  pt-16 lg:pt-24">
+            <RouterLink class="login relative right-1 bottom-2 lg:bottom-3 pb-2 " to="/sign-in"> Admin </RouterLink>
             <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+
           </div>
           <div class="footer-widget">
 
@@ -99,6 +101,7 @@
         </div>
 
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+        
       </footer>
 
 </template>
@@ -122,19 +125,22 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 10 0%;
+    width: 90%;
     h1{
-        font-size: 3rem;
+        font-size: 1.3em;
+        padding: 2% 0 3% 0;
         font-family: $brother;
         text-align: center;
+        color: $gray;
     }
     p {
     
-        font-size: 1.4rem;
+        font-size: 1em;
         padding-left: 10%;
         padding-right: 10%;
-       margin-bottom: 2%;
+       margin-bottom: 5%;
        font-family: $k2d;
+       color: $white;
     }
 }
 
@@ -143,14 +149,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  padding: 60px 0; 
+  padding: 30px 2%; 
 }
 .formula{
     position: absolute;
     inset: 2px;
     border-radius: 8px;
     z-index: 1000;
-    padding: 50px 40px;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
 }
@@ -159,7 +165,7 @@
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 60%;
+    width: 90%;
     height: 500px;
     border: 2px solid $kblue;
     position: relative;
@@ -255,7 +261,7 @@ form .button input:hover {
   background: linear-gradient(135deg, $primaryone, $kblue,  $primaryone);}
 
 
-#footer {
+  #footer {
   font-family: $brother;
   background: $primaryone;
   padding: 0;
@@ -273,7 +279,7 @@ form .button input:hover {
       }
       p {
         color: $gray;
-        font-size: 1em;
+        font-size: 0.9em;
         font-family: $k2d;
         line-height: 28px;
       }
@@ -314,11 +320,16 @@ form .button input:hover {
     font-size: 1em;
     color: $gray;
     text-align: center;
-    padding-top: 5%;
     opacity: 0.5;
+    position:relative;
+    
+  }
+  .login {
+    color: gray;
+ 
   }
 }
-@media (max-width: 584px) {
+@media (max-width: 700px) {
     .container {
         max-width: 100%;
     }
@@ -345,36 +356,36 @@ form .button input:hover {
 //     }
 // }
 
-@media (max-width: 600px) {
-  .footer {
-    height: auto !important;
-    flex-direction: column;
-    align-items: center;
-  }
+// @media (max-width: 700px) {
+//   // .footer {
+//   //   height: auto !important;
+//   //   flex-direction: column;
+//   //   align-items: center;
+//   // }
   
-  .footer-widget {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin-top: 20px;
-  }
-}
+//   .footer-widget {
+//     position: relative;
+//     bottom: auto;
+//     right: auto;
+//     margin-top: 20px;
+//   }
+// }
 
-@media (max-width: 900px) {
-  .footer {
-    height: auto !important;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+// @media (max-width: 900px) {
+//   .footer {
+//     height: auto !important;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//   }
   
-  .footer-content {
-    max-width: 600px;
-  }
+//   .footer-content {
+//     max-width: 600px;
+//   }
   
-  .line {
-    flex-direction: column;
-  }
-}
+//   .line {
+//     flex-direction: column;
+//   }
+// }
 
 
 </style>

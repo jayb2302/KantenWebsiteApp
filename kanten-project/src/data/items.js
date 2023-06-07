@@ -36,15 +36,6 @@ const items = [
     price: 50,
   },
   {
-    id: 5,
-    name: "",
-    image: new URL("../assets/merch/waterbottle.png", import.meta.url),
-    category: "Accesories",
-    description: "Our merch",
-    size: "You can choose your size here",
-    price: 12.0,
-  },
-  {
     id: 6,
     name: "Kanten Beenie",
     image: new URL("../assets/merch/beenie.png", import.meta.url),

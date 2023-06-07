@@ -19,7 +19,7 @@
         >
           <div
             class="modal overflow-auto hover:overflow-auto scrollbar-thin 
-            shadow-md shadow-slate-500 shadow-inner w-screen pt-5 p-8 lg:mb-2 h-full mb-2"
+            shadow-md shadow-slate-500 shadow-inner w-screen  pt-5 p-8  lg:mb-2 h-full mb-2"
             role="dialog"
             ref="modal"
           >
@@ -28,7 +28,7 @@
             <h3 class=" mt-10 text-center ">Kraftværket</h3>
             <h4 class="text-center ">SOUND STUDIO & TRANING facility</h4>
             <button
-              class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 z-20"
+              class="btn absolute right-3 text-3xl pt-1 mt-1 pb-0.5 pl-2 pr-2 top-2 "
               @click="closeModal"
             >
               &cross;
@@ -136,6 +136,7 @@ export default {
   background-color: $primaryone;
   box-shadow: 0px 0px 2px $gray, inset 0 0 3px $gray;
   color: $white;
+  
   #image-container {
   
   
@@ -178,13 +179,15 @@ export default {
   .btn {
     color: $gray;
     opacity: 0.4;
+    padding-top: 2%;
+    padding-right: 2%;
     #closebutton {
       &:hover {
-        color: $kpink;
+        color: $gray;
       }
     }
     &:hover {
-      color: $kpink;
+      color: $white;
       transition: ease-in-out duration-1000 transform;
     }
   }
