@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="w-full pb-5 flex 
+    <div id="app" class="w-screen pb-5 flex 
         content-center justify-center">
         <div class="container flex justify-center 
             mt-6 pt-5 top-20">

@@ -1,5 +1,5 @@
 <template>
-    <div class="container2">
+    <div class="container2 w-screen">
     <div class="about-section">
         <div class="inner-container">
             <h1>About Us</h1>
@@ -174,63 +174,61 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer">
-        <div class="footer-content">
-          <div class="line">
-            
-  
-            <div class="footer-widget2">
-              <div class="footer-widget-heading">
-                <h3>Find us here</h3>
-              </div>
-              <ul>
-                <li>
-                  <h2>Kanten</h2>
-                  <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
-                </li>
-                <li>
-                  <h2>Kraftværket</h2>
-                  <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
-                </li>
-              </ul>
+ <!-- Footer Section -->
+
+ <footer id="footer" class="flex flex-col pt-4  ">
+        <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
+          <div class="footer-list lg:w-3/12 ">
+            <h3>Find us here</h3>
+            <ul>
+              <li>
+                <h4>Kanten</h4>
+                <a href="https://goo.gl/maps/FiNur8K3VDgcWFk39">FINSENSGADE 1, 6700 Esbjerg</a>
+              </li>
+              <li>
+                <h4>Kraftværket</h4>
+                <a href="https://goo.gl/maps/m9AhRALJE7bfsctq9">GL NOVRUPVEJ 14, 6705 ESBJERG Ø</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-contact lg:w-3/12 ">
+            <div class="footer-widget-heading">
+              <h3>Contact us</h3>
             </div>
-  
-            <div class="footer-widget2">
-              <div class="footer-widget-heading">
-                <h3>Contact us</h3>
-              </div>
-              <ul>
-                <li>
-                  <h2>Phone</h2>
-                  <p>+45 28 97 11 85</p>
-                </li>
-                <li>
-                  <h2>E-mail</h2>
-                  <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <h4>Phone</h4>
+                <p>MUSIKFORENINGENKANTEN@GMAIL.COM</p>
+              </li>
+              <li>
+                <h4>E-mail</h4>
+                <p>+45 28 97 11 85</p>
+              </li>
+            </ul>
           </div>
         </div>
-    </footer>
-        <div class="copyright-area">
-                <div class="row">
-                        <div class="copyright-text">
-                            <p>Copyright &copy; 2023, All Right Reserved Kanten</p>
-                        </div>                    
-                </div>
-                <div class="footer-widget">
-              <div class="footer-logo">
-                <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-              </div>
-              <!-- Follow button -->
-              <!-- <div class="footer-social-icon">
-                <span>Follow us</span>
-                <a href="#"><i class='bx bxl-facebook' style='color:#ffffff'></i></a>
-                <a href="#"><i class='bx bxl-instagram' style='color:#ffffff'  ></i></a>
-              </div> -->
-            </div>
+
+        <div class="copyright-area  ">
+          <div class="copyright  pt-16 lg:pt-24">
+            <RouterLink class="login  fixed right-1/2 bottom-4 lg:bottom-3 pb-2 " to="/sign-in"> Admin </RouterLink>
+            <p>Copyright &copy; 2018, All Right Reserved Kanten</p>
+
+          </div>
+          <div class="footer-widget">
+
+            <!-- Follow button -->
+            <!-- <div class="footer-social-icon">
+                    <span>Follow us</span>
+                    <a href="#"><i class='bx bxl-facebook' style='color:$whitefff'></i></a>
+                    <a href="#"><i class='bx bxl-instagram' style='color:$whitefff'  ></i></a>
+                  </div> -->
+          </div>
         </div>
+
+        <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
+
+      </footer>
 
 </template>
 
@@ -251,6 +249,8 @@ body{
     align-items: center;
     justify-content: center;
     background-color: $primaryone;
+    color: $white;
+    font-family: $k2d;
 }
 
 .container2 {
@@ -267,17 +267,18 @@ body{
 
 .about-section{
     background: url(../assets/img/Kanten-About-Us.jpg) no-repeat left;
-    background-size: 55%;
+    background-size: 40%;
     background-color: $primaryone;
     overflow: hidden;
-    padding: 100px 0;
+    color: $white;
+    
 }
 .about-section2{
     background: url(../assets/img/venue-kanten.jpg) no-repeat right;
-    background-size: 50%;
+    background-size: 40%;
     background-color: $primaryone;
     overflow: hidden;
-    padding: 100px 0;
+  
 }
 .about-section3{
     background: url(../assets/img/Kraftværket.jpg) no-repeat left;
@@ -288,21 +289,21 @@ body{
     margin-top: 10px;
 }
 .inner-container {
-    width: 50%;
+    width: 45%;
     float: right;
     background-color: $primaryone;
     padding: 66px;
     border: 3px solid $kgreen;
 }
 .inner-container2 {
-    width: 55%;
+    width: 45%;
     float: left;
     background-color: $primaryone;
-    padding: 66px;
+    
     border: 3px solid $kblue;
 }
 .inner-container3 {
-    width: 50%;
+    width: 45%;
     float: right;
     background-color: $primaryone;
     padding: 66px;
@@ -313,10 +314,13 @@ body{
 .inner-container2 h1,
 .inner-container3 h1
  {
-    margin-bottom: 30px;
+    margin-bottom: 3%;
     font-size: 30px;
     font-weight: 900;
     font-family: $brother;
+    padding-left: 3%;
+    padding-top: 3%;
+    color: $white;
 }
 
 .text {
@@ -326,12 +330,14 @@ body{
     text-align: justify;
     margin-bottom: 40px;
     font-family: $k2d;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 @media screen and (max-width:1200px){
     .inner-container,
     .inner-container2,
-    .inner-container3 {padding: 80px;}  
+    .inner-container3 {padding: 1%;}  
 }
 
 @media screen and (max-width: 1000px) {
@@ -339,7 +345,7 @@ body{
     .about-section2,
     .about-section3{
         background-size: 100%;
-        padding: 100px 40px;
+        padding: 20% 10%;
     }
     .inner-container,
     .inner-container2,
@@ -358,7 +364,7 @@ body{
     .inner-container2,
     .inner-container3
     {
-        padding: 60px;
+        padding: 2px;
     }
     .container2 {
       display: flex;
@@ -386,6 +392,7 @@ body{
     box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
     -webkit-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
+    color: $white;
 
     .name {
       font-size: 1.3rem;
@@ -436,6 +443,7 @@ body{
 
   .our-team:hover .picture::before {
     height: 100%;
+    
   }
 
   .our-team:hover .picture img {
@@ -501,93 +509,78 @@ body{
 
 
                                   /* Footer */
-.footer {
-  background: $primaryone;
-  padding-top: 70px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  height: 300px !important;
-}
-
-.footer-content {
-  width: 100%;
-  flex-grow: 1;
-}
-.line {
-  display: flex;
-  justify-content: center;
-}
-.footer-widget {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.footer-widget2 {
-  width: 100%;
-  max-width: 300px;
-  text-align: left;
-}
-.footer-widget-heading {
-  margin-bottom: 10px;
+                                  #footer {
   font-family: $brother;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  font-family: $k2d;
-}
-
-li {
-  margin-bottom: 2px;
-  
-}
-
-h2{
-    font-weight: bold;
-    font-size: large;
-}
-
-.footer-pattern img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 330px;
-  background-size: cover;
-  background-position: 100% 100%;
-}
-
-.footer-logo img {
-    max-width: 200px;
-}
- 
-.footer-widget-heading h3 {
-  color: $white;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  position: relative;
-}
-.footer-widget-heading h3::before {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  height: 3px;
-  width: 116px;
-  background: $kpink;
-}
-
-.copyright-area{
   background: $primaryone;
-  display: flex;
-  justify-content: center;
-  height: 50px !important;
-}
-.copyright-text p {
-  margin: 0;
-  font-size: 14px;
-  color: $white;
+  padding: 0;
+  height: 300px;
+  padding-top: 1%;
+
+  .footer-content {
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      a {
+        color: $gray;
+        font-size: 1em;
+        font-family: $k2d;
+      }
+
+      p {
+        color: $gray;
+        font-size: 0.9em;
+        font-family: $k2d;
+        line-height: 28px;
+      }
+    }
+
+    h4 {
+      font-size: 1.2em;
+      padding-top: 3%;
+      color: $gray;
+      font-weight: 800;
+    }
+
+    h3 {
+      color: $white;
+      font-weight: 800;
+      position: relative;
+      font-size: 1.2em;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        height: 2px;
+        width: 117px;
+        background: $kpink;
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    right: 0;
+    bottom: 2%;
+    height: 10em;
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: 1em;
+    color: $gray;
+    text-align: center;
+    opacity: 0.5;
+    position: relative;
+
+  }
+
+  .login {
+    color: gray;
+
+  }
 }
 
 @media (max-width: 600px) {

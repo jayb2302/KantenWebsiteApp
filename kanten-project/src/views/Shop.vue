@@ -1,10 +1,10 @@
 <template>
   <main class="w-screen">
-  <div class="text  mt-10 lg:w-12/12 mb-5">
+  <div class="text  mt-10 lg:w-full mb-5">
     <h1>Kanteen Merchandise Shop</h1>
     
   </div>
-  <div class="cart-icon absolute z-20 right-20  -top-5 lg:top-16 "  @click="toggleCart" :class="{ 'showCart': showCart }" >
+  <div class="cart-icon absolute z-40 right-20  -top-5 lg:top-16 "  @click="toggleCart" :class="{ 'showCart': showCart }" >
       <font-awesome-icon  :icon="['fas', 'basket-shopping']" size="2xl" style="color: #5ABFF9" />
       </div>
 
@@ -13,8 +13,8 @@
     </div>
   <div class="product-cards-wrapper 
       flex flex ">
-    <div class="shop  w-10/12 m-auto ">
-      <div class="product-cards-container w-full">
+    <div class="shop  w-10/12  m-auto ">
+      <div class="product-cards-container gap-5  w-full">
         <ProductSummaryCard v-for="product in items" :key="product.id" :product="product"
           v-on:view-product="viewProduct($event)" class="card-item" @add-to-cart="addToCartHandler" />
       </div>
@@ -23,7 +23,7 @@
   </div>
   
    </main> <!-- Footer Section -->
-    <footer id="footer" class="flex flex-col pt-4  ">
+    <footer id="footer" class="flex flex-col pt-4 mt-10  ">
         <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
           <div class="footer-list lg:w-3/12 ">
             <h3>Find us here</h3>

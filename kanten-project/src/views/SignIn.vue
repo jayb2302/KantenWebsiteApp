@@ -1,11 +1,11 @@
 <template>
-    <div id="app" class="w-full  pb-5 flex 
-        content-center justify-center">
-        <div class="container flex 
-            justify-center mt-6 pt-5 top-20">
-            <div class="card gap-6 flex flex-col 
-                justify-center items-center">
-                <h1 class="signup">Log in</h1>
+    <div  class="w-screen  pb-5  
+        content-center justify-center  ">
+        <div class="container-login flex 
+             mt-6 pt-5 top-20">
+            <div class="card-login gap-6  flex flex-col 
+               items-center">
+                <h1 class="signup pt-5">Log in</h1>
                 <div class="inputBox1">
                     <input type="text" v-model="email" required="required">
                     <span class="user">Email</span>
@@ -70,7 +70,13 @@ const register = () => {
 
 <style lang="scss" scoped>
 @import '../modules/_variables.scss';
-.card {
+
+.container-login {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   .card-login {
     min-height: 350px;
     width: 300px;
     background: $primaryone;
@@ -78,6 +84,9 @@ const register = () => {
         -10px -10px 32px $kblue,
         inset 2px 2px 10px rgba(35, 34, 34, 0.8),
         inset -2px -2px 10px rgba(35, 34, 34, 0.8);
+    
+
+ 
 
     h1 {
         font-family: $brother;
@@ -178,5 +187,7 @@ const register = () => {
             color: $white;
         }
     }
+} 
 }
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="site-wrapper flex ">
-    <nav class="fixed w-full text-start fixed shadow-slade-500 z-20">
+    <nav class="fixed w-full text-start fixed shadow-slade-500 z-30">
       <div class="dropdown visible md:invisible lg:invisible">
         <button class="dropdown-toggle pt-2 pl-8"><font-awesome-icon :icon="['fas', 'bars']" /></button>
         <div class="dropdown-menu">
@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <div class="navbar-links justify-center invisible md:visible lg:visible ">
+      <div class="navbar-links justify-center invisible md:visible lg:visible  ">
         <RouterLink class="li text-2xl mr-4 ml-4" to="/"> Home </RouterLink>
         <RouterLink class="li text-2xl mr-4 ml-4" to="/about"> About </RouterLink>
         <RouterLink class="li text-2xl mr-4 ml-4" :class="{ active: $route.name === 'Shop' }" to="/shop"> Shop </RouterLink>
@@ -84,7 +84,7 @@ export default {
   display: none;
   background: linear-gradient((-120deg),rgba(37, 38, 37, 0) 0%,rgb(45, 45, 45, 1) 100%);
   padding: 1rem;
-  z-index: 7120;
+ 
 }
 
 .dropdown-menu a {
@@ -106,37 +106,17 @@ export default {
   margin-right: 1rem;
   color: #fff;
   text-decoration: none;
-}
-
-@media (max-width: 768px) {
-  .navbar-links {
-    display: none;
-  }
-
-  .dropdown-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: $kblue;
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: block;
   
-  }
 }
-
 .app-footer {
   position: fixed;
   display: flex;
   justify-content: flex-start;
   gap: 15px;
   top: 0;
-  z-index: 53000;
+  left: 0%;
+  z-index: 52000;
   padding-bottom: 8%;
-  
   margin-top: 0%;
   
   a {
@@ -187,4 +167,30 @@ export default {
   }
   
 }
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .dropdown-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: $kblue;
+    z-index: 53100;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  
+  }
+  .app-footer{
+    left: 25%;
+  }
+}
+
+
 </style>

@@ -1,12 +1,13 @@
 <template>
-<div class="text ">
-            <h1 class="text-center pt-20">Become part of Kanten by becoming a memeber!</h1>
-            <p style=" text-align: center;">By becoming a member of Kanten, you gain exclusive access to numerous benefits and opportunities. You will have the chance to actively contribute to our initiatives, events, and projects. <br> If you're interested in becoming a member or would like more information, please don't hesitate to reach out to us. We look forward to welcoming you into the Kanten family!
-            </p>
-        </div>
-    <div class="reg-wrapper">
+  <main class="w-screen flex-col">
+    <div class="text ">
+                <h1 class="text-center pt-20">Become part of Kanten by becoming a memeber!</h1>
+                <p style=" text-align: center;">By becoming a member of Kanten, you gain exclusive access to numerous benefits and opportunities. You will have the chance to actively contribute to our initiatives, events, and projects. <br> If you're interested in becoming a member or would like more information, please don't hesitate to reach out to us. We look forward to welcoming you into the Kanten family!
+                </p>
+    </div>
+    <div class="reg-wrapper ">
       
-        <div class="reg-container  w-10/12">
+      <div class="reg-container w-11/12">
     <div class="formula">
     <form action="#">
         <div class="title">Become a Member</div>
@@ -78,9 +79,9 @@
         </div>
     </form>
 </div>
-</div>
-</div>
-
+      </div>
+    </div>
+  </main>
  <!-- Footer Section -->
  <footer id="footer" class="flex flex-col pt-4  ">
         <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
@@ -189,7 +190,7 @@
   justify-content: center;
   align-items: center;
   height: 900px;
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 .reg-container {

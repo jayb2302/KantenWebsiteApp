@@ -1,34 +1,24 @@
 <template>
-  <div class=" title has-text-centered">
-    <!-- Your title content here -->
+  <div class=" mt-16 pt-10 title has-text-centered">
+    <h1> Add Event </h1>
   </div>
-  <button id="btn-out" @click="handleSignOut" 
-    v-if="isLoggedIn">
+  <button id="btn-out" @click="handleSignOut" v-if="isLoggedIn">
     <p> Sign out</p>
   </button>
-  <div class="wrapper flex w-full flex-col "
-  v-if="isLoggedIn" >
-    <div class="form-wrapper flex w-full  ">
-      <form class="m-auto" 
-        @submit.prevent="addEvent">
+  <div class="wrapper flex w-full flex-row justify-center " v-if="isLoggedIn">
+    <div class="form-wrapper flex w-4/12 top-16  ">
+      <form class="ml-20" @submit.prevent="addEvent">
         <div class="field is-grouped flex 
           flex-col wrap w-full justify-center 
           pt-10 gap-4">
           <div class="control is-expanded">
-            <input v-model="newEventTitle" 
-              class="input" type="text" 
-              placeholder="Title" />
+            <input v-model="newEventTitle" class="input" type="text" placeholder="Title" />
           </div>
           <p class="control is-expanded">
-            <input v-model="newEventArtist" 
-              class="input" 
-              type="text" 
-              placeholder="Artist"/>
+            <input v-model="newEventArtist" class="input" type="text" placeholder="Artist" />
           </p>
           <p class="control is-expanded">
-            <input v-model="newEventDescription" 
-              class="input" type="text" 
-              placeholder="Description"/>
+            <input v-model="newEventDescription" class="input" type="text" placeholder="Description" />
           </p>
           <p class="control is-expanded">
             <select v-model="newEventVenue" class="select">
@@ -41,73 +31,60 @@
             </select>
           </p>
           <p class="control is-expanded">
-            <input v-model="newEventDate" 
-              id="date-input" 
-              class="input" 
-              type="date" 
-              placeholder=""/>
+            <input v-model="newEventDate" id="date-input" class="input" type="date" placeholder="" />
           </p>
           <p class="control is-expanded">
-            <input v-model="newEventTime" 
-              class="input" 
-              type="time" placeholder="" />
+            <input v-model="newEventTime" class="input" type="time" placeholder="" />
           </p>
           <p class="control is-expanded">
-            <input @change="newEventImg($event)" 
-              class="input" type="file" 
-              placeholder="Picture" />
+            <input @change="newEventImg($event)" class="input" type="file" placeholder="Picture" />
           </p>
           <div class="control">
-            <button class="button is-info" 
-              :disabled="newEventImgVar === ''">
+            <button class="button is-info" :disabled="newEventImgVar === ''">
               Add
             </button>
           </div>
         </div>
       </form>
     </div>
-    <div v-for="event in events" 
-      :key="event.id" 
-      class="w-8/12 card mb-5"
-      :class="{ 'has-background-success-light': event.done }">
-      <div class="card-content">
-        <div class="content">
-          <div class="columns is-mobile is-vcentered">
-            <div class="column" :class="{ 'has-text-success line-through': event.done }">
-              <p><strong>Title:</strong> 
-              {{ event.title }}</p>
-              <p><strong>Artist:</strong> 
-              {{ event.artist }}</p>
-              <p><strong>Description:</strong> 
-              {{ event.description }}</p>
-              <p><strong>Date:</strong> 
-              {{ event.date }}</p>
-              <p><strong>Time:</strong> 
-              {{ event.time }}</p>
-              <p><strong>Venue</strong> 
-              {{ event.venue }}</p>
-              <img :src="event.imgURL" 
-                alt="Event Image" class="w-52 h-52">
-            </div>
-            <div class="column is-5 has-text-right">
-              <button @click="toggleDone(event.id)" 
-              class="button" 
-              :class="event.done ? 'is-success' : 'is-light'">
-                &check;
-              </button>
-              <button @click="deleteEvent(event.id)" 
-              class="button is-danger">
-                &cross;
-              </button>
+    <div class="event-container flex-col   w-6/12 ">
+      <div v-for="event in events" :key="event.id" class="w-12/12 card mb-5 "
+        :class="{ 'has-background-success-light': event.done }">
+        <div class="card-content  ">
+          <div class="content ">
+            <div class="columns is-mobile">
+              <div class="column " :class="{ 'has-text-success line-through': event.done }">
+                <p><strong>Title:</strong>
+                  {{ event.title }}</p>
+                <p><strong>Artist:</strong>
+                  {{ event.artist }}</p>
+                <p><strong>Description:</strong>
+                  {{ event.description }}</p>
+                <p><strong>Date:</strong>
+                  {{ event.date }}</p>
+                <p><strong>Time:</strong>
+                  {{ event.time }}</p>
+                <p><strong>Venue</strong>
+                  {{ event.venue }}</p>
+                <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
+              </div>
+              <div class="column is-5 has-text-right ">
+                <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
+                  &check;
+                </button>
+                <button @click="deleteEvent(event.id)" class="button is-danger">
+                  &cross;
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div v-else>
-      <p>Please log in to access this page.</p>
-      <button @click="redirectToSignIn">Log In</button>
+  <div v-else  class=" w-screen flex-col justify-center">
+    <p class="p-tag text-center">Please log in to access this page.</p>
+    <button id="btn-in" class="w-screen" @click="redirectToSignIn">Log In</button>
   </div>
 </template>
 
@@ -120,7 +97,7 @@ import { db } from '@/firebase'
 import router from '../router'
 
 const redirectToSignIn = () => {
-  router.push('/sign-in') 
+  router.push('/sign-in')
 }
 
 let newEventVenue = refVue('')
@@ -269,9 +246,50 @@ const newEventImg = async (event) => {
 <style lang="scss" scoped>
 @import '../modules/variables';
 @import 'bulma/css/bulma.min.css';
+
+
+h1 {
+  color: $white;
+  font-family: $brother;
+}
+
 .field {
   margin: auto;
 }
+
+.control input,
+.control select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border: 1px solid $kblue;
+  padding-left: 15px;
+  font-size: 17px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  background-color: $primaryone;
+  color: $white;
+  font-family: $brother;
+  font-weight: 500;
+
+  &::placeholder {
+    color: $white;
+  }
+
+  &::file-selector-button {
+
+    color: $kblue;
+    background-color: $primaryone;
+    border: thin solid grey;
+    border-radius: 2px;
+
+  }
+}
+
+.control input:focus {
+  border-color: $kgreen;
+}
+
 
 .card {
   margin: auto;
@@ -298,5 +316,35 @@ const newEventImg = async (event) => {
   text-transform: uppercase;
   rotate: -90deg;
 
+}
+
+.p-tag {
+  font-size: 1.4rem;
+  font-family: $k2d;
+  font-weight: 600;
+  
+}
+
+#btn-in {
+  
+  color: $white;
+  background: $primaryone;
+  z-index: 10;
+  font-size: 1.3rem;
+  width: auto;
+  left: 45%;
+  margin-top: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+  top: 15%;
+  height: 55px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 9px rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 0px 1px 3px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
+  transition: all 0.5s;
+  letter-spacing: 9px;
+  font-family: $brother;
+  text-transform: uppercase;
 }
 </style>

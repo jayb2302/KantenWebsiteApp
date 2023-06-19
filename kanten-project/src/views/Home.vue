@@ -1,88 +1,80 @@
 <template>
+  <!-- Progress Bar -->
   <progress max="100" value="0"></progress>
 
-  <div id="home-wrapper" class="home-wrapper w-screen lg:w-screen ">
-    <!-- Home Section -->
-    <button id="btn-kraft" type="button" @click="showModalKraft = !showModalKraft" 
-    class=" z-28 ">
+  <div id="main-wrapper" class="main-wrapper w-screen lg:w-screen ">
+    <!-- Kraftværket Modal -->
+    <button id="btn-kraft" type="button" @click="showModalKraft = !showModalKraft" class=" z-28 ">
       <p>Kraftværket</p>
     </button>
+    
+    <!-- Home Section -->
     <section id="home" class="w-full h-screen">
       <img src="../assets/kantenhomelogo.gif" class="m-auto top-52 " alt="" />
       <KraftModal :show="showModalKraft" />
     </section>
 
+    <!-- Scrolling Section -->
     <div class="wrapperhome md:w-full lg:w-full   ">
-      <!-- Upcoming Events Section -->  
-      
+
+      <!-- Upcoming Events Section -->
       <section id="events" class="pt-20 md:pt-20 lg:pt-20 ">
         <div :key="eventsText" class="lg:fixed md:fixed text top-32 md:top-80 md:-left-32 lg:-left-36">
-            <p class="sm:pt-2 "> Upcoming Events </p>
-          </div>
-        
-          <Events key="'eventsKey'" />
-       
+          <p class="sm:pt-2 "> Upcoming Events </p>
+        </div>
+        <Events key="'eventsKey" />
       </section>
 
-      <!-- Our Genre Section -->
+      <!-- Genre Section -->
       <section id="genre" class=" -mt-16 md:pt-28 lg:pt-20">
-          
-            <div :key="genreText" class="lg:fixed md:fixed text  md:-left-12 lg:-left-16">
-              <p class="sm:pt-2">Discover</p>
-            </div>
-            <Genre class="genre-box" key="genreKey" />
-         
+
+        <div :key="genreText" class="lg:fixed md:fixed text  md:-left-12 lg:-left-16">
+          <p class="sm:pt-2">Discover</p>
+        </div>
+        <Genre class="genre-box" key="genreKey" />
+
       </section>
+
       <!-- Recent Posts Section -->
       <section id="posts" class="  lg:justify-center ">
-        
+
         <div :key="genreText" class="lg:fixed text  md:fixed md:-left-20 lg:-left-24">
           <p class="sm:pt-2">Recent Posts</p>
         </div>
-             
+
         <div class="recent-posts ml-32 mr-32 flex flex-col lg:flex-row gap-2 place-items-center ">
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid0APFNu3KA4dNv2D7tjhbsvEnG6U4Z7Ee6pQubrmLuCKSmhxcGwUjGonJWxS6Azmz2l&show_text=true&width=500"
-            width="500"
-            height="600"
-            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
+            width="500" height="600" style="border:none; overflow:hidden; background-color: #b6adbaf0;" scrolling="no"
+            frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>          
+          </iframe>
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid031ZpGHW6FeC4gxnvfpKvEUnnPmaiTdZp9KtRh52jMmWpMRgz4S3eHsUu65YUPbiWwl&show_text=true&width=500"
-            width="500"
-            height="481"
-            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
+            width="500" height="481" style="border:none; overflow:hidden; background-color: #b6adbaf0;" scrolling="no"
+            frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>              
+          </iframe>
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkanten.esbjerg%2Fposts%2Fpfbid036Bvh53xxns6cDMSpFdCytZ8QpD69zmmjj97dVJrGANv61F4gBvDfuDT15vtngftKl&show_text=true&width=500"
-            width="500"
-            height="586"
-            style="border:none; overflow:hidden; background-color: #b6adbaf0;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
+            width="500" height="586" style="border:none; overflow:hidden; background-color: #b6adbaf0;" scrolling="no"
+            frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>                  
+          </iframe>
         </div>
       </section>
 
-       <!-- Newsletter section --> 
+      <!-- Newsletter section -->
 
-       <section id="news" class="py-10 flex flex-col justify-center  h-auto">
-          <h2 class="text-3xl font-bold lg:mb-5 text-center"></h2>
-		<div class="newsbg  "><Newsletter/>
-    </div>
-  </section>
+      <section id="news" class="py-10 flex flex-col justify-center  h-auto">
+        <h2 class="text-3xl font-bold lg:mb-5 text-center"></h2>
+        <div class="newsbg  ">
+          <Newsletter />
+        </div>
+      </section>
 
       <!-- Footer Section -->
+
       <footer id="footer" class="flex flex-col pt-4  ">
         <div class="footer-content flex pl-5  pr-5 flex-row justify-center">
           <div class="footer-list lg:w-3/12 ">
@@ -134,7 +126,7 @@
         </div>
 
         <img src="../assets/img/Logo.png" class="img-fluid" alt="logo">
-        
+
       </footer>
     </div>
   </div>
@@ -236,7 +228,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
 @import "bulma/css/bulma.min.css";
 @import "../modules/_variables.scss";
@@ -297,27 +288,31 @@ progress::-moz-progress-bar {
   -moz-box-shadow: 0px 0px 31px 12px rgb(255, 255, 255);
   transition: all 0.5s;
   box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
-    animation: animate 3s linear infinite;
-  
+  animation: animate 3s linear infinite;
 
-@keyframes animate {
+
+  @keyframes animate {
     0% {
       box-shadow: 0 0 0 2px $kblue, 0 0 20px 1px $kblue;
     }
+
     40% {
       box-shadow: 0 0 0 2px $kblue, 0 0 30px 2px $kyellow;
     }
+
     60% {
       box-shadow: 0 0 0 2px $kblue, 0 0 40px 3px $kpink;
-    } 
+    }
+
     80% {
       box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kgreen;
     }
+
     100% {
       box-shadow: 0 0 0 2px $kblue, 0 0 20px 2px $kblue;
     }
   }
-  
+
   p {
     letter-spacing: 9px;
     font-family: $brother;
@@ -336,9 +331,11 @@ progress::-moz-progress-bar {
     -moz-box-shadow: 0px 0px 41px 12px rgb(255, 255, 255);
   }
 }
+
 $text-rotation: -90deg;
+
 .text {
-  
+
   color: $white;
   background: $primaryone;
   z-index: 10;
@@ -360,15 +357,16 @@ $text-rotation: -90deg;
 
   @media (max-width: 708px) {
     rotate: 0deg;
-    
-  }
 
   }
+
+}
+
 #home {
   background-image: url("../assets/kantenbg.webp");
   background-size: cover;
   position: fixed;
-  
+
   filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -webkit-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
   -moz-filter: grayscale(76%) blur(1px) brightness(49%) hue-rotate(273deg) saturate(170%) opacity(87%) contrast(206%) invert(3%);
@@ -379,7 +377,7 @@ $text-rotation: -90deg;
   //   position: absolute;
   //   bottom: 0;
   //   left: 0;
-    
+
   //   /* Adjust the height as needed */
 
   // }
@@ -387,37 +385,38 @@ $text-rotation: -90deg;
 }
 
 #events {
-  
+
   .test {
-    
+
     top: 2%;
   }
 }
 
 
 #genre {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0.6) 70%, rgba(37, 38, 37, 0) 100%);
-  
-  .genre-box{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(79, 44, 95, 0.3) 20%, rgba(79, 44, 95, 0.3) 60%, rgba(37, 38, 37, 0) 100%);
+
+  .genre-box {
     transition: all 1s ease 0s;
 
   }
+
   .text {
     top: 35%;
-    
-    
+
+
   }
 
 }
 
 #posts {
- 
-  
+
+
 
   .text {
     top: 57%;
-    
-    
+
+
   }
 }
 
@@ -427,16 +426,19 @@ $text-rotation: -90deg;
   padding: 0;
   height: 300px;
   padding-top: 1%;
+
   .footer-content {
 
     ul {
       list-style-type: none;
       padding: 0;
+
       a {
         color: $gray;
         font-size: 1em;
         font-family: $k2d;
       }
+
       p {
         color: $gray;
         font-size: 0.9em;
@@ -475,24 +477,25 @@ $text-rotation: -90deg;
     bottom: 2%;
     height: 10em;
   }
+
   .copyright {
     margin: 0;
     font-size: 1em;
     color: $gray;
     text-align: center;
     opacity: 0.5;
-    position:relative;
-    
+    position: relative;
+
   }
+
   .login {
     color: gray;
- 
+
   }
 }
 
 /* Newsletter */
-.newsbg{
+.newsbg {
   margin: auto;
 }
-
 </style>

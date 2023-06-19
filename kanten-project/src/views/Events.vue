@@ -1,108 +1,107 @@
 <template>
-  <div class="title has-text-centered">
-    <!-- Your title content here -->
-  </div>
+  <main class="w-screen">
+    <div class="title has-text-centered">
+      <!-- Your title content here -->
+    </div>
 
-  <div class="container w-11/12  lg:w-full h-screen lg:mt-3 z-20">
-    <label class="accordion accordion--1 lg:flex  w-full  lg:gap-50 justify-center" for="open-1">
-      <div class="accordion__wrapper md:w-9/12 md:m-auto  lg:w-4/12 top-80 md:top-80 lg:top-40">
-        <dl class="accordion__box flex  flex-col gap-10 md:gap-28 ">
-          <div v-for="(event, index) in rightEvents" 
-            :key="event.id" class="card "
-            :class="{ 'has-background-success-light': event.done }" 
-            @click="toggleAccordion(event)">
-
-            <div class="accordion__tab">
-              {{ event.venue }}
-            </div>
-
-            <div class="card-content ">
-              <div class="content w-full ">
-                <div class="columns  flex-row is-mobile is-vcentered">
-                  <div class="column  " 
-                    :class="{ 'has-text-success line-through': event.done }">
-                    <span class="accordion__number  ">
-                      <p v-html="formatDate(event.date)"> </p>
-                    </span>
-                    <h3 class=" place-self-end -top-20 text-end "> {{ event.artist }}</h3>
-                    <dd v-if="openedEvent === event.date" 
-                      class="accordion__text w-full flex flex-col "
-                      :class="{ '': openedEvent === event.date }">
-                      <h4 class=" place-self-end text-end">
-                        {{ event.time }}
-                      </h4>
-                      <img :src="event.imgURL" alt="Event Image" class="h-52 pt-3 pb-3" />
-                      <p class="">
-                        <strong class="text-2xl">Description:</strong>
-                        <br> {{ event.description }}
-                      </p>
-                    </dd>
+    <div class="container w-11/12  lg:w-screen  h-screen lg:mt-3 z-20">
+      <label class="accordion accordion--1 lg:flex  w-full  lg:gap-50 justify-center" for="open-1">
+        <!-- Right Events -->
+        <div class="accordion__wrapper md:w-9/12 md:m-auto  lg:w-4/12 top-80 md:top-80 lg:top-40">
+          <dl class="accordion__box flex  flex-col gap-10 md:gap-28 ">
+            <div v-for="(event, index) in rightEvents" 
+              :key="event.id" class="card "
+              :class="{ 'has-background-success-light': event.done }" 
+              @click="toggleAccordion(event)">
+              <div class="accordion__tab">
+                {{ event.venue }}
+              </div>
+              <div class="card-content ">
+                <div class="content w-full ">
+                  <div class="columns  flex-row is-mobile is-vcentered">
+                    <div class="column  " 
+                      :class="{ 'has-text-success line-through': event.done }">
+                      <span class="accordion__number  ">
+                        <p v-html="formatDate(event.date)"> </p>
+                      </span>
+                      <h3 class=" place-self-end -top-20 text-end "> {{ event.artist }}</h3>
+                      <dd v-if="openedEvent === event.date" 
+                        class="accordion__text w-full flex flex-col "
+                        :class="{ '': openedEvent === event.date }">
+                        <h4 class=" place-self-end text-end">
+                          {{ event.time }}
+                        </h4>
+                        <img :src="event.imgURL" alt="Event Image" class="h-52 pt-3 pb-3" />
+                        <p class="">
+                          <strong class="text-2xl">Description:</strong>
+                          <br> {{ event.description }}
+                        </p>
+                      </dd>
+                    </div>
+                    <p>{{ event.tags }}</p>
                   </div>
-                  <p>{{ event.tags }}</p>
                 </div>
-              </div>
-              <div class="iconup absolute bottom-0 opacity-1 right-5">
-                <font-awesome-icon :icon="['fas', 'chevron-down',]" 
-                :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #19abe0ca;" />
-              </div>
+                <div class="iconup absolute bottom-0 opacity-1 right-5">
+                  <font-awesome-icon :icon="['fas', 'chevron-down',]" 
+                  :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #4cbfe9e9;" />
+                </div>
 
+              </div>
             </div>
-          </div>
-        </dl>
-      </div>
+          </dl>
+        </div>
 
-      <div class="accordion__wrapper md:w-9/12 md:m-auto lg:w-4/12 top-10 md:top-10 lg:top-40">
-        <dl class="accordion__box flex  flex-col gap-48 md:gap-48 ">
-        
-          <div v-for="(event, index) in leftEvents" 
-            :key="event.id" class="card "
-            :class="{ 'has-background-success-light': event.done }" 
-            @click="toggleAccordion(event)">
-            <div class="accordion__tab">
-              {{ event.venue }}
-            </div>
-            
-            <div class="card-content ">
-              <div class="content w-full ">
+        <!-- Left Events -->
+        <div class="accordion__wrapper md:w-9/12 md:m-auto lg:w-4/12 top-10 md:top-10 lg:top-40">
+          <dl class="accordion__box flex  flex-col gap-48 md:gap-48 ">
+            <div v-for="(event, index) in leftEvents" 
+              :key="event.id" class="card "
+              :class="{ 'has-background-success-light': event.done }" 
+              @click="toggleAccordion(event)">
+              <div class="accordion__tab">
+                {{ event.venue }}
+              </div>
               
-                <div class="columns  flex-row is-mobile is-vcentered">
-                  
-
-                  <div class="column  " 
-                  :class="{ 'has-text-success line-through': event.done }">
-                    <span class="accordion__number  ">
-                      <p v-html="formatDate(event.date)"> </p>
-                    </span>
-                    <h3 class=" place-self-end  -top-20 text-end ">
-                      {{ event.artist }}
-                    </h3>
-                    
-                    <dd v-if="openedEvent === event.date" 
-                      class="accordion__text w-full flex flex-col "
-                      :class="{ '': openedEvent === event.date }">
-                      <h4 class=" place-self-end text-end">
-                        {{ event.time }}
-                      </h4>
-                      <img :src="event.imgURL" alt="Event Image" class="pt-3 pb-3" />
-                      <p class="">
-                        <strong class="text-2xl">Description:</strong>
-                        <br> 
-                        {{ event.description }}
-                      </p>
-                    </dd>
+              <div class="card-content ">
+                <div class="content w-full ">
+                  <div class="columns  flex-row is-mobile is-vcentered">
+                    <div class="column  " 
+                    :class="{ 'has-text-success line-through': event.done }">
+                      <span class="accordion__number  ">
+                        <p v-html="formatDate(event.date)"> </p>
+                      </span>
+                      <h3 class=" place-self-end  -top-20 text-end ">
+                        {{ event.artist }}
+                      </h3>
+                      
+                      <dd v-if="openedEvent === event.date" 
+                        class="accordion__text w-full flex flex-col "
+                        :class="{ '': openedEvent === event.date }">
+                        <h4 class=" place-self-end text-end">
+                          {{ event.time }}
+                        </h4>
+                        <img :src="event.imgURL" alt="Event Image" class="pt-3 pb-3" />
+                        <p class="">
+                          <strong class="text-2xl">Description:</strong>
+                          <br> 
+                          {{ event.description }}
+                        </p>
+                      </dd>
+                    </div>
+                    <p>{{ event.tags }}</p>
                   </div>
-                  <p>{{ event.tags }}</p>
+                </div>
+                <div class="iconup absolute bottom-0 opacity-1 right-5">
+                  <font-awesome-icon :icon="['fas', 'chevron-down',]" 
+                  :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #4cbfe9e9;" />
                 </div>
               </div>
-              <div class="iconup absolute bottom-0 opacity-1 right-5">
-                <font-awesome-icon :icon="['fas', 'chevron-down',]" 
-                :class="{ 'rotated': openedEvent === event.date }" fade size="2xl" style="color: #a020ea89;" /></div>
             </div>
-          </div>
-        </dl>
-      </div>
-    </label>
-  </div>
+          </dl>
+        </div>
+      </label>
+    </div>
+  </main>
 </template>
 
 <script setup>
@@ -156,7 +155,6 @@ const toggleAccordion = (event) => {
 @import "../modules/variables";
 
 .container {
-
   background-image: url(../assets/fiber.png);
   background-size: contain;
   background-repeat: no-repeat;
