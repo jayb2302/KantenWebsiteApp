@@ -47,28 +47,28 @@
         </div>
       </form>
     </div>
-    <div class="event-container flex-col   w-6/12 ">
-      <div v-for="event in events" :key="event.id" class="w-12/12 card mb-5 "
+    <div class="event-container flex-col   w-5/12 ">
+      <div v-for="event in events" :key="event.id" class="w-9/12 card mb-5 "
         :class="{ 'has-background-success-light': event.done }">
         <div class="card-content  ">
           <div class="content ">
-            <div class="columns is-mobile">
+            <div class="columns  is-mobile">
               <div class="column " :class="{ 'has-text-success line-through': event.done }">
-                <p><strong>Title:</strong>
-                  {{ event.title }}</p>
-                <p><strong>Artist:</strong>
+                <p><strong>Title:</strong><br> 
+                  {{ event.title }}</p>   
+                <p><strong>Artist:</strong> <br>
                   {{ event.artist }}</p>
-                <p><strong>Description:</strong>
+                <p class=""><strong>Description:</strong>  <br> 
                   {{ event.description }}</p>
-                <p><strong>Date:</strong>
+                <p><strong>Date:</strong>  <br>
                   {{ event.date }}</p>
-                <p><strong>Time:</strong>
+                <p><strong>Time:</strong> <br>
                   {{ event.time }}</p>
-                <p><strong>Venue</strong>
+                <p><strong>Venue</strong> <br>
                   {{ event.venue }}</p>
                 <img :src="event.imgURL" alt="Event Image" class="w-52 h-52">
               </div>
-              <div class="column is-5 has-text-right ">
+              <div class="column is-5 absolute right-1 has-text-right ">
                 <button @click="toggleDone(event.id)" class="button" :class="event.done ? 'is-success' : 'is-light'">
                   &check;
                 </button>
@@ -293,6 +293,23 @@ h1 {
 
 .card {
   margin: auto;
+}
+
+.card-content{
+  border: 1px solid $kblue;
+  padding-left: 15px;
+  font-size: 17px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  background-color: $primaryone;
+  color: $white;
+  font-family: $k2d;
+ 
+  font-weight: 500;
+  strong {
+    color: $white; 
+    font-family: $brother;
+  }
 }
 
 #btn-out {

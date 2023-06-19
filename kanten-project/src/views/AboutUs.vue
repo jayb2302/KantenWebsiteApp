@@ -249,8 +249,6 @@ body{
     align-items: center;
     justify-content: center;
     background-color: $primaryone;
-    color: $white;
-    font-family: $k2d;
 }
 
 .container2 {
@@ -267,26 +265,34 @@ body{
 
 .about-section{
     background: url(../assets/img/Kanten-About-Us.jpg) no-repeat left;
-    background-size: 40%;
+    background-size: 50%;
     background-color: $primaryone;
     overflow: hidden;
-    color: $white;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
     
 }
 .about-section2{
     background: url(../assets/img/venue-kanten.jpg) no-repeat right;
-    background-size: 40%;
+    background-size: 50%;
     background-color: $primaryone;
     overflow: hidden;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
   
 }
 .about-section3{
     background: url(../assets/img/Kraftværket.jpg) no-repeat left;
-    background-size: 55%;
+    background-size: 50%;
     background-color: $primaryone;
     overflow: hidden;
     padding-bottom: 23px;
     margin-top: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
 }
 .inner-container {
     width: 45%;
@@ -314,13 +320,10 @@ body{
 .inner-container2 h1,
 .inner-container3 h1
  {
-    margin-bottom: 3%;
+    margin-bottom: 30px;
     font-size: 30px;
     font-weight: 900;
     font-family: $brother;
-    padding-left: 3%;
-    padding-top: 3%;
-    color: $white;
 }
 
 .text {
@@ -330,8 +333,6 @@ body{
     text-align: justify;
     margin-bottom: 40px;
     font-family: $k2d;
-    padding-left: 3%;
-    padding-right: 3%;
 }
 
 @media screen and (max-width:1200px){
@@ -345,7 +346,7 @@ body{
     .about-section2,
     .about-section3{
         background-size: 100%;
-        padding: 20% 10%;
+        padding: 10% 5%;
     }
     .inner-container,
     .inner-container2,
@@ -364,7 +365,7 @@ body{
     .inner-container2,
     .inner-container3
     {
-        padding: 2px;
+        padding: 0px;
     }
     .container2 {
       display: flex;
@@ -392,7 +393,6 @@ body{
     box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
     -webkit-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: -2px 15px 21px 5px rgba(0, 0, 0, 0.55);
-    color: $white;
 
     .name {
       font-size: 1.3rem;
@@ -443,7 +443,6 @@ body{
 
   .our-team:hover .picture::before {
     height: 100%;
-    
   }
 
   .our-team:hover .picture img {
